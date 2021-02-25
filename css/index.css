@@ -13,6 +13,14 @@ hr{
   font : bold 1.5em "Metropolis";
   text-align: center;
 }
+.news{
+  font : normal 1.2em "Spotify";
+  display: inline;
+  margin-left: 5%;
+}
+.newsaffiche{
+  margin-left: 10%;
+}
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
   hr{

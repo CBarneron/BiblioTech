@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 25 fév. 2021 à 10:12
+-- Généré le : jeu. 25 fév. 2021 à 16:37
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -32,18 +32,21 @@ CREATE TABLE IF NOT EXISTS `item` (
   `iditem` int(11) NOT NULL AUTO_INCREMENT,
   `titre` varchar(50) NOT NULL,
   `categorie` varchar(50) NOT NULL,
+  `date` date DEFAULT NULL,
   `dateitem` varchar(50) NOT NULL,
-  `affiche` varchar(50) NOT NULL,
+  `affiche` varchar(200) NOT NULL,
   PRIMARY KEY (`iditem`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `item`
 --
 
-INSERT INTO `item` (`iditem`, `titre`, `categorie`, `dateitem`, `affiche`) VALUES
-(1, 'L\'homme nue', 'livre', '12/04/2016', 'ressources/affiche/lhomme-nue.png'),
-(2, 'L\'homme habillé', 'livre', '23/02/2021', '');
+INSERT INTO `item` (`iditem`, `titre`, `categorie`, `date`, `dateitem`, `affiche`) VALUES
+(1, 'L\'homme nu', 'livre', NULL, '2016-24-12', 'ressources\\affiche\\lhommenu.png'),
+(2, 'L\'homme pas nu', 'livre', NULL, '2021-02-23', 'ressources\\affiche\\lhommepasnu.png'),
+(3, 'LOTR-La fraternite de l\'anneaux', 'livre', NULL, '1954-12-31', 'ressources\\affiche\\lotrlafraternitedelanneau.png'),
+(4, 'Fast & Furious 1', 'film', NULL, '2001-09-26', 'ressources\\affiche\\fastandfurious1.png');
 
 -- --------------------------------------------------------
 

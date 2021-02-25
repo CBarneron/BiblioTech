@@ -51,7 +51,6 @@
     <?php //php sur les livres récents
       $actulivre = new Recherche("empty", "livre", "empty");
       $actulivremanager = new RechercheManager($bdd);
-
       $actulivremanager->news($actulivre)
     ?>
 
