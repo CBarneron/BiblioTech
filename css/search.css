@@ -1,0 +1,55 @@
+/*------------------RECHERCHE--------------------------*/
+.search{
+  position: relative;
+  width: 30%;
+  height: 40px;
+  border-radius: 40px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.20);
+  background: #F3F3F3;
+  margin: 20px auto 25px auto;
+}
+.search-input{
+  font: normal 14px "Metropolis";
+  position: absolute;
+  display: block;
+  top: 5px;
+  left: 5%;
+  background: none;
+  color: #5a6674;
+  width: 80%;
+  height: 30px;
+  border: none;
+  outline: none;
+}
+.search-button{
+  position: absolute;
+  display: block;
+  top: 5px;
+  right : 15px;
+  height: 30px;
+  width: 20%;
+  max-width: 30px;
+  border: none;
+  outline: none;
+  background-image: url(../ressources/images/search.png);
+  background-size: 30px 30px;
+  cursor: pointer;
+}
+/*------------------RESPONSIVE DESIGN--------------------------*/
+@media screen and (max-width: 699px) { /*Smartphone*/
+  .search{
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 949px) { /*Tablette*/
+  .search{
+    width: 40%;
+  }
+}
+
+/*ENLEVER LA CROIX SUR LA RECHERCHE*/
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

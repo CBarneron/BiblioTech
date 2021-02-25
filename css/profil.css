@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  background-color: white;
+}
+hr{
+  width: 66%;
+  height: 3px;
+  background-color:#575756;
+  border-color: transparent;
+  border-radius: 33px;
+}
+.menu_smartphone{display: none;}
+.resume{
+  width: 100%;
+  display: inline-block;
+  position: static;
+}
+.resume img.resume_userpic{
+  width: 160px;
+  margin-left: 4%;
+}
+.resume figcaption{
+  font: bold 1.5em "Metropolis";
+  display: inline;
+  position: absolute;
+  margin-top: 72px;
+}
+.resume img.resume_parametre{
+  width: 40px;
+  float: right;
+  right: 30px;
+  margin-top: 20px;
+  position: absolute;
+}
+.resume span{
+  font: bold 1.5em "Metropolis";
+  margin: 130px 50px 0 0;
+  float: right;
+  display: inline-block;
+}
+.menu{
+  height: 60px;
+  width: 100%;
+  background-color: #2D2D2D;
+  text-align: center;
+  vertical-align: bottom ;
+}
+.menu .choix li{
+  list-style-type: none;
+  position: relative;
+  display:inline;
+  font: bold 1.4em "Metropolis";
+  margin-right: 4.5%;
+  top: 20px;
+}
+.menu .choix .barre{
+  color: #FFFFFF;
+  cursor: default;
+  user-select: none;
+}
+.menu .choix a{
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.menu .choix a:hover{
+  color: #1ED760;
+}
+/*------------------RESPONSIVE DESIGN--------------------------*/
+@media screen and (max-width: 699px) { /*Smartphone*/
+  .resume{
+    width: 100%;
+    display: inline-block;
+    position: static;
+  }
+  .resume img.resume_userpic{
+    width: 100px;
+    margin-left: 4%;
+  }
+  .resume figcaption{
+    font: bold 1.5em "Metropolis";
+    display: inline;
+    position: absolute;
+    margin-top: 40px;
+  }
+  .resume img.resume_parametre{
+    width: 35px;
+    height: auto;
+    float: right;
+    right: 30px;
+    margin-top: 20px;
+    position: absolute;
+  }
+  .resume span{
+    font: bold 1em "Metropolis";
+    position: absolute;
+    display: inline-block;
+    top: 45px;
+    width: auto;
+  }
+  .un{
+    left: 15%;
+  }
+  .deux{
+    left:50%;
+  }
+
+
+
+
+
+
+  .menu{display: none;}
+  .menu_smartphone{
+    display: block;
+    height: 60px;
+    width: 100%;
+    background-color: /*#2D2D2D*/#1ED760;
+    text-align: center;
+    vertical-align: bottom ;
+  }
+  .menu_smartphone .choix_smartphone li{
+    list-style-type: none;
+    position: relative;
+    display:inline;
+    font: bold 1.4em "Metropolis";
+    margin-right: 2%;
+    top: 8px;
+  }
+  .menu_smartphone .choix_smartphone .barre_smartphone{
+    color: #000000;
+    cursor: default;
+    user-select: none;
+  }
+  .menu_smartphone .choix_smartphone a{
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+  .menu_smartphone .choix_smartphone a:hover{
+    color: #1ED760;
+  }
+  .menu_smartphone .choix_smartphone img.choix_img{
+    width: 30px;
+    height: auto;
+    list-style-type: none;
+    position: relative;
+    display:inline;
+    margin-right: 3%;
+    top: 13.5px;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 949px) { /*Tablette*/
+  .menu_smartphone{display: none;}
+  /*A FAIRE*/
+}

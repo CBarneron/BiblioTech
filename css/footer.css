@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  background-color: #FFFFFF;
+}
+
+hr{
+  width: 70%;
+  height: 1px;
+  background-color:#575756;
+  border-color: transparent;
+  border-radius: 33px;
+}
+
+.footer {
+  width: 100%;
+	height: 84px;
+  background-color: #FFFFFF;
+  font: normal 1em "Spotify";
+  bottom: 0px !important;
+  position: static;
+  margin-top: 50px;
+}
+
+.footer .table {
+	display: table;
+	margin: 0 auto;
+}
+
+.footer .table ul.horizontal {
+	list-style: none;
+	padding-top: 13px;
+}
+.footer .table li {
+	display: inline;
+  margin: 0 30px;
+}
+.footer a{
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+.dot{
+  color: #1ED760;
+}
+.footer .f{
+  width: 10px;
+}
+.footer .t{
+  width: 20px;
+}
+.footer .i{
+  width: 17px;
+}
+.footer_phone{display: none;}
+@media screen and (max-width: 699px) { /*Smartphone*/
+  .footer{display: none;}
+  .footer_phone{
+    display: block;
+    background-color: #000000;
+    color: #FFFFFF;
+    font: normal 1em "Spotify";
+    border: 5px solid black;
+  }
+  .footer_phone .f{
+    width: 10px;
+  }
+  .footer_phone .t{
+    width: 20px;
+  }
+  .footer_phone .i{
+    width: 17px;
+  }
+  .footer_phone .list{
+    list-style: none;
+    text-align: center;
+    margin-right: 30px;
+}
+  .footer_phone ol li{
+    display: inline;
+  }
+  .footer_phone .titre{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.2em;
+  }
+  .footer_phone li.copy{
+    font-size: 0.8em;
+    color: grey;
+  }
+  .footer_phone .social{
+    margin-right: 20px;
+  }
+
+@media only screen and (min-width: 699.1px) and (max-width: 949px) { /*Tablette*/
+  .footer{display: none;}
+  .footer_phone{display: none;}
+}

@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  background-color: white;
+}
+hr{
+  width: 66%;
+  height: 3px;
+  background-color:#575756;
+  border-color: transparent;
+  border-radius: 33px;
+}
+.annonce{
+  font : bold 1.5em "Metropolis";
+  text-align: center;
+}
+/*------------------RESPONSIVE DESIGN--------------------------*/
+@media screen and (max-width: 699px) { /*Smartphone*/
+  hr{
+    width: 80%;
+    height: 2px;
+  }
+}
+
+@media only screen and (min-width: 699.1px) and (max-width: 949px) { /*Tablette*/
+  /*A FAIRE*/
+}

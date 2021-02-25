@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  background-color: white;
+}
+h2{
+  font-family: "Spotify";
+}
+br{
+  height: 50px;
+}
+.connexion h2,p{
+  text-align: center !important;
+}
+.connexion{
+  font-family: "Metropolis";
+  font-size: 1.1em;
+  position: static;
+  display: inline-block;
+  align-items: center;
+  width: 50%;
+  margin:1% 0 0 25%;
+  text-align: left;
+}
+.connexion input{
+  font-family: "Metropolis";
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  border: 2px solid lightgrey;
+  border-radius: 33px;
+  outline: none;
+  padding-left: 15px;
+  font-size: 1.05em;
+  margin: 10px 0 30px 0;
+}
+.connexion .formBTN{
+  width: 40%;
+  cursor: pointer;
+  background-color: #1ED760;
+  color: #FFFFFF;
+  border: none;
+  margin: 10px 0 10px 30%;
+}
+.connexion .formBTN:hover{
+  color: #000000;
+}
+.connexion label{
+  margin-bottom: 50px;
+}
+a.inscrire{
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.8em;
+}
+a.inscrire:hover{
+  color: #1ED760;
+  background: none;
+}
+/*------------------RESPONSIVE DESIGN--------------------------*/
+@media screen and (max-width: 699px) { /*Smartphone*/
+  hr{
+    width: 80%;
+    height: 2px;
+  }
+  .connexion{
+    width: 70%;
+    margin:1% 0 0 15%;
+    font-size: 0.85em;
+  }
+  .connexion input{
+    height: 40px;
+  }
+  .connexion .formBTN{
+    width: 60%;
+    margin: 10px 0 10px 20%;
+  }
+}
+
+@media only screen and (min-width: 699.1px) and (max-width: 949px) { /*Tablette*/
+  /*A FAIRE*/
+}

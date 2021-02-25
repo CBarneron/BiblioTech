@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background-color: white;
+}
+hr{
+  width: 66%;
+  height: 3px;
+  background-color:#575756;
+  border-color: transparent;
+  border-radius: 33px;
+}
+/*------------------RESPONSIVE DESIGN--------------------------*/
+@media screen and (max-width: 699px) { /*Smartphone*/
+
+}
+
+@media only screen and (min-width: 700px) and (max-width: 949px) { /*Tablette*/
+  /*A FAIRE*/
+}

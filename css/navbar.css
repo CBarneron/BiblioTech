@@ -1,0 +1,153 @@
+/*------------------POLICE D'ECRITURE--------------------------*/
+@font-face {  /*Titre, bandeau*/
+ font-family: "Spotify";
+ src: url("../ressources/font/Spotify.otf");
+}
+@font-face {  /*Titre, bandeau*/
+ font-family: "Metropolis";
+ src: url("../ressources/font/Metropolis.otf");
+}
+/*------------------NAVBAR--------------------------*/
+.navbar {
+  overflow: hidden;
+  background-color: #000000;
+  font-family: "Spotify";
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #FFFFFF;
+  margin: 23px 17px;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+.navbar a.select{
+ text-align: left;
+ margin-right: 5%;
+}
+.navbar a:hover {
+  color: #1ED760;
+}
+.navbar a.active {
+  color: #1ED760 !important;
+}
+.navbar a.active .dot {
+  color: #FFFFFF !important;
+}
+.navbar .dot{
+  color: #1ED760;
+}
+.navbar .icon1 {
+  display: none;
+}
+.navbar .icon2 {
+  display: none;
+}
+.topBTN {
+  position: absolute;
+  right: 10px;
+}
+.navbar .topBTN a button{
+  font-family: "Metropolis";
+  font-size: 0.8em;
+  cursor: pointer;
+  outline: none;
+}
+.navbar a button.connectBTN{
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+}
+.navbar a button.active{
+    color: #1ED760 !important;
+}
+.navbar a button.connectBTN:hover{color:#1ED760;}
+.navbar a button.inscrireBTN{
+  background-color: #1ED760;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 33px;
+  height: 32px;
+  width : 125px;
+}
+.navbar a button.inscrireBTN:hover{color: #000000;}
+.navbar a button.profilBTN{
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+  margin-right: 80px;
+}
+.navbar a button.profilBTN:hover{color:#1ED760;}
+.door {
+  position: absolute;
+  left: 60px;
+  top: 4px;
+}
+/*------------------RESPONSIVE DESIGN--------------------------*/
+
+@media screen and (max-width: 699px) { /*Smartphone*/
+  .navbar a:not(:first-child) {display: none;}
+  .navbar .topBTN{display: none;}
+  .navbar .icon2{
+    display: inline;
+    position: absolute;
+    right: 2%;
+    top: 7px;
+    width: 55px;
+    height: auto;
+  }
+  .navbar a.icon1 {
+    float: right;
+    display: block;
+  }
+  .navbar a.select {
+   padding-left: 0;
+  }
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .navbar a.select{
+   margin-left: 17px;
+   text-align: left;
+  }
+}
+
+@media only screen and (min-width: 699.1px) and (max-width: 949px) { /*Tablette*/
+  .navbar .topBTN{display: none;}
+  .navbar .icon2 {
+    display: inline-block;
+    right: 25px;
+    top:0;
+    position: absolute;
+    width: 75px;
+    height: auto;
+  }
+  /*A FAIRE*/
+}
+/*------------------SCROLLBAR--------------------------*/
+::-webkit-scrollbar{
+    width: 10px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #1ED760;
+}
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 10px;
+    background: #1ED760
+}
