@@ -2,3 +2,6 @@ en train de faire la barre de recherche et les actus sur l'index.
 A fini la connexion, inscription et déconnexion
 
 25/02 Est entraint de faire la barre de recherche sur index et les actus.
+
+
+Idée de gros con : quand on est sur profil, ca change la navbar pour avoir qu'une navbar. : c'est un gros con.
