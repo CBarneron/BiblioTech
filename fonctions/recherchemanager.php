@@ -17,20 +17,13 @@ class RechercheManager
     ));
 
     $resultat = $pre->fetchAll();
-    //echo $resultat[0]."|".$resultat[1]." | test c'est pas le vraie résultat la";
     //Ajout des affiche et des titres dans des tableau
-
-    //echo "Le tableau à une longeur de ".count($resultat)."<br/><br/>";
-    //var_dump($resultat);
-
     $i = 0;
     foreach ($resultat as $row) {
-      echo "<h3 class=\"news\">".$row["titre"]."</h3>";
-      $i++;
-    }
-    echo "<br/><br/>";
-    foreach ($resultat as $row) {
-      echo "<img class=\"newsaffiche\" src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" width=\"150px\">";
+      echo "<figure>
+              <img class=\"newsaffiche\" src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" width=\"150px\">
+              <figcaption>".$row["titre"]."</figcaption>
+            </figure>";
       $i++;
     }
   }
