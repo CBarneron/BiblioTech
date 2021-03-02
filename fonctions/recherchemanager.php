@@ -31,5 +31,10 @@ class RechercheManager
       }
     }
   }
+  //Redirection vers la page de l'item voulu
+  public function item(Recherche $obj)
+  {
+
+  }
 }
 ?>
