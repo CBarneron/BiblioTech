@@ -21,9 +21,13 @@ figure{
   display: inline;
   font : normal 1.2em "Spotify";
 }
-figcaption {
+figcaption{
   display: table-caption;
   caption-side: top;
+}
+a{
+  text-decoration: none;
+  color: black;
 }
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
