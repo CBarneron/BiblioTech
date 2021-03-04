@@ -1,0 +1,5 @@
+En cours:
+Réalisation des page ssugestion et admin
+en lien avec L'idee de valider ou nom un item ou un commentaire
+
+04/03 etablissement de la strategie a adapter pour reussir cette parti de code
