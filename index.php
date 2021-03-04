@@ -53,6 +53,20 @@
       $actulivremanager = new RechercheManager($bdd);
       $actulivremanager->news($actulivre)
     ?>
+    <hr>
+    <p class="annonce">- Les Films récents -</p>
+    <?php //php sur les livres récents
+      $actulivre = new Recherche("empty", "film", "empty");
+      $actulivremanager = new RechercheManager($bdd);
+      $actulivremanager->news($actulivre)
+    ?>
+    <hr>
+    <p class="annonce">- Les Jeux récents -</p>
+    <?php //php sur les livres récents
+      $actulivre = new Recherche("empty", "Jeux", "empty");
+      $actulivremanager = new RechercheManager($bdd);
+      $actulivremanager->news($actulivre)
+    ?>
 
     <?php include 'footer.php' ?>
 

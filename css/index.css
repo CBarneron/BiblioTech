@@ -25,10 +25,6 @@ figcaption {
   display: table-caption;
   caption-side: top;
 }
-.newsaffiche{
-  margin-left: 10%;
-  background-color: pink;
-}
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
   hr{

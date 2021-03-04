@@ -5,3 +5,6 @@ A fini la connexion, inscription et déconnexion
 
 
 Idée de gros coco : quand on est sur profil, ca change la navbar pour avoir qu'une navbar. : c'est un gros con.
+
+
+utiliser l'id de l'item dans le get
