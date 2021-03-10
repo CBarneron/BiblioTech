@@ -8,6 +8,8 @@
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <link href="css/search.css" rel="stylesheet">
+      <link rel="stylesheet" href="bootstrap-5.0.0-beta2-dist\CSS\custom.css">
+      <link rel="stylesheet" href="bootstrap-5.0.0-beta2-dist\CSS\bootstrap.css">
     <script src="js/navbar.js"></script>
   </head>
   <body>
@@ -47,12 +49,21 @@
       */
     ?>
     <hr>
-    <p class="annonce">- Les Livres récents -</p>
-    <?php //php sur les livres récents
-      $actulivre = new Recherche("empty", "livre", "empty");
-      $actulivremanager = new RechercheManager($bdd);
-      $actulivremanager->news($actulivre)
-    ?>
+    <div class="section bg-light">
+      <div class="container">
+        <div class="row">
+          <h1 class="title">- Les Livres récents -</h1>
+          <div class="carousel-inner py-5">
+                <?php //php sur les livres récents
+                $actulivre = new Recherche("empty", "livre", "empty");
+                $actulivremanager = new RechercheManager($bdd);
+                $actulivremanager->news($actulivre)
+                ?>
+
+          </div>
+        </div>
+      </div>
+    </div>
     <hr>
     <p class="annonce">- Les Films récents -</p>
     <?php //php sur les livres récents

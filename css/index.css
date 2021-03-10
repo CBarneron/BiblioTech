@@ -9,14 +9,6 @@ hr{
   border-color: transparent;
   border-radius: 33px;
 }
-.annonce{
-  font : bold 1.5em "Metropolis";
-  text-align: center;
-}
-.container{
-  background-color: grey;
-  display: inline-flex;
-}
 figure{
   display: inline;
   font : normal 1.2em "Spotify";

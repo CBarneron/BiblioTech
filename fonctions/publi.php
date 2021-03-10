@@ -8,7 +8,8 @@ class Publication
 
 
   private $titre;
-  private $affiche;
+  private $date;
+  private $categorie
 //constructeur
   public function __construct($Publi, $Idpubli, $Idadmin,$Iditem)
   {
@@ -16,25 +17,15 @@ class Publication
     $this->publi = $Publi
     $this->idpubli = $Idpubli
     $this->idadmin = $Idadmin
-    $$this->iditem = $Iditem
+    $this->iditem = $Iditem
 
   }
-//Setteur
-  public function setSearch($search)
-  {
+  //set
+  //Getteur
+  //ItemInfos
+  
+  //method
 
-  }
 
-//Getteur
-  public function getSearch()
-  {
 
-  }
-
-//Methodes
-  public function Actus($titre, $affiche)
-  {
-    //
-  }
-}
 ?>
