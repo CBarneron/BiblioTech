@@ -8,8 +8,6 @@
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <link href="css/search.css" rel="stylesheet">
-      <link rel="stylesheet" href="bootstrap-5.0.0-beta2-dist\CSS\custom.css">
-      <link rel="stylesheet" href="bootstrap-5.0.0-beta2-dist\CSS\bootstrap.css">
     <script src="js/navbar.js"></script>
   </head>
   <body>
@@ -41,7 +39,7 @@
       <input type="submit" name="searchBTN" class="search-button" value="">
     </form>
 
-    
+
     <hr>
     <div class="section bg-light">
       <div class="container">

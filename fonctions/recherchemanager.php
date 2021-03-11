@@ -64,7 +64,7 @@ class RechercheManager
     $resultat = $pre->fetchAll(PDO::FETCH_ASSOC);
     return $resultat;
   }
-
+  
   public function searchData($titre)
   {
     $pre = $this->db->prepare('SELECT titre FROM item WHERE titre like :titre ORDER BY titre DESC');
