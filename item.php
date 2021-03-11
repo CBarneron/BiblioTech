@@ -41,9 +41,9 @@
       $item_manager->item($item);
     ?>
 
-    <form action="#recherche" class="search">
-      <input type="search" value="" placeholder="Recherchez une oeuvre..." class="search-input">
-      <input type="submit" class="search-button" value="">
+    <form action="search.php" method="POST" class="search">
+      <input type="text" name="titre" placeholder="Recherchez une oeuvre..." id="searchBox" autocomplete="off" class="search-input" oninput=search(this.value)>
+      <input type="submit" name="searchBTN" class="search-button" value="">
     </form>
 
     <div class="bandeau">

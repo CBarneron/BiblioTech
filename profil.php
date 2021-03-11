@@ -36,7 +36,7 @@
         <img src="ressources/images/users.png" class="resume_userpic" alt="profil_picture_default">
         <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
         <span class="un">Nombre Avis</span><span class="deux">Nombre Notes</span>
-        <a href="#parametre.html"><img src="ressources/images/favicon.png" class="resume_parametre" alt="parametre"></a>
+        <a href="#parametre.html"><img src="ressources/images/parametre.png" class="resume_parametre" alt="parametre"></a>
     </div>
 
     <div class="menu">
@@ -67,7 +67,6 @@
     </div>
 
     <br><br><br>
-    <p style="text-align:center">LOGO FAVORI A REFAIRE, 'IDEE' JUSTE LES LETTRE EN NOIR AVEC POINT VERT</p>
     <p>Bonjour <?php echo $_SESSION['pseudo']; ?></p>
 
     <?php include 'footer.php' ?>

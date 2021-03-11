@@ -88,11 +88,5 @@ class Recherche
   {
     return $this->synopsis;
   }
-
-//Methodes
-  public function Actus($titre, $affiche)
-  {
-    //
-  }
 }
 ?>
