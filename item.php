@@ -48,6 +48,7 @@
 
     <div class="bandeau">
       <?php echo $item->getTitre() . "<img src=\"".$item->getAffiche()."\" alt=\"Affiche du livre: ".$item->getTitre()."\" width=\"150px\">"; ?>
+      <img src="ressources/images/note/8.png" alt="note que vous avez donnez">
     </div>
     <div class="lorem">
       <p><?php echo $item->getSynopsis();?></p>
