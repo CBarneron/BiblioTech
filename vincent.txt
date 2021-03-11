@@ -10,6 +10,3 @@ Idée de gros coco : quand on est sur profil, ca change la navbar pour avoir qu'
 utiliser l'id de l'item dans le get
 
 10/16 : Entrain de faire les actus et les pages individuel.
-
-test
-suce tes mort
