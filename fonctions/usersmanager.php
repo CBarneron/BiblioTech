@@ -41,19 +41,19 @@ class UsersManager
   //Connection
   public function connect(Users $obj)
   {
-    $req = $this->db->prepare('SELECT pseudo FROM users WHERE email = :email AND password = :password');
+    $req = $this->db->prepare('SELECT pseudo,avatar FROM users WHERE email = :email AND password = :password');
 
     $req->execute(array(
       'email' => $obj->getEmail(),
       'password' => $obj->getPassword()
     ));
     $resultat = $req->fetch();
+    var_dump($resultat);
     if($resultat)
     {
-      session_start();
-      $_SESSION['pseudo'] = $resultat[0];
+      $_SESSION['pseudo'] = $resultat["pseudo"];
+      $_SESSION['avatar'] = $resultat["avatar"];
       $_SESSION['connect'] = true;
-      echo $resultat[0];
       return true;
     }
     else

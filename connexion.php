@@ -12,7 +12,7 @@
   <body>
     <?php
       session_start();
-      if($_SESSION['connect']) { header('Location: profil.php'); }
+      if($_SESSION['connect']) { header('Location: profil.php');} else {$_SESSION['connect']=false;}
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>

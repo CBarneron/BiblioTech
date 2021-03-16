@@ -12,7 +12,7 @@
   <body>
     <?php
       session_start();
-      if(!$_SESSION['connect']) { header('Location: connexion.php'); }
+      if(!$_SESSION['connect']) { header('Location: connexion.php');}
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
@@ -33,7 +33,7 @@
 
 
     <div class="resume">
-        <img src="ressources/images/users.png" class="resume_userpic" alt="profil_picture_default">
+        <img src="ressources/images/"<?php $_SESSION['avatar']; ?>".png" class="resume_userpic" alt="profil_picture_default">
         <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
         <span class="un">Nombre Avis</span><span class="deux">Nombre Notes</span>
         <a href="parametre."><img src="ressources/images/parametre.png" class="resume_parametre" alt="parametre"></a>
