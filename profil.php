@@ -33,7 +33,7 @@
 
 
     <div class="resume">
-        <img src="ressources/images/"<?php $_SESSION['avatar']; ?>".png" class="resume_userpic" alt="profil_picture_default">
+        <img src="ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png" class="resume_userpic" alt="profil_picture_default">
         <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
         <span class="un">Nombre Avis</span><span class="deux">Nombre Notes</span>
         <a href="parametre."><img src="ressources/images/parametre.png" class="resume_parametre" alt="parametre"></a>
