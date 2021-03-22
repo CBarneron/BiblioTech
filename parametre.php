@@ -26,14 +26,31 @@
           if(!$_SESSION['connect']) { echo "<a href=\"connexion.php\"><button type=\"button\" name=\"connect\" class=\"connectBTN\">Se connecter</button></a>
                                             <a href=\"inscription.php\"><button type=\"button\" name=\"connect\" class=\"inscrireBTN\">S'inscrire</button></a>";}
           elseif($_SESSION['connect']) { echo "<a href=\"profil.php\"><button type=\"button\" name=\"connect\" class=\"profilBTN\">Profil</button></a>
-                                              <a href=\"fonctions/deco.php\" class=\"door\"><img src=\"ressources/images/door.png\" alt=\"déco\" width=\"20px\" onMouseOver=\"this.src='ressources/images/door2.png'\" onmouseout=\"this.src='ressources/images/door.png'\"/></a>"; }
+                                               <a href=\"fonctions/deco.php\" class=\"door\"><img src=\"ressources/images/door.png\" alt=\"déco\" width=\"20px\" onMouseOver=\"this.src='ressources/images/door2.png'\" onmouseout=\"this.src='ressources/images/door.png'\"/></a>"; }
         ?>
       </div>
       <a href="connexion.php"><img src="ressources/images/6.png" class="icon2" alt="profile"></a>
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
     </div>
 
+    <form method="post" enctype="multipart/form-data">
+      Selectionner l'image que vous voulez telecharger :
+      <input type="file" name="file" id="file">
+      <input type="submit" name="submit" value="Télécharger l'image">
+    </form>
 
+    <?php
+    if(isset($_POST['submit']))
+    {
+      $dossier = "/ressources/images/avatar/";
+      $extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+      $name = $_SESSION['pseudo'];
+      move_uploaded_file($_FILES["file"]["tmp_name"], $dossier.$name.".".$extension);
+      echo "New Image Name = " . $name.".".$extension;
+    }
+      ?>
+
+    <p>Idée : supprimer profil, changer pseudo, changer mdp</p>
     <?php include 'footer.php' ?>
 
   </body>

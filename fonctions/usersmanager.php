@@ -48,7 +48,6 @@ class UsersManager
       'password' => $obj->getPassword()
     ));
     $resultat = $req->fetch();
-    var_dump($resultat);
     if($resultat)
     {
       $_SESSION['pseudo'] = $resultat["pseudo"];

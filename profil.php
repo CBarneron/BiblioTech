@@ -11,8 +11,17 @@
   </head>
   <body>
     <?php
+      require 'fonctions/recherche.php';
+      require 'fonctions/recherchemanager.php';
+      require 'fonctions/BDD.php';
       session_start();
       if(!$_SESSION['connect']) { header('Location: connexion.php');}
+
+      $req = $bdd->prepare('SELECT avatar FROM users WHERE pseudo = :pseudo');
+      $req->execute(array('pseudo' => $_SESSION['pseudo']));
+      $resultat = $req->fetch();
+      if($resultat)
+      {$_SESSION['avatar'] = $resultat["avatar"];}
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
