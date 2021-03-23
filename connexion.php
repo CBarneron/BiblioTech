@@ -49,6 +49,7 @@
         $user = new Users("empty", $_POST["email"], $password);
         $manager = new UsersManager($bdd);
 
+
         if($manager->connect($user) == true)
         {
           header('Location: profil.php');

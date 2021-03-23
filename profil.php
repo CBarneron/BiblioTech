@@ -8,6 +8,7 @@
     <link href="css/profil.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
   </head>
   <body>
     <?php
@@ -45,7 +46,10 @@
         <img src="ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png" class="resume_userpic" alt="profil_picture_default">
         <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
         <span class="un">Nombre Avis</span><span class="deux">Nombre Notes</span>
-        <a href="parametre."><img src="ressources/images/parametre.png" class="resume_parametre" alt="parametre"></a>
+        <?php
+        if ($_SESSION['admin']==1) {?>  <a href="admin.php"><i class="bi bi-card-checklist"></i></a><?php  ;}?>
+
+        <a href="parametre.php"><img src="ressources/images/parametre.png" class="resume_parametre" alt="parametre"></a>
     </div>
 
     <div class="menu">

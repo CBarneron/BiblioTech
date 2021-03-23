@@ -85,7 +85,7 @@ INSERT INTO `users` (`idusers`, `admin`, `pseudo`, `email`, `password`, `avatar`
 (2, 0, 'LÃ©o', 'leo@lecon.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default'),
 (3, 0, 'Leo', 'leo@lecon2.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default'),
 (4, 0, 'Le Leto', 'leleto.fr@gmail.com', '4fd505f8aeed956f068c4ce57bfc30a6131b7c79', 'default'),
-(5, 0, 'skull26240', 'skull26240@gmail.com', '3d0968c2d124ed850ecf2be4b3a533742ca87738', 'default'),
+(5, 1, 'skull26240', 'skull26240@gmail.com', '3d0968c2d124ed850ecf2be4b3a533742ca87738', 'default'),
 (6, 0, 'Antoinelebg', 'antoine@leplusbeau.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default');
 COMMIT;
 

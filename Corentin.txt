@@ -4,3 +4,4 @@ en lien avec L'idee de valider ou nom un item ou un commentaire
 
 04/03 etablissement de la strategie a adapter pour reussir cette parti de code
 09/03 header + debut admin
+23/03 page admin

@@ -5,11 +5,13 @@ class Users
   private $email;
   private $password;
 
+
   public function __construct($pseudo, $email, $password)
   {
     $this->pseudo = $pseudo;
     $this->email = $email;
     $this->password = $password;
+
   }
 //Setteur
   public function setPseudo($pseudo)
