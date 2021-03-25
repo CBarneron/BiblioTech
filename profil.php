@@ -21,8 +21,7 @@
       $req = $bdd->prepare('SELECT avatar FROM users WHERE pseudo = :pseudo');
       $req->execute(array('pseudo' => $_SESSION['pseudo']));
       $resultat = $req->fetch();
-      if($resultat)
-      {$_SESSION['avatar'] = $resultat["avatar"];}
+      if($resultat){$_SESSION['avatar'] = $resultat["avatar"];}
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
@@ -78,7 +77,8 @@
     </div>
 
     <br><br><br>
-    <p>Bonjour <?php echo $_SESSION['pseudo']; ?></p>
+    <p>Bonjour <?php echo $_SESSION['pseudo'];echo "</br>Avatar : ".$_SESSION['avatar'];  ?></p>
+
 
     <?php include 'footer.php' ?>
 

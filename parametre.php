@@ -12,8 +12,7 @@
   <body>
     <?php
       session_start();
-      require 'fonctions/recherche.php';
-      require 'fonctions/recherchemanager.php';
+      require 'fonctions/usersmanager.php';
       require 'fonctions/BDD.php';
     ?>
     <div class="navbar" id="navbar">
@@ -36,44 +35,16 @@
     <form method="post" enctype="multipart/form-data">
       Selectionner l'image que vous voulez telecharger :
       <input type="file" name="avatar" id="avatar">
-      <input type="submit" name="submit" value="Télécharger l'image">
+      <input type="submit" name="submit_upload" value="Télécharger l'image">
     </form>
 
     <?php
-    /*if(isset($_POST['submit']))
-    {
-      $dossier = "/ressources/images/avatar/";
-      $extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
-      $name = $_SESSION['pseudo'];
-      move_uploaded_file($_FILES["file"]["tmp_name"], $dossier.$name.".".$extension);
-      echo "New Image Name = " . $name.".".$extension;
-    }*/
-
-    if(isset($_POST['submit']))
-    {
-      $dir_avatar = "ressources/images/avatar/"; // Dossier d'arrivée
-      $img_type = substr($_FILES['avatar']['type'], 6); // Type (png, jpg, gif)
-
-
-      if($_FILES['avatar']['size'] <= 2097152)  // Si le fichier fait moins de 2Mo
+      if(isset($_POST['submit_upload']))
       {
-        $path_avatar = $dir_avatar . $_SESSION['pseudo'] . '.' . $img_type; // Chemin total avec fichier (DOSSIER/ID.TYPE)
-        if (move_uploaded_file($_FILES['avatar']['tmp_name'], $path_avatar)) // Move du dossier temp au chemin au dessus
-        {
-          echo "La miniature a été téléchargée avec succès\n"; // Succès
-        }
-        else
-        {
-          echo "Erreur de téléchargement :\n"; // Erreur quelquonque
-          print_r($_FILES); // On print tout
-        }
+        $avatar = new UsersManager($bdd);
+        $avatar->Addavatar();
       }
-    }
-    function replace_extension($filename, $new_extension) {
-        $info = pathinfo($filename);
-        return $info['filename'] . '.' . $new_extension;
-    }
-      ?>
+    ?>
 
     <p>Idée : supprimer profil, changer pseudo, changer mdp</p>
     <?php include 'footer.php' ?>
