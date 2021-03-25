@@ -13,27 +13,69 @@
   </head>
   <body>
 
-    <!-- Validation des statut de publications -->
-    <section>
-      <div class="row">
-        <div class="">
 
-        </div>
-      </div>
-    </section>
 
     <!-- Validation des Avis  -->
     <section>
       <div class="row">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Id Avis</th>
+              <th scope="col">Auteur</th>
+              <th scope="col">Titre</th>
+              <th scope="col">statut</th>
+              <th scope="col">Contenu</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
       </div>
     </section>
 
     <!-- Validation de Proposition-->
     <section>
       <div class="row">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Id demande</th>
+              <th scope="col">Auteur</th>
+              <th scope="col">Titre</th>
+              <th scope="col">Statut</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
 
       </div>
     </section>
 
+    <!-- Ajout publications -->
+    <section>
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Iditem</th>
+              <th scope="col">Idpubli</th>
+              <th scope="col">Titre</th>
+              <th scope="col">Categorie</th>
+              <th scope="col">Auteur</th>
+              <th scope="col">Date</th>
+              <th scope="col">Synopsis</th>
+              <th scope="col">Affiche</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
   </body>
 </html>

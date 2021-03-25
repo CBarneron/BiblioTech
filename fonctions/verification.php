@@ -21,9 +21,11 @@ class Publication
 
   }
   //set
+
   //Getteur
-  //ItemInfos
   
+  //ItemInfos
+
   //method
 
 
