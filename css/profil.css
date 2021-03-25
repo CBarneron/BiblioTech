@@ -23,12 +23,19 @@ hr{
   font: bold 1.5em "Metropolis";
   display: inline;
   position: absolute;
-  margin-top: 72px;
+  margin: 100px 0 0 15px;
 }
 .resume img.resume_parametre{
   width: 40px;
   float: right;
   right: 30px;
+  margin-top: 20px;
+  position: absolute;
+}
+.resume_admin{
+  width: 40px;
+  float: right;
+  right: 60px;
   margin-top: 20px;
   position: absolute;
 }
@@ -64,6 +71,21 @@ hr{
 }
 .menu .choix a:hover{
   color: #1ED760;
+}
+
+.circular--landscape {
+  margin: 15px 0 0 15px;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--landscape img {
+  width: auto;
+  height: 100%;
 }
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/

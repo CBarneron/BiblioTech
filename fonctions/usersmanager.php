@@ -41,7 +41,7 @@ class UsersManager
   //Connection
   public function connect(Users $obj)
   {
-    $req = $this->db->prepare('SELECT pseudo,avatar,admin FROM users WHERE email = :email AND password = :password');
+    $req = $this->db->prepare('SELECT idusers,pseudo,avatar,admin FROM users WHERE email = :email AND password = :password');
 
     $req->execute(array(
       'email' => $obj->getEmail(),
@@ -50,6 +50,7 @@ class UsersManager
     $resultat = $req->fetch();
     if($resultat)
     {
+      $_SESSION['idusers'] = $resultat["idusers"];
       $_SESSION['pseudo'] = $resultat["pseudo"];
       $_SESSION['avatar'] = $resultat["avatar"];
       $_SESSION['admin'] = $resultat["admin"];

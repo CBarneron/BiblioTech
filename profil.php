@@ -43,12 +43,10 @@
 
 
     <div class="resume">
-        <img src="ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png" class="resume_userpic" alt="profil_picture_default">
+        <div class="circular--landscape"><img src="ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png" alt="profil_picture_default"></div>
         <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
         <span class="un">Nombre Avis</span><span class="deux">Nombre Notes</span>
-        <?php
-        if ($_SESSION['admin']==1) {?>  <a href="admin.php"><i class="bi bi-card-checklist"></i></a><?php  ;}?>
-
+        <?php if ($_SESSION['admin']==1) {?>  <a href="admin.php" class="resume_admin"><i class="bi bi-card-checklist"></i></a><?php ;}?>
         <a href="parametre.php"><img src="ressources/images/parametre.png" class="resume_parametre" alt="parametre"></a>
     </div>
 
