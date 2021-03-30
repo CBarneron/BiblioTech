@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BiblioTech-Acceuil</title>
+    <title>BiblioTech-Accueil</title>
     <link rel="icon" href="ressources/images/favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/navbar.css" rel="stylesheet">

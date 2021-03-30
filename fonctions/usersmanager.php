@@ -33,11 +33,6 @@ class UsersManager
       return false;
     }
   }
-//Retirer un users de la BDD
-  public function delete(Users $obj)
-  {
-//A faire
-  }
 //Connection
   public function connect(Users $obj)
   {
@@ -65,13 +60,12 @@ class UsersManager
 //Permet d'ajouter un avatar à l'utilisateur
   public function Addavatar()
   {
-      $dir_avatar = "ressources/images/avatar/"; // Dossier d'arrivée
       if($_FILES['avatar']['size'] <= 2097152)  // Si le fichier fait moins de 2Mo
       {
-        $path_avatar = $dir_avatar . $_SESSION['pseudo'] . '.' . "png"; // Chemin total avec fichier (DOSSIER/ID.TYPE)
+        $path_avatar = "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png"; // Chemin total avec fichier (DOSSIER/ID.TYPE)
         if (move_uploaded_file($_FILES['avatar']['tmp_name'], $path_avatar)) // Move du dossier temp au chemin au dessus
         {
-          echo "La miniature a été téléchargée avec succès\n"; // Succès
+          echo "Votre avatar a été téléchargée avec succès\n"; // Succès
         }
         else
         {
@@ -84,15 +78,68 @@ class UsersManager
         echo "Fichier supérieur à 2MO :\n"; // Erreur quelquonque
         print_r($_FILES); // On print tout
       }
-      $req =$this->db->prepare('UPDATE users SET avatar = :avatar WHERE idusers =:idusers;');
+      $req = $this->db->prepare('UPDATE users SET avatar = :avatar WHERE idusers = :idusers');
       $req->execute(array(
-        'avatar' => $_SESSION['avatar'],
+        'avatar' => $_SESSION['pseudo'],
         'idusers' => $_SESSION['idusers']
       ));
       $resultat = $req->fetch();
-      var_dump($req);
-      var_dump($resultat);
-      echo "avatar à été changer dans la bdd";
   }
+  // Fonctions pour changer le pseudo de l'utilisateur
+  public function Changerpseudo($obj)
+  {
+      // On verifie que le pseudo est pas déja pris
+      $req1 = $this->db->prepare('SELECT pseudo FROM users WHERE pseudo = :pseudo');
+      $req1->execute(array('pseudo' => $obj->getPseudo()));
+      $resultat1 = $req1->fetch();
+      if(!$resultat1) //On s'occupe de modifier le nom de l'image pour l'avatar
+      {
+        $path_avatar = "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png";
+        if (file_exists($path_avatar))
+        {
+          $_SESSION['pseudo'] = $obj->getPseudo(); //On change le pseudo dans le cache du site
+          if(rename($path_avatar, "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png")) //On rename l'avatar dans le dossier
+          {
+            $req2 = $this->db->prepare('UPDATE users SET pseudo = :pseudo , avatar = :pseudo WHERE idusers = :idusers');
+            $req2->execute(array(
+              'pseudo' => $obj->getPseudo(),
+              'idusers' => $_SESSION['idusers']
+            ));
+            $resultat2 = $req2->fetch();
+            var_dump($req2);
+            var_dump($resultat2);
+            if ($resultat2)
+            {
+              echo "Pseudo changer avec succès !"; //Fin
+            }
+          }
+        }
+      }
+      else
+      {
+        echo "<p style=color:red>Pseudo déja utiliser</p>";
+      }
+    }
+
+//Retirer un users de la BDD
+    public function Changerpassword(Users $obj)
+    {
+      $req = $this->db->prepare('UPDATE users SET password = :password WHERE idusers = :idusers');
+      $req->execute(array(
+        'password' => $obj->getPassword(),
+        'idusers' => $_SESSION['idusers']
+      ));
+      echo "Mot de passe changer avec succès";
+    }
+
+//Retirer un users de la BDD
+    public function delete(Users $obj)
+    {
+      $req = $this->db->prepare('DELETE FROM users WHERE idusers = :idusers');
+      $req->execute(array(
+        'idusers' => $_SESSION['idusers']
+      ));
+      echo "Compte supprimer";
+    }
 }
 ?>

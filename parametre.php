@@ -8,10 +8,12 @@
     <link href="css/parametre.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
+    <script src="js/parametre.js"></script>
   </head>
   <body>
     <?php
       session_start();
+      require 'fonctions/users.php';
       require 'fonctions/usersmanager.php';
       require 'fonctions/BDD.php';
     ?>
@@ -31,22 +33,61 @@
       <a href="connexion.php"><img src="ressources/images/6.png" class="icon2" alt="profile"></a>
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
     </div>
-
+    <br>
     <form method="post" enctype="multipart/form-data">
-      Selectionner l'image que vous voulez telecharger :
-      <input type="file" name="avatar" id="avatar">
-      <input type="submit" name="submit_upload" value="Télécharger l'image">
+      <label for="avatar">Changer image de profil :</label>
+      <input type="file" name="avatar">
+      <input type="submit" name="submit_image" value="Télécharger"><br>
     </form>
-
+    <br><hr><br>
+    <form method="post">
+      <label for="newpseudo">Changer de pseudo :</label>
+      <input type="text" name="newpseudo">
+      <input type="submit" name="submit_pseudo" value="Changer"><br>
+    </form>
+    <br><hr><br>
+    <form method="post">
+      <label for="newpseudo">Modier votre mot de passe :</label>
+      <input type="password" name="mdp1"><br>
+      <label for="newpseudo">Vérification du mot de passe :</label>
+      <input type="password" name="mdp2">
+      <input type="submit" name="submit_password" value="Modifier">
+    </form>
+    <br><hr><br>
+    <div>
+      <label for="newpseudo">Supprimer mon profil</label>
+      <input type="submit" name="submit_delete" value="Supprimer" onclick="confirmer()"><br>
+    </div>
+    <div class="fullpage">
+      <form method="post" class="confirmation">
+        <p>Etes-vous sûr de vouloir supprimer votre profil?</p>
+        <input type="submit" name="oui" value="Oui">
+        <input type="submit" name="non" value="Non">
+      </form>
+    </div>
+    <?php if(isset($_POST['submit_image'])){$avatarManager = new UsersManager($bdd);$avatarManager ->Addavatar();} ?>
+    <?php if(isset($_POST['submit_pseudo'])){$pseudo = new Users($_POST['newpseudo'],"empty","empty");$pseudoManager = new UsersManager($bdd);$pseudoManager->Changerpseudo($pseudo);} ?>
+    <?php if(isset($_POST['submit_password']))
+          {
+            if ($_POST['mdp1'] == $_POST['mdp2'])
+            {
+              $mdp = new Users("empty","empty",sha1($_POST["mdp1"]));
+              $mdpManager = new UsersManager($bdd);
+              $mdpManager ->Changerpassword($mdp);
+            }
+          }
+    ?>
     <?php
-      if(isset($_POST['submit_upload']))
+      if(isset($_POST['oui']))
       {
-        $avatar = new UsersManager($bdd);
-        $avatar->Addavatar();
+        echo "compte va etre supprimer";
+      }
+      elseif(isset($_POST['non']))
+      {
+        echo "compte sauver! ";
       }
     ?>
-
-    <p>Idée : supprimer profil, changer pseudo, changer mdp</p>
+    <p>Idée : supprimer profil</p>
     <?php include 'footer.php' ?>
 
   </body>

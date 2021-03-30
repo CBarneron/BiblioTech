@@ -77,7 +77,7 @@
     </div>
 
     <br><br><br>
-    <p>Bonjour <?php echo $_SESSION['pseudo'];echo "</br>Avatar : ".$_SESSION['avatar'];  ?></p>
+    <?php echo "</br>Pseudo : ".$_SESSION['pseudo'] . "</br>Avatar : ".$_SESSION['avatar'] . "</br>Id : ".$_SESSION['idusers']; ?>
 
 
     <?php include 'footer.php' ?>
