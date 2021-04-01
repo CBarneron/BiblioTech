@@ -133,13 +133,24 @@ class UsersManager
     }
 
 //Retirer un users de la BDD
-    public function delete(Users $obj)
+    public function delete()
     {
-      $req = $this->db->prepare('DELETE FROM users WHERE idusers = :idusers');
-      $req->execute(array(
+      $req1 = $this->db->prepare('SELECT avatar FROM users WHERE idusers = :idusers');
+      $req1->execute(array('idusers' => $_SESSION['idusers']));
+      $resultat1 = $req1->fetch();
+      var_dump($resultat1);
+      if ($resultat1['avatar'] != "default") //On verifie si l'utiliser avait modifier son avatar
+      {
+        $lien = "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png"; //On supprime l'image
+        unlink($lien);
+      }
+
+      $req2 = $this->db->prepare('DELETE FROM users WHERE idusers = :idusers'); //On supprime le compte de l'utilisateur de la BDD
+      $req2->execute(array(
         'idusers' => $_SESSION['idusers']
       ));
-      echo "Compte supprimer";
+
+      header('Location: fonctions/deco.php'); //On le déconnecte
     }
 }
 ?>

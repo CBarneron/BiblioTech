@@ -80,14 +80,14 @@
     <?php
       if(isset($_POST['oui']))
       {
-        echo "compte va etre supprimer";
+        $deleteManager = new UsersManager($bdd);
+        $deleteManager ->delete();
       }
       elseif(isset($_POST['non']))
       {
-        echo "compte sauver! ";
+        echo "Vous avez bien raison !";
       }
     ?>
-    <p>Idée : supprimer profil</p>
     <?php include 'footer.php' ?>
 
   </body>
