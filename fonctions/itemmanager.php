@@ -1,5 +1,5 @@
 <?php
-class AvisManager
+class itemManager
 {
   private $db;
 

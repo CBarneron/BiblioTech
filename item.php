@@ -5,7 +5,7 @@
     <title>BiblioTech-Inscription</title>
     <link rel="icon" href="ressources/images/favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/livre.css" rel="stylesheet">
+    <link href="css/item.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/search.css" rel="stylesheet">
@@ -49,10 +49,21 @@
     <div class="bandeau">
       <?php echo $item->getTitre() . "<img src=\"".$item->getAffiche()."\" alt=\"Affiche du livre: ".$item->getTitre()."\" width=\"150px\">"; ?>
       <img src="ressources/images/note/8.png" alt="note que vous avez donnez">
+      <form class="#" method="post">
+        <input type="button" name="addliste" value="+">
+      </form>
     </div>
+    <?php if(isset($_POST["addliste"]))
+    {
+      
+    }
+    ?>
+
+
     <div class="lorem">
       <p><?php echo $item->getSynopsis();?></p>
     </div>
+
     <?php include 'footer.php' ?>
 
   </body>
