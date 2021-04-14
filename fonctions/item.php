@@ -1,22 +1,21 @@
 <?php
 class Item
 {
-  //Instantiation
+  //Instantiation des variables
   private $iditem;
   private $idusers;
 
-  private $idavis
+  private $idavis;
   private $titreavis;
   private $contenuavis;
 
   private $idnote;
   private $note;
-  //constructeur
+  //Constructeur
   public function __construct($iditem,$idusers)
-  { $this->note = $Note
-    $this->iditem = $Iditem;
-    $this->idusers =$Idusers;
-
+  {
+    $this->iditem = $iditem;
+    $this->idusers =$idusers;
   }
   //Setteurs
   public function setIdItem($iditem){$this->iditem = $iditem ;}
@@ -30,22 +29,14 @@ class Item
   public function setNote($note){$this->note =$note;}
 
   //Getteur
-  public function getIdItem()
-  {
-      return $this->iditem;
-  }
-  public function getIdUser()
-  {
-      return $this->iduser;
-  }
-  Public function getNote()
-{
-    return $this->note;
+  public function getIdItem(){return $this->iditem;}
+  public function getIdUser(){return $this->idusers;}
+
+  public function getIdAvis(){return $this->idavis;}
+  public function getTitreAvis(){return $this->titreavis;}
+  public function getContenuAvis(){return $this->contenuavis;}
+
+  public function getIdNote(){return $this->idnote;}
+  public function getNote(){return $this->note;}
 }
-  //ItemInfos
-
-  //method
-
-
-
 ?>

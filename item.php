@@ -10,13 +10,30 @@
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/search.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
+    <script src="js/item.js"></script>
   </head>
   <body>
     <?php
       session_start();
       require 'fonctions/recherche.php';
       require 'fonctions/recherchemanager.php';
+      require 'fonctions/item.php';
+      require 'fonctions/itemmanager.php';
       require 'fonctions/BDD.php';
+      $item = new Item($_GET['iditem'],$_SESSION['idusers']);
+      $item_manager = new ItemManager($bdd);
+      if($item_manager->checkListe($item))
+      {
+        ?>
+        <script type="text/javascript">listeBTNOK();</script>
+        <?php
+      }
+      else
+      {
+        ?>
+        <script type="text/javascript">listeBTNKO();</script>
+        <?php
+      }
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
@@ -36,9 +53,9 @@
     </div>
 
     <?php //Php qui affiche les infos de l'item
-      $item = new Recherche("empty", "empty", $_GET['iditem']);
-      $item_manager = new RechercheManager($bdd);
-      $item_manager->item($item);
+      $recherche = new Recherche("empty", "empty", $_GET['iditem']);
+      $recherche_manager = new RechercheManager($bdd);
+      $recherche_manager->Affichageitem($recherche);
     ?>
 
     <form action="search.php" method="POST" class="search">
@@ -47,21 +64,31 @@
     </form>
 
     <div class="bandeau">
-      <?php echo $item->getTitre() . "<img src=\"".$item->getAffiche()."\" alt=\"Affiche du livre: ".$item->getTitre()."\" width=\"150px\">"; ?>
+      <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
       <img src="ressources/images/note/8.png" alt="note que vous avez donnez">
       <form class="#" method="post">
-        <input type="button" name="addliste" value="+">
+        <input type="submit" name="addliste" value="+" class="addliste" id="addliste">
       </form>
     </div>
-    <?php if(isset($_POST["addliste"]))
+    <?php
+    if(isset($_POST["addliste"]))
     {
-      
+      if($item_manager->addListe($item))
+      {
+        ?>
+        <script type="text/javascript">listeBTNOK();</script>
+        <?php
+      }
+      else
+      {
+        ?>
+        <script type="text/javascript">listeBTNKO();</script>
+        <?php
+      }
     }
     ?>
-
-
     <div class="lorem">
-      <p><?php echo $item->getSynopsis();?></p>
+      <p><?php echo $recherche->getSynopsis();?></p>
     </div>
 
     <?php include 'footer.php' ?>

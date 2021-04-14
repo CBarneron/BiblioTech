@@ -34,7 +34,7 @@ class RechercheManager
     }
   }
   //Redirection vers la page de l'item voulu
-  public function item(Recherche $obj)
+  public function Affichageitem(Recherche $obj)
   {
     $pre = $this->db->prepare('SELECT titre,auteur,affiche,synopsis FROM item WHERE iditem = :iditem');
 
@@ -64,7 +64,7 @@ class RechercheManager
     $resultat = $pre->fetchAll(PDO::FETCH_ASSOC);
     return $resultat;
   }
-  
+
   public function searchData($titre)
   {
     $pre = $this->db->prepare('SELECT titre FROM item WHERE titre like :titre ORDER BY titre DESC');
