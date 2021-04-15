@@ -30,9 +30,7 @@ hr{
 }
 .rating-stars ul > li.star {
   display:inline-block;
-
 }
-
 /* Idle State of the stars */
 .rating-stars ul > li.star > i.fa {
   font-size:1.5em; /* Change the size of the stars */
@@ -41,10 +39,10 @@ hr{
 
 /* Hover state of the stars */
 .rating-stars ul > li.star.hover > i.fa {
-  color:#47EE83;
+  color:#9afebf;
 }
 
 /* Selected state of the stars */
 .rating-stars ul > li.star.selected > i.fa {
-  color:#1ED760;
+  color:#1cca59;
 }
