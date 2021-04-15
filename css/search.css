@@ -38,7 +38,7 @@
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
   .search{
-    width: 60%;
+    width: 80%;
   }
 }
 
