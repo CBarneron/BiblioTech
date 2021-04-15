@@ -10,14 +10,10 @@
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/search.css" rel="stylesheet">
     <link href="css/fontawesome.css"rel="stylesheet">
-
     <script src="js/navbar.js"></script>
     <script src="js/item.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
     <script src="js/rating.js"></script>
-
-    </script>
-
   </head>
   <body>
     <?php
@@ -37,11 +33,14 @@
       <a href="#jeux" class="select">Jeux</a>
       <div class="topBTN">
         <?php
-          if(!$_SESSION['connect']) { echo "<a href=\"connexion.php\"><button type=\"button\" name=\"connect\" class=\"connectBTN\">Se connecter</button></a>
-                                            <a href=\"inscription.php\"><button type=\"button\" name=\"connect\" class=\"inscrireBTN\">S'inscrire</button></a>";}
-          elseif($_SESSION['connect']) { echo "<a href=\"profil.php\"><button type=\"button\" name=\"connect\" class=\"profilBTN\">Profil</button></a>
-                                              <a href=\"fonctions/deco.php\" class=\"door\"><img src=\"ressources/images/door.png\" alt=\"déco\" width=\"20px\" onMouseOver=\"this.src='ressources/images/door2.png'\" onmouseout=\"this.src='ressources/images/door.png'\"/></a>"; }
-        ?>
+          if(!$_SESSION['connect']) { ?>
+            <a href="connexion.php"><button type="button" name="connect" class="connectBTN">Se connecter</button></a>
+            <a href="inscription.php"><button type="button" name="connect" class="inscrireBTN">S'inscrire</button></a>
+          <?php }
+          elseif($_SESSION['connect']) { ?>
+            <a href="profil.php"><button type="button" name="connect" class="profilBTN">Profil</button></a>
+            <a href="fonctions/deco.php" class="door"><img src="ressources/images/door.png" alt="déco" width="20px" onMouseOver="this.src='ressources/images/door2.png'" onmouseout="this.src='ressources/images/door.png'"/></a>
+          <?php } ?>
       </div>
       <a href="connexion.php"><img src="ressources/images/6.png" class="icon2" alt="profile"></a>
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
@@ -58,74 +57,40 @@
       <input type="submit" name="searchBTN" class="search-button" value="">
     </form>
 
-    <!-- bandeau image+note -->
-
     <div class="bandeau">
       <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
     <section  class='rating-widget'>
       <div class='rating-stars text-center'>
           <ul id='stars'>
-            <li class='star'  data-value='1'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star'  data-value='2'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star'  data-value='3'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star' data-value='4'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star'  data-value='5'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star'  data-value='6'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star'  data-value='7'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star'  data-value='8'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star'  data-value='9'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-            <li class='star'  data-value='10'>
-              <i class='fa fa-star fa-fw'></i>
-            </li>
-
+            <li class='star' data-value='1'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='2'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='3'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='4'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='5'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='6'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='7'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='8'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='9'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='10'><i class='fa fa-star fa-fw'></i></li>
           </ul>
         </div>
       </section>
-      <!-- <img src="ressources/images/note/8.png" alt="note que vous avez donnez"> -->
       <?php
         if($_SESSION['connect']) { ?>
-          <form class="#" method="post">
-
-        <input type="submit" name="addliste" value="+" class="addliste" id="addliste">
-      </form>
-    <?php } ?>
+          <form method="post">
+            <input type="submit" name="addliste" value="+" class="addliste" id="addliste">
+          </form>
+      <?php } ?>
     </div>
-
     <?php
     if(isset($_POST["addliste"]))
     {
-      if($item_manager->addListe($item))
-      {
-        ?>
+      if($item_manager->addListe($item)) { ?>
         <script type="text/javascript">listeBTNOK();</script>
-        <?php
-      }
-      else
-      {
-        ?>
+      <?php }
+      else{ ?>
         <script type="text/javascript">listeBTNKO();</script>
-        <?php
-      }
-    }
-    ?>
+      <?php } } ?>
     <div class="lorem">
       <p><?php echo $recherche->getSynopsis();?></p>
     </div>

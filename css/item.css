@@ -20,29 +20,25 @@ hr{
   margin-top: 10%;
   font: normal 1.5em "Metropolis";
 }
-/* rating */
+
+/*----------------------RATING-------------------------*/
 .rating-stars ul {
   list-style-type:none;
   padding:0;
-
+  user-select: none
   -moz-user-select:none;
   -webkit-user-select:none;
 }
 .rating-stars ul > li.star {
   display:inline-block;
 }
-/* Idle State of the stars */
 .rating-stars ul > li.star > i.fa {
-  font-size:1.5em; /* Change the size of the stars */
-  color:#ccc; /* Color on idle state */
+  font-size:1.5em;
+  color:#ccc;
 }
-
-/* Hover state of the stars */
 .rating-stars ul > li.star.hover > i.fa {
   color:#9afebf;
 }
-
-/* Selected state of the stars */
 .rating-stars ul > li.star.selected > i.fa {
   color:#1cca59;
 }
