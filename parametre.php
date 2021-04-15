@@ -33,29 +33,30 @@
       <a href="connexion.php"><img src="ressources/images/6.png" class="icon2" alt="profile"></a>
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
     </div>
+    <br><br>
+    <form method="post" class="formPseudo">
+      <label for="newpseudo">Nom</label>
+      <br>
+      <input type="text" name="newpseudo" value="<?php echo $_SESSION['avatar']; ?>">
+      <input type="submit" name="submit_pseudo" value="Changer"><br>
+    </form>
     <br>
-    <form method="post" enctype="multipart/form-data">
-      <label for="avatar">Changer image de profil :</label>
+    <form method="post" enctype="multipart/form-data" class="formImage">
+      <label for="avatar">Image de profil</label>
       <input type="file" name="avatar">
       <input type="submit" name="submit_image" value="Télécharger"><br>
     </form>
-    <br><hr><br>
-    <form method="post">
-      <label for="newpseudo">Changer de pseudo :</label>
-      <input type="text" name="newpseudo">
-      <input type="submit" name="submit_pseudo" value="Changer"><br>
-    </form>
-    <br><hr><br>
-    <form method="post">
-      <label for="newpseudo">Modier votre mot de passe :</label>
+    <br>
+    <form method="post" class="formMdp">
+      <label for="mdp1">Modier votre mot de passe :</label>
       <input type="password" name="mdp1"><br>
-      <label for="newpseudo">Vérification du mot de passe :</label>
+      <label for="mdp2">Vérification du mot de passe :</label>
       <input type="password" name="mdp2">
       <input type="submit" name="submit_password" value="Modifier">
     </form>
     <br><hr><br>
     <div>
-      <label for="newpseudo">Supprimer mon profil</label>
+      <label for="submit_delete">Supprimer mon profil</label>
       <input type="submit" name="submit_delete" value="Supprimer" onclick="confirmer()"><br>
     </div>
     <div class="fullpage">

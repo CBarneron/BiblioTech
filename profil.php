@@ -42,11 +42,11 @@
 
 
     <div class="resume">
-        <div class="circular--landscape"><img src="ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png" alt="profil_picture_default"></div>
-        <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
-        <span class="un">Nombre Avis</span><span class="deux">Nombre Notes</span>
-        <?php if ($_SESSION['admin']==1) {?>  <a href="admin.php" class="resume_admin"><i class="bi bi-card-checklist"></i></a><?php ;}?>
-        <a href="parametre.php"><img src="ressources/images/parametre.png" class="resume_parametre" alt="parametre"></a>
+      <div class="avatar" style="background-image: url('ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png');"></div>
+      <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
+      <span class="un">Nombre Avis</span><span class="deux">Nombre Notes</span>
+      <?php if ($_SESSION['admin']==1) {?>  <a href="admin.php"><img src="ressources/images/4.png" class="admin" alt="administration"></a><?php ;}?>
+      <a href="parametre.php"><img src="ressources/images/parametre.png" class="parametre" alt="parametre"></a>
     </div>
 
     <div class="menu">
@@ -64,13 +64,13 @@
     </div>
     <div class="menu_smartphone">
       <ul class="choix_smartphone">
-        <a href="#"><img src="ressources/images/1.png" class="choix_img" alt="about"></a>
+        <a href="#"><img src="ressources/images/6.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
         <a href="#"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
         <a href="#"><img src="ressources/images/8.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="#"><img src="ressources/images/4.png" class="choix_img" alt="about"></a>
+        <a href="liste.php"><img src="ressources/images/5.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
         <a href="#"><img src="ressources/images/2.png" class="choix_img" alt="about"></a>
       </ul>

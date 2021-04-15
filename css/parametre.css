@@ -22,3 +22,16 @@
   filter: blur(0px);
   background-color: rgba(40, 40, 40, .5);
 }
+
+.formPseudo{
+  display: inline-flex;
+  float: left;
+}
+
+.formImage{
+  display: inline-flex;
+  float: right;
+}
+
+.formMdp{
+}
