@@ -22,7 +22,7 @@ a{
   color: black;
 }
 .annonce{
-  font : normal 1.4em "Spotify";
+  font : normal 1.4em "Metropolis";
   text-align: center;
 }
 .carousel-item{
@@ -35,16 +35,20 @@ a{
   overflow-x: scroll;
   white-space: nowrap;
   height:230px;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 15px 10px 15px;
 }
 /* Scrollbar des carousel*/
 .carousel::-webkit-scrollbar
 {
-  height: 6px;
+  height: 4px;
 }
 .carousel::-webkit-scrollbar-thumb
 {
 	background-color: #000000;
+}
+.carousel::-webkit-scrollbar-thumb:hover {
+    cursor: col-resize;
+    border-radius: 10px;
 }
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/

@@ -39,9 +39,7 @@
       <input type="submit" name="searchBTN" class="search-button" value="">
     </form>
 
-    <hr>
-
-    <p class="annonce">- Les Livres récents -</p>
+    <p class="annonce">- DERNIERS LIVRES -</p>
     <div class="carousel">
     <?php //php sur les livres récents
       $actu = new Recherche("empty", "livre", "empty");
@@ -50,9 +48,7 @@
     ?>
     </div>
 
-    <hr>
-
-    <p class="annonce">- Les Films récents -</p>
+    <p class="annonce">- DERNIERS FILMS -</p>
     <div class="carousel">
     <?php //php sur les livres récents
       $actu = new Recherche("empty", "film", "empty");
@@ -61,9 +57,7 @@
     ?>
     </div>
 
-    <hr>
-
-    <p class="annonce">- Les Jeux récents -</p>
+    <p class="annonce">- DERNIERS JEUX -</p>
     <div class="carousel">
     <?php //php sur les livres récents
       $actu = new Recherche("empty", "Jeux", "empty");
@@ -71,7 +65,6 @@
       $actumanager->news($actu)
     ?>
     </div>
-
     <?php include 'footer.php' ?>
 
   </body>
