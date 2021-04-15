@@ -54,9 +54,13 @@
     <div class="bandeau">
       <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
       <img src="ressources/images/note/8.png" alt="note que vous avez donnez">
-      <form class="#" method="post">
+      <?php
+        if($_SESSION['connect']) { ?>
+          <form class="#" method="post">
+
         <input type="submit" name="addliste" value="+" class="addliste" id="addliste">
       </form>
+    <?php } ?>
     </div>
     <?php
     if(isset($_POST["addliste"]))

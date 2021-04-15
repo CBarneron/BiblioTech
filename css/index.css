@@ -21,6 +21,10 @@ a{
   text-decoration: none;
   color: black;
 }
+.annonce{
+  font : normal 1.4em "Spotify";
+  text-align: center;
+}
 .carousel-item{
   width: 150px;
   height: 215px;
