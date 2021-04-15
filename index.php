@@ -20,7 +20,7 @@
     <div class="navbar" id="navbar">
       <a href="#vous-y-êtes-déjà!" class="select active">BiblioTech<span class="dot">.</span>™</a>
       <a href="livre.php" class="select">Livres</a>
-      <a href="#musiques" class="select">Musiques</a>
+      <a href="#films" class="select">Films</a>
       <a href="#jeux" class="select">Jeux</a>
       <div class="topBTN">
         <?php
@@ -39,37 +39,38 @@
       <input type="submit" name="searchBTN" class="search-button" value="">
     </form>
 
-
     <hr>
-    <div class="section bg-light">
-      <div class="container">
-        <div class="row">
-          <h1 class="title">- Les Livres récents -</h1>
-          <div class="carousel-inner py-5">
-                <?php //php sur les livres récents
-                $actulivre = new Recherche("empty", "livre", "empty");
-                $actulivremanager = new RechercheManager($bdd);
-                $actulivremanager->news($actulivre)
-                ?>
 
-          </div>
-        </div>
-      </div>
+    <p class="annonce">- Les Livres récents -</p>
+    <div class="carousel">
+    <?php //php sur les livres récents
+      $actu = new Recherche("empty", "livre", "empty");
+      $actumanager = new RechercheManager($bdd);
+      $actumanager->news($actu)
+    ?>
     </div>
+
     <hr>
+
     <p class="annonce">- Les Films récents -</p>
+    <div class="carousel">
     <?php //php sur les livres récents
-      $actulivre = new Recherche("empty", "film", "empty");
-      $actulivremanager = new RechercheManager($bdd);
-      $actulivremanager->news($actulivre)
+      $actu = new Recherche("empty", "film", "empty");
+      $actumanager = new RechercheManager($bdd);
+      $actumanager->news($actu)
     ?>
+    </div>
+
     <hr>
+
     <p class="annonce">- Les Jeux récents -</p>
+    <div class="carousel">
     <?php //php sur les livres récents
-      $actulivre = new Recherche("empty", "Jeux", "empty");
-      $actulivremanager = new RechercheManager($bdd);
-      $actulivremanager->news($actulivre)
+      $actu = new Recherche("empty", "Jeux", "empty");
+      $actumanager = new RechercheManager($bdd);
+      $actumanager->news($actu)
     ?>
+    </div>
 
     <?php include 'footer.php' ?>
 

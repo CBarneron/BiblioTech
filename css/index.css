@@ -21,6 +21,27 @@ a{
   text-decoration: none;
   color: black;
 }
+.carousel-item{
+  width: 150px;
+  height: 215px;
+  margin: 0px 10px 0px 10px;
+}
+.carousel{
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  height:230px;
+  margin: 10px 0px 10px 0px;
+}
+/* Scrollbar des carousel*/
+.carousel::-webkit-scrollbar
+{
+  height: 6px;
+}
+.carousel::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
   hr{

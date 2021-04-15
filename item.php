@@ -22,23 +22,11 @@
       require 'fonctions/BDD.php';
       $item = new Item($_GET['iditem'],$_SESSION['idusers']);
       $item_manager = new ItemManager($bdd);
-      if($item_manager->checkListe($item))
-      {
-        ?>
-        <script type="text/javascript">listeBTNOK();</script>
-        <?php
-      }
-      else
-      {
-        ?>
-        <script type="text/javascript">listeBTNKO();</script>
-        <?php
-      }
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
       <a href="#vous-y-êtes-déjà!" class="select active">Livres</a>
-      <a href="#musiques" class="select">Musiques</a>
+      <a href="#films" class="select">Films</a>
       <a href="#jeux" class="select">Jeux</a>
       <div class="topBTN">
         <?php
@@ -90,6 +78,14 @@
     <div class="lorem">
       <p><?php echo $recherche->getSynopsis();?></p>
     </div>
+
+    <?php //Check du bouton bouton liste à l'instantiation de la page
+      if($item_manager->checkListe($item)) { ?>
+        <script type="text/javascript">listeBTNOK();</script>
+      <?php }
+      else { ?>
+        <script type="text/javascript">listeBTNKO();</script>
+      <?php } ?>
 
     <?php include 'footer.php' ?>
 

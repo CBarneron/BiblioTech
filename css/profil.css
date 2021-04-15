@@ -72,7 +72,12 @@ hr{
 .menu .choix a:hover{
   color: #1ED760;
 }
-
+a.active{
+  color: #1ED760 !important;
+}
+.navbar a button.profilBTN{
+  color: #1ED760 !important;
+}
 .circular--landscape {
   margin: 15px 0 0 15px;
   display: inline-block;

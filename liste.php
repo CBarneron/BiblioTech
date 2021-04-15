@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BiblioTech-Profil</title>
+    <title>BiblioTech-Liste</title>
     <link rel="icon" href="ressources/images/favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/profil.css" rel="stylesheet">
@@ -32,7 +32,7 @@
         <?php
           if(!$_SESSION['connect']) { echo "<a href=\"connexion.php\"><button type=\"button\" name=\"connect\" class=\"connectBTN\">Se connecter</button></a>
                                             <a href=\"inscription.php\"><button type=\"button\" name=\"connect\" class=\"inscrireBTN\">S'inscrire</button></a>";}
-          elseif($_SESSION['connect']) { echo "<a href=\"#\" class=\"active\"><button type=\"button\" name=\"connect\" class=\"profilBTN\">Profil</button></a>
+          elseif($_SESSION['connect']) { echo "<a href=\"#\"><button type=\"button\" name=\"connect\" class=\"profilBTN\">Profil</button></a>
                                               <a href=\"fonctions/deco.php\" class=\"door\"><img src=\"ressources/images/door.png\" alt=\"déco\" width=\"20px\" onMouseOver=\"this.src='ressources/images/door2.png'\" onmouseout=\"this.src='ressources/images/door.png'\"/></a>"; }
         ?>
       </div>
@@ -51,13 +51,13 @@
 
     <div class="menu">
       <ul class="choix">
-        <a href="#" class="active"><li>Profil</li></a>
+        <a href="profil.php"><li>Profil</li></a>
         <li class="barre">|</li>
         <a href="#"><li>Collection</li></a>
         <li class="barre">|</li>
         <a href="#"><li>Avis</li></a>
         <li class="barre">|</li>
-        <a href="liste.php"><li>Liste</li></a>
+        <a href="#vous" class="active"><li>Liste</li></a>
         <li class="barre">|</li>
         <a href="#"><li>Amis</li></a>
       </ul>
@@ -75,9 +75,6 @@
         <a href="#"><img src="ressources/images/2.png" class="choix_img" alt="about"></a>
       </ul>
     </div>
-
-    <br><br><br>
-    <?php echo "</br>Pseudo : ".$_SESSION['pseudo'] . "</br>Avatar : ".$_SESSION['avatar'] . "</br>Id : ".$_SESSION['idusers']; ?>
 
 
     <?php include 'footer.php' ?>

@@ -33,6 +33,26 @@ class UsersManager
       return false;
     }
   }
+  //Retirer un users de la BDD
+      public function delete()
+      {
+        $req1 = $this->db->prepare('SELECT avatar FROM users WHERE idusers = :idusers');
+        $req1->execute(array('idusers' => $_SESSION['idusers']));
+        $resultat1 = $req1->fetch();
+        var_dump($resultat1);
+        if ($resultat1['avatar'] != "default") //On verifie si l'utiliser avait modifier son avatar
+        {
+          $lien = "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png"; //On supprime l'image
+          unlink($lien);
+        }
+
+        $req2 = $this->db->prepare('DELETE FROM users WHERE idusers = :idusers'); //On supprime le compte de l'utilisateur de la BDD
+        $req2->execute(array(
+          'idusers' => $_SESSION['idusers']
+        ));
+
+        header('Location: fonctions/deco.php'); //On le déconnecte
+      }
 //Connection
   public function connect(Users $obj)
   {
@@ -130,27 +150,6 @@ class UsersManager
         'idusers' => $_SESSION['idusers']
       ));
       echo "Mot de passe changer avec succès";
-    }
-
-//Retirer un users de la BDD
-    public function delete()
-    {
-      $req1 = $this->db->prepare('SELECT avatar FROM users WHERE idusers = :idusers');
-      $req1->execute(array('idusers' => $_SESSION['idusers']));
-      $resultat1 = $req1->fetch();
-      var_dump($resultat1);
-      if ($resultat1['avatar'] != "default") //On verifie si l'utiliser avait modifier son avatar
-      {
-        $lien = "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png"; //On supprime l'image
-        unlink($lien);
-      }
-
-      $req2 = $this->db->prepare('DELETE FROM users WHERE idusers = :idusers'); //On supprime le compte de l'utilisateur de la BDD
-      $req2->execute(array(
-        'idusers' => $_SESSION['idusers']
-      ));
-
-      header('Location: fonctions/deco.php'); //On le déconnecte
     }
 }
 ?>

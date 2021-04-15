@@ -37,6 +37,7 @@ class ItemManager
     }
     $obj->setNote($resultat);
   }
+  
   //Verifie si l'item est déja dans la liste de l'utilisateur
   public function checkListe(item $obj)
   {
@@ -52,13 +53,13 @@ class ItemManager
     }
     else
     {
-      return false; //On returne false car l'item n'est pas dans la liste
+      return false; //On return false car l'item n'est pas dans la liste
     }
   }
   //Ajoute un item à la liste de l'utilisateur
   public function addListe(item $obj)
   {
-    $pre = $this->db->prepare('SELECT iditem FROM liste WHERE iditem = :iditem and idusers = :idiusers');
+    $pre = $this->db->prepare('SELECT iditem, idliste FROM liste WHERE iditem = :iditem and idusers = :idiusers');
     $pre->execute(array(
       'iditem' =>$obj->getIdItem(),
       'idiusers'=>$obj->getIdUser()
@@ -66,16 +67,20 @@ class ItemManager
     $resultat= $pre->fetch();
     if($resultat["iditem"] == $obj->getIdItem())//On vérifie si l'item existe dans la liste
     {
+      $pre2 = $this->db->prepare('DELETE FROM liste WHERE idliste = :idliste'); //On supprime le compte de l'utilisateur de la BDD
+      $pre2->execute(array(
+        'idliste' =>$resultat["idliste"]
+      ));
       return false; //On return false car l'item est déja dans la liste
     }
     else
     {
-      $pre2 = $this->db->prepare('INSERT INTO liste(iditem, idusers) VALUES (:iditem, :idiusers)');
-      $pre2->execute(array(
+      $pre3 = $this->db->prepare('INSERT INTO liste(iditem, idusers) VALUES (:iditem, :idiusers)');
+      $pre3->execute(array(
         'iditem' =>$obj->getIdItem(),
-        'idiusers'=>$obj->getIdUser()
+        'idiusers' =>$obj->getIdUser()
       ));
-      $resultat2 = $pre2->fetchAll();
+      $resultat3 = $pre3->fetchAll();
 
       return true; //On returne true car on vient d'ajouter l'item dans la liste
     }

@@ -17,7 +17,7 @@
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
       <a href="livre.php" class="select">Livres</a>
-      <a href="#musiques" class="select">Musiques</a>
+      <a href="#films" class="select">Films</a>
       <a href="#jeux" class="select">Jeux</a>
       <div class="topBTN">
         <?php

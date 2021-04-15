@@ -58,9 +58,6 @@
   color: #FFFFFF;
   border: none;
 }
-.navbar a button.active{
-    color: #1ED760 !important;
-}
 .navbar a button.connectBTN:hover{color:#1ED760;}
 .navbar a button.inscrireBTN{
   background-color: #1ED760;
@@ -134,15 +131,13 @@
 }
 /*------------------SCROLLBAR--------------------------*/
 ::-webkit-scrollbar{
-    width: 10px;
+    width: 8px;
     cursor: pointer;
 }
-
 ::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
     background: #FFFFFF;
 }
-
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #1ED760;

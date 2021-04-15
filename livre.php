@@ -18,7 +18,7 @@
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
       <a href="#vous-y-êtes-déjà!" class="select active">Livres</a>
-      <a href="#musiques" class="select">Musiques</a>
+      <a href="#films" class="select">Films</a>
       <a href="#jeux" class="select">Jeux</a>
       <div class="topBTN">
         <?php
@@ -40,24 +40,32 @@
     <div class="bandeau">
 
     </div>
-    <div class="lorem">
-      <p>
-        Mauris congue vitae risus condimentum gravida. Pellentesque dignissim aliquet nulla ut tincidunt. Aliquam pulvinar ac odio nec semper. Proin cursus hendrerit lacus eget molestie. Ut finibus convallis orci vitae dapibus. Fusce facilisis accumsan ultricies. Sed facilisis lacinia diam, ut tincidunt ligula. In sed lorem at lectus porttitor consectetur iaculis id nunc. Praesent eu viverra quam. Nunc sollicitudin, est eu congue rutrum, est eros consequat ipsum, quis eleifend nunc nisi quis mauris. Curabitur vitae erat fermentum, semper nunc non, sodales diam. In hac habitasse platea dictumst. Morbi orci purus, dignissim eu condimentum et, posuere vel risus. Donec luctus pharetra tempor. Ut eget bibendum odio.
 
-        Mauris cursus vitae magna ut cursus. Sed tincidunt erat purus, a pretium nisl blandit vel. Donec consequat dui sit amet lobortis ultricies. Nulla et ligula sollicitudin, molestie diam eget, bibendum nunc. Proin tristique quam ornare pulvinar dignissim. Ut a aliquam nisi. Cras leo mauris, lacinia sit amet placerat a, maximus at enim. Vestibulum sollicitudin at nunc eget porta.
+    <form class="#" action="" method="post">
+      *<label for="titre">Titre de l'oeuvre</label>
+      <input type="text" name="titre" value="Titre de l'oeuvre">
+      <br>
+      <label for="titre">Synopsis de l'oeuvre</label>
+      <input type="text" name="synopsis" value="Synopsis de l'oeuvre">
+      <br>
+      <label for="titre">Synopsis de l'oeuvre</label>
+      <input type="text" name="synopsis" value="Synopsis de l'oeuvre">
+      <br>
+      <label for="categorie">Categorie de l'oeuvre</label>
+      <select name="categorie">
+        <option value="" selected>--Veuillez choisir une catégorie--</option>
+        <option value="livre">Livre</option>
+        <option value="film">Film</option>
+        <option value="serie">Serie</option>
+        <option value="jeux">Jeux</option>
+        <option value="musique">Musique</option>
+      </select>
+      <br>
+      <input type="file" name="avatar">
+      <br>
+      <input type="submit" name="" value="">
 
-        Cras consequat orci quis suscipit semper. Suspendisse accumsan fposuere urna. Integer eget euismod nisl. Etiam nisl erat, porttitor sit amet pharetra et, accumsan quis tortor. Nullam ut tellus a nisl molestie accumsan. Integer malesuada pulvinar magna sed porta. Duis lobortis purus turpis, viverra pretium est dapibus sed. Quisque placerat posuere felis ut scelerisque. Vivamus purus arcu, viverra in turpis vitae, lacinia lacinia erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam id luctus justo. Vivamus non finibus quam. Duis at luctus eros. Praesent pretium ex vel nibh facilisis porta. Suspendisse iaculis mauris dolor, ac lacinia lacus pulvinar sodales. Duis mollis neque sed ligula elementum viverra.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend porttitor eros sed blandit. Aenean libero felis, commodo non faucibus euismod, porta vel purus. Ut facilisis, neque eu ornare porttitor, nisl nunc finibus magna, et eleifend nulla nibh id augue. Nunc vehicula sed lectus in posuere. Etiam eu faucibus elit. Proin venenatis tristique sapien quis commodo. Duis tempor eleifend massa, vitae venenatis sapien consequat a. Nunc posuere condimentum lorem eget rhoncus. Nulla risus ligula, viverra in mattis sit amet, volutpat ac ante.
-
-        Mauris congue vfitae risus condimentum gravida. Pellentesque dignissim aliquet nulla ut tincidunt. Aliquam pulvinar ac odio nec semper. Proin cursus hendrerit lacus eget molestie. Ut finibus convallis orci vitae dapibus. Fusce facilisis accumsan ultricies. Sed facilisis lacinia diam, ut tincidunt ligula. In sed lorem at lectus porttitor consectetur iaculis id nunc. Praesent eu viverra quam. Nunc sollicitudin, est eu congue rutrum, est eros consequat ipsum, quis eleifend nunc nisi quis mauris. Curabitur vitae erat fermentum, semper nunc non, sodales diam. In hac habitasse platea dictumst. Morbi orci purus, dignissim eu condimentum et, posuere vel risus. Donec luctus pharetra tempor. Ut eget bibendum odio.
-
-        Mauris cursus vitae magna ut cursus. Sed tincidunt erat purus, a pretium nisl blandit vel. Donec consequat dui sit amet lobortis ultricies. Nulla et ligula sollicitudin, molestie diam eget, bibendum nunc. Proin tristique quam ornare pulvinar dignissim. Ut a aliquam nisi. Cras leo mauris, lacinia sit amet placerat a, maximus at enim. Vestibulum sollicitudin at nunc eget porta.
-
-        Cras consequat orci quis suscipit semper. Suspendisse accumsan posuere urna. Integer eget euismod nisl. Etiam nisl erat, porttitor sit amet pharetra et, accumsan quis tortor. Nullam ut tellus a nisl molestie accumsan. Integer malesuada pulvinar magna sed porta. Duis lobortis purus turpis, viverra pretium est dapibus sed. Quisque placerat posuere felis ut scelerisque. Vivamus purus arcu, viverra in turpis vitae, lacinia lacinia erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam id luctus justo. Vivamus non finibus quam. Duis at luctus eros. Praesent pretium ex vel nibh facilisis porta. Suspendisse iaculis mauris dolor, ac lacinia lacus pulvinar sodales. Duis mollis neque sed ligula elementum viverra.
-      </p>
-    </div>
+    </form>
 
     <?php include 'footer.php' ?>
 

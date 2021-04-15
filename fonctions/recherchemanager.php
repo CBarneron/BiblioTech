@@ -20,14 +20,11 @@ class RechercheManager
     //Ajout des affiche et des titres dans des tableau
     $i = 0;
     foreach ($resultat as $row) {
-      echo "
-      <div class=\"carousel-item\">
-        <a href=\"item.php?iditem=".$row["iditem"]."\">
-          <img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" width=\"150px\">
-        </a>
-      </div>";
+      echo "<a href=\"item.php?iditem=".$row["iditem"]."\">
+              <img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\">
+            </a>";
       $i++;
-      if($i>10)
+      if($i>15)
       {
         break;
       }
