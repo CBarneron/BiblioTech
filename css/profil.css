@@ -15,28 +15,37 @@ hr{
   display: inline-block;
   position: static;
 }
-.resume img.resume_userpic{
-  width: 3%;
-  margin-left: 4%;
+.avatar {
+    display: inline-flex;
+    background-size: cover;
+    background-position: top center;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin: 0px;
+}
+.resume a{
+  color :black;
+  font: bold 1.5em "Metropolis";
 }
 .resume figcaption{
   font: bold 1.5em "Metropolis";
   display: inline;
   position: absolute;
-  margin: 100px 0 0 15px;
+  margin: 80px 0 0 15px;
 }
-.resume img.resume_parametre{
+.resume img.parametre{
   width: 40px;
   float: right;
   right: 30px;
   margin-top: 20px;
   position: absolute;
 }
-.resume_admin{
+.resume img.admin{
   width: 40px;
   float: right;
   right: 60px;
-  margin-top: 20px;
+  margin: 20px 35px 0 0;
   position: absolute;
 }
 .resume span{
@@ -78,20 +87,6 @@ a.active{
 .navbar a button.profilBTN{
   color: #1ED760 !important;
 }
-.circular--landscape {
-  margin: 15px 0 0 15px;
-  display: inline-block;
-  position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.circular--landscape img {
-  width: auto;
-  height: 100%;
-}
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
   .resume{
@@ -99,17 +94,13 @@ a.active{
     display: inline-block;
     position: static;
   }
-  .resume img.resume_userpic{
-    width: 100px;
-    margin-left: 4%;
-  }
   .resume figcaption{
     font: bold 1.5em "Metropolis";
     display: inline;
     position: absolute;
     margin-top: 40px;
   }
-  .resume img.resume_parametre{
+  .resume img.parametre{
     width: 35px;
     height: auto;
     float: right;
@@ -130,12 +121,6 @@ a.active{
   .deux{
     left:50%;
   }
-
-
-
-
-
-
   .menu{display: none;}
   .menu_smartphone{
     display: block;
