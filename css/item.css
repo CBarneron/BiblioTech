@@ -20,7 +20,7 @@ hr{
   margin-top: 10%;
   font: normal 1.5em "Metropolis";
 }
-
+/* rating */
 .rating-stars ul {
   list-style-type:none;
   padding:0;
@@ -41,10 +41,10 @@ hr{
 
 /* Hover state of the stars */
 .rating-stars ul > li.star.hover > i.fa {
-  color:#FFCC36;
+  color:#47EE83;
 }
 
 /* Selected state of the stars */
 .rating-stars ul > li.star.selected > i.fa {
-  color:#FF912C;
+  color:#1ED760;
 }

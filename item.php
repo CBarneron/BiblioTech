@@ -9,8 +9,14 @@
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/search.css" rel="stylesheet">
+    <link href="css/fontawesome.css"rel="stylesheet">
+
     <script src="js/navbar.js"></script>
     <script src="js/item.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="js/rating.js"></script>
+
+    </script>
 
   </head>
   <body>
@@ -74,6 +80,21 @@
             <li class='star'  data-value='5'>
               <i class='fa fa-star fa-fw'></i>
             </li>
+            <li class='star'  data-value='6'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star'  data-value='7'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star'  data-value='8'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star'  data-value='9'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star'  data-value='10'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
 
           </ul>
         </div>
@@ -119,37 +140,6 @@
 
     <?php include 'footer.php' ?>
 
-<script >
-$(document).ready(function(){
-  $('#stars li').on('mouseover', function(){
-    var onStar = parseInt($(this).data('value'), 10); //Etoile avec souris dessus
-    // Etoile éclairer avant celle choisi
-    $(this).parent().children('li.star').each(function(e){
-      if (e < onStar) {
-        $(this).addClass('hover');
-      }
-      else {
-        $(this).removeClass('hover');
-      }
-    });
-  }).on('mouseout', function(){
-    $(this).parent().children('li.star').each(function(e){
-      $(this).removeClass('hover');
-    });
-  });
 
-  $('#stars li').on('click', function(){
-    var onStar = parseInt($(this).data('value'), 10); //Maintien etoile choisi
-    var stars = $(this).parent().children('li.star');
-    for (i = 0; i < stars.length; i++) {
-      $(stars[i]).removeClass('selected');
-    }
-    for (i = 0; i < onStar; i++) {
-      $(stars[i]).addClass('selected');
-    }
-  });
-});
-
-</script>
   </body>
 </html>
