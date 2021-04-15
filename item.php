@@ -11,6 +11,7 @@
     <link href="css/search.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
     <script src="js/item.js"></script>
+
   </head>
   <body>
     <?php
@@ -51,9 +52,33 @@
       <input type="submit" name="searchBTN" class="search-button" value="">
     </form>
 
+    <!-- bandeau image+note -->
+
     <div class="bandeau">
       <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
-      <img src="ressources/images/note/8.png" alt="note que vous avez donnez">
+    <section  class='rating-widget'>
+      <div class='rating-stars text-center'>
+          <ul id='stars'>
+            <li class='star'  data-value='1'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star'  data-value='2'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star'  data-value='3'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star' data-value='4'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+            <li class='star'  data-value='5'>
+              <i class='fa fa-star fa-fw'></i>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+      <!-- <img src="ressources/images/note/8.png" alt="note que vous avez donnez"> -->
       <?php
         if($_SESSION['connect']) { ?>
           <form class="#" method="post">
@@ -62,6 +87,7 @@
       </form>
     <?php } ?>
     </div>
+
     <?php
     if(isset($_POST["addliste"]))
     {
@@ -93,5 +119,37 @@
 
     <?php include 'footer.php' ?>
 
+<script >
+$(document).ready(function(){
+  $('#stars li').on('mouseover', function(){
+    var onStar = parseInt($(this).data('value'), 10); //Etoile avec souris dessus
+    // Etoile éclairer avant celle choisi
+    $(this).parent().children('li.star').each(function(e){
+      if (e < onStar) {
+        $(this).addClass('hover');
+      }
+      else {
+        $(this).removeClass('hover');
+      }
+    });
+  }).on('mouseout', function(){
+    $(this).parent().children('li.star').each(function(e){
+      $(this).removeClass('hover');
+    });
+  });
+
+  $('#stars li').on('click', function(){
+    var onStar = parseInt($(this).data('value'), 10); //Maintien etoile choisi
+    var stars = $(this).parent().children('li.star');
+    for (i = 0; i < stars.length; i++) {
+      $(stars[i]).removeClass('selected');
+    }
+    for (i = 0; i < onStar; i++) {
+      $(stars[i]).addClass('selected');
+    }
+  });
+});
+
+</script>
   </body>
 </html>
