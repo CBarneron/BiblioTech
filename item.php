@@ -76,7 +76,7 @@
             <li class='star' data-value='10'><i class='fa fa-star fa-fw'></i></li>
           </ul>
         </div>
-        <input type="text" name="valeur" value=$ratingValue id="rating">
+      <input type="text" name="note" id="rating">
       </form>
 
 

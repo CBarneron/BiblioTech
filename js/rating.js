@@ -39,24 +39,19 @@ $(document).ready(function () {
     }
 
     //js pour recup la valeur
+
+
     var ratingValue = parseInt(
       $("#stars li.selected").last().data("value"),
       10
     );
-    // JUST RESPONSE (Not needed)
+    var note = ratingValue;
 
-    var msg = "";
-    if (ratingValue > 1) {
-      msg = "Thanks! You rated this " + ratingValue + " stars.";
-    } else {
-      msg =
-        "We will improve ourselves. You rated this " + ratingValue + " stars.";
-    }
-    responseMessage(msg);
+    responseMessage("<span>" +note + "</span>");
   });
 });
 
-function responseMessage(msg) {
-  $(".success-box").fadeIn(200);
-  $(".success-box div.text-message").html("<span>" + msg + "</span>");
+function responseMessage(note) {
+
+  $(".p.text-notation").html(note);
 }
