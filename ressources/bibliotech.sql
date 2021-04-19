@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 15 avr. 2021 à 08:49
+-- Généré le : lun. 19 avr. 2021 à 16:13
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `avis`
+--
+
+DROP TABLE IF EXISTS `avis`;
+CREATE TABLE IF NOT EXISTS `avis` (
+  `idavis` int(11) NOT NULL AUTO_INCREMENT,
+  `titreavis` varchar(100) NOT NULL,
+  `contenuavis` text NOT NULL,
+  `iditem` int(11) NOT NULL,
+  `idusers` int(11) NOT NULL,
+  `idnote` int(11) NOT NULL,
+  PRIMARY KEY (`idavis`),
+  KEY `fk_item` (`iditem`),
+  KEY `fk_users` (`idusers`),
+  KEY `fk_note` (`idnote`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `item`
 --
 
@@ -38,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `synopsis` varchar(60000) NOT NULL,
   `affiche` varchar(200) NOT NULL DEFAULT 'ressources\\affiche\\2.png',
   PRIMARY KEY (`iditem`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `item`
@@ -61,7 +81,8 @@ INSERT INTO `item` (`iditem`, `idpubli`, `titre`, `categorie`, `auteur`, `dateit
 (14, 1, 'The Hunger Games', 'livre', 'Suzanne Collins', '2008-09-14', 'Dans un futur sombre, sur les ruines des États-Unis, un jeu télévisé est créé pour contrôler le peuple par la terreur.\r\nDouze garçons et douze filles tirés au sort participent à cette sinistre téléréalité, que tout le monde est forcé de regarder en direct. Une seule règle dans l\'arène : survivre, à tout prix.\r\nQuand sa petite sœur est appelée pour participer aux Hunger Games, Katniss n\'hésite pas une seconde. Elle prend sa place, consciente du danger. À seize ans, Katniss a déjà été confrontée plusieurs fois à la mort. Chez elle, survivre est comme une seconde nature...', 'ressources\\affiche\\14.png'),
 (15, 1, 'Hunger games: L\'embrasement', 'livre', 'Suzanne Collins', '2009-09-01', 'Après le succès des derniers Hunger Games, le peuple de Panem est impatient de retrouver Katniss et Peeta pour la Tournée de la victoire. Mais pour Katniss, il s\'agit surtout d\'une tournée de la dernière chance. Celle qui a osé défier le Capitole est devenue le symbole d\'une rébellion qui pourrait bien embraser Panem.', 'ressources\\affiche\\15.png'),
 (16, 1, 'Hunger Games : La Révolte', 'livre', 'Suzanne Collins', '2010-08-24', 'Contre toute attente, Katniss a survécu une seconde fois aux Hunger Games. Mais le Capitole crie vengeance. Katniss doit payer les humiliations qu\'elle lui a fait subir. Et le président Snow a été très clair : Katniss n\'est pas la seule à risquer sa vie. Sa famille, ses amis et tous les anciens habitants du district Douze sont visés par la colère sanglante du pouvoir. Pour sauver les siens, Katniss doit redevenir le geai moqueur, le symbole de la rébellion. Quel que soit le prix à payer.', 'ressources\\affiche\\16.png'),
-(17, 1, 'Cinquante nuances de Grey', 'livre', 'E. L. James', '2011-05-25', 'Anastasia Steele, étudiante en littérature, a accepté la proposition de son amie journaliste de prendre sa place pour interviewer Christian Grey, un jeune et richissime chef d’entreprise de Seattle. Dès le premier regard, elle est à la fois séduite et intimidée. Convaincue que leur rencontre a été désastreuse, elle tente de l\'oublier, jusqu\'à ce qu\'il débarque dans le magasin où elle travaille à mi-temps et lui propose un rendez-vous. Ana est follement attirée par cet homme. Lorsqu\'ils entament une liaison passionnée, elle découvre son pouvoir érotique, ainsi que la part obscure qu’il tient à dissimuler... Romantique, libératrice et totalement addictive, la trilogie Fifty Shades, dont Cinquante nuances de Grey est le premier volume, vous obsédera, vous possédera et vous marquera à jamais.', 'ressources\\affiche\\17.png');
+(17, 1, 'Cinquante nuances de Grey', 'livre', 'E. L. James', '2011-05-25', 'Anastasia Steele, étudiante en littérature, a accepté la proposition de son amie journaliste de prendre sa place pour interviewer Christian Grey, un jeune et richissime chef d’entreprise de Seattle. Dès le premier regard, elle est à la fois séduite et intimidée. Convaincue que leur rencontre a été désastreuse, elle tente de l\'oublier, jusqu\'à ce qu\'il débarque dans le magasin où elle travaille à mi-temps et lui propose un rendez-vous. Ana est follement attirée par cet homme. Lorsqu\'ils entament une liaison passionnée, elle découvre son pouvoir érotique, ainsi que la part obscure qu’il tient à dissimuler... Romantique, libératrice et totalement addictive, la trilogie Fifty Shades, dont Cinquante nuances de Grey est le premier volume, vous obsédera, vous possédera et vous marquera à jamais.', 'ressources\\affiche\\17.png'),
+(18, 1, '2 Fast 2 Furious', 'film', 'John Singleton', '2003-06-18', 'Deux coureurs automobiles casse-cou sont recrutés par le FBI pour infiltrer l\'entourage d\'un dangereux criminel.', 'ressources\\affiche\\18.png');
 
 -- --------------------------------------------------------
 
@@ -77,20 +98,39 @@ CREATE TABLE IF NOT EXISTS `liste` (
   PRIMARY KEY (`idliste`),
   KEY `fk_listeiditem` (`iditem`),
   KEY `fk_listeidusers` (`idusers`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `liste`
 --
 
 INSERT INTO `liste` (`idliste`, `iditem`, `idusers`) VALUES
+(34, 4, 1),
 (13, 1, 1),
 (32, 13, 1),
 (14, 3, 1),
 (16, 12, 1),
 (17, 10, 1),
 (18, 8, 1),
-(19, 6, 1);
+(19, 6, 1),
+(35, 18, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `note`
+--
+
+DROP TABLE IF EXISTS `note`;
+CREATE TABLE IF NOT EXISTS `note` (
+  `idnote` int(11) NOT NULL AUTO_INCREMENT,
+  `note` int(11) NOT NULL,
+  `iditem` int(11) NOT NULL,
+  `idusers` int(11) NOT NULL,
+  PRIMARY KEY (`idnote`),
+  KEY `fk_item` (`iditem`),
+  KEY `fk_users` (`idusers`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
