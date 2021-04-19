@@ -51,8 +51,7 @@
     <p class="annonce">- DERNIERS FILMS -</p>
     <div class="carousel">
     <?php //php sur les livres récents
-      $actu = new Recherche("empty", "film", "empty");
-      $actumanager = new RechercheManager($bdd);
+      $actu->setCategorie("film");
       $actumanager->news($actu)
     ?>
     </div>
@@ -60,8 +59,7 @@
     <p class="annonce">- DERNIERS JEUX -</p>
     <div class="carousel">
     <?php //php sur les livres récents
-      $actu = new Recherche("empty", "Jeux", "empty");
-      $actumanager = new RechercheManager($bdd);
+      $actu->setCategorie("jeux");
       $actumanager->news($actu)
     ?>
     </div>
