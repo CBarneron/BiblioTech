@@ -80,11 +80,25 @@
       <!-- Affichage de la liste de souhaits -->
       <p class="annonce">- Listes des livres -</p>
       <div class="carousel">
-      <?php //php sur les livres récents
-        $actu = new Recherche("empty", "livre", "empty");
-        $actu->setUserId($_SESSION['idusers']);
-        $actumanager = new RechercheManager($bdd);
-        $actumanager->afficherListe($actu);
+      <?php
+        $liste = new Recherche("empty", "livre", "empty");
+        $liste->setUserId($_SESSION['idusers']);
+        $listemanager = new RechercheManager($bdd);
+        $listemanager->afficherListe($liste);
+      ?>
+      </div>
+      <p class="annonce">- Listes des films -</p>
+      <div class="carousel">
+      <?php
+        $liste->setCategorie("film");
+        $listemanager->afficherListe($liste);
+      ?>
+      </div>
+      <p class="annonce">- Listes des jeux -</p>
+      <div class="carousel">
+      <?php
+        $liste->setCategorie("jeux");
+        $listemanager->afficherListe($liste);
       ?>
       </div>
 
