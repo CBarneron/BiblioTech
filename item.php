@@ -60,6 +60,8 @@
     <div class="bandeau">
       <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
     <section  class='rating-widget'>
+      <form  action="index.html" method="post">
+
       <div class='rating-stars text-center'>
           <ul id='stars'>
             <li class='star' data-value='1'><i class='fa fa-star fa-fw'></i></li>
@@ -74,6 +76,10 @@
             <li class='star' data-value='10'><i class='fa fa-star fa-fw'></i></li>
           </ul>
         </div>
+        <input type="text" name="valeur" value=$ratingValue id="rating">
+      </form>
+
+
       </section>
       <?php
         if($_SESSION['connect']) { ?>
