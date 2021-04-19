@@ -3,9 +3,11 @@ class Recherche
 {
   private $search;
   private $categorie;
-  private $date;
   private $iditem;
 
+  private $userid;
+
+  private $date;
   private $titre;
   private $auteur;
   private $affiche;
@@ -34,6 +36,10 @@ class Recherche
   {
     $this->iditem = $iditem;
   }
+  public function setUserId($userid)
+  {
+    $this->userid = $userid;
+  }
 //Getteur
   public function getSearch()
   {
@@ -50,6 +56,10 @@ class Recherche
   public function getIditem()
   {
     return $this->iditem;
+  }
+  public function getUserId()
+  {
+    return $this->userid;
   }
 
 //ItemInfos

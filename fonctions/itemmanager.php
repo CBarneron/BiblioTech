@@ -37,7 +37,7 @@ class ItemManager
     }
     $obj->setNote($resultat);
   }
-  
+
   //Verifie si l'item est déja dans la liste de l'utilisateur
   public function checkListe(item $obj)
   {

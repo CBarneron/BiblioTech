@@ -1,0 +1,29 @@
+.annonce{
+  font : normal 1.4em "Metropolis";
+  text-align: center;
+}
+.carousel-item{
+  width: 150px;
+  height: 215px;
+  margin: 0px 10px 0px 10px;
+}
+.carousel{
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  height:230px;
+  margin: 10px 15px 10px 15px;
+}
+/* Scrollbar des carousel*/
+.carousel::-webkit-scrollbar
+{
+  height: 4px;
+}
+.carousel::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+.carousel::-webkit-scrollbar-thumb:hover {
+    cursor: col-resize;
+    border-radius: 10px;
+}

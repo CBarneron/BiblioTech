@@ -19,7 +19,8 @@ class RechercheManager
     $resultat = $pre->fetchAll();
     //Ajout des affiche et des titres dans des tableau
     $i = 0;
-    foreach ($resultat as $row) {
+    foreach ($resultat as $row)
+    {
       echo "<a href=\"item.php?iditem=".$row["iditem"]."\">
               <img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\">
             </a>";
@@ -98,6 +99,35 @@ class RechercheManager
           {
             break;
           }
+      }
+    }
+  }
+  //Permet d'afficher la liste de souhaits de l'utilisateur
+  public function afficherListe(Recherche $obj)
+  {
+    $pre = $this->db->prepare(' SELECT i.iditem,i.titre,i.affiche
+                                FROM item i INNER JOIN liste l on i.iditem = l.iditem
+                                WHERE i.categorie = :categorie AND l.idusers = :idusers
+                                ORDER BY i.dateitem DESC
+                              ');
+
+    $pre->execute(array(
+      'categorie' => $obj->getCategorie(),
+      'idusers' => $obj->getUserId()
+    ));
+
+    $resultat = $pre->fetchAll();
+    //Ajout des affiche et des titres dans des tableau
+    $i = 0;
+    foreach ($resultat as $row)
+    {
+      echo "<a href=\"item.php?iditem=".$row["iditem"]."\">
+              <img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\">
+            </a>";
+      $i++;
+      if($i>15)
+      {
+        break;
       }
     }
   }
