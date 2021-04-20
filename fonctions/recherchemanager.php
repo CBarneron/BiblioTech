@@ -129,7 +129,7 @@ class RechercheManager
     $pre = $this->db->prepare(' SELECT i.iditem,i.titre,i.affiche,n.note FROM item i
                                 INNER JOIN note n on i.iditem = n.iditem
                                 WHERE i.categorie = :categorie AND n.idusers = :idusers
-                                ORDER BY i.dateitem DESC
+                                ORDER BY n.note DESC
                               ');
 
     $pre->execute(array(
