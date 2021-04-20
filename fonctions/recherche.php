@@ -12,6 +12,7 @@ class Recherche
   private $auteur;
   private $affiche;
   private $synopsis;
+  private $note;
 
   public function __construct($search, $categorie, $iditem)
   {
@@ -40,6 +41,10 @@ class Recherche
   {
     $this->userid = $userid;
   }
+  public function setNote($note)
+  {
+    $this->note = $note;
+  }
 //Getteur
   public function getSearch()
   {
@@ -60,6 +65,10 @@ class Recherche
   public function getUserId()
   {
     return $this->userid;
+  }
+  public function getNote()
+  {
+    return $this->note;
   }
 
 //ItemInfos

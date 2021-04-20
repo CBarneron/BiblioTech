@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BiblioTech-Profil</title>
+    <title>BiblioTech-Collection</title>
     <link rel="icon" href="ressources/images/favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/profil.css" rel="stylesheet">
+    <link href="css/liste.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
@@ -54,9 +55,9 @@
 
     <div class="menu">
       <ul class="choix">
-        <a href="#" class="active"><li>Profil</li></a>
+        <a href="profil.php"><li>Profil</li></a>
         <li class="barre">|</li>
-        <a href="collection.php"><li>Collection</li></a>
+        <a href="#" class="active"><li>Collection</li></a>
         <li class="barre">|</li>
         <a href="avis.php"><li>Avis</li></a>
         <li class="barre">|</li>
@@ -67,11 +68,11 @@
     </div>
     <div class="menu_smartphone">
       <ul class="choix_smartphone">
-        <a href="#"><img src="ressources/images/6.png" class="choix_img" alt="about"></a>
+        <a href="profil.php"><img src="ressources/images/1.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="collection.php"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
+        <a href="#"><img src="ressources/images/14.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="avis.php"><img src="ressources/images/8.png" class="choix_img" alt="about"></a>
+        <a href="avis.php"><img src="ressources/images/13.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
         <a href="liste.php"><img src="ressources/images/5.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
@@ -79,10 +80,30 @@
       </ul>
     </div>
 
-    <br><br><br>
-    <p>idée : Biographie, infos personnel, <br>site, films livres et jeux preferer</p>
-    <?php echo "</br>Pseudo : ".$_SESSION['pseudo'] . "</br>Avatar : ".$_SESSION['avatar'] . "</br>Id : ".$_SESSION['idusers']; ?>
-
+    <!-- Affichage de la liste de souhaits -->
+    <p class="annonce">- Livres que vous avez noté -</p>
+    <div class="carousel">
+    <?php
+      $collection = new Recherche("empty", "livre", "empty");
+      $collection->setUserId($_SESSION['idusers']);
+      $collectionmanager = new RechercheManager($bdd);
+      $collectionmanager->afficherCollection($collection);
+    ?>
+    </div>
+    <p class="annonce">- Films que vous avez noté -</p>
+    <div class="carousel">
+    <?php
+      $collection->setCategorie("film");
+      $collectionmanager->afficherCollection($collection);
+    ?>
+    </div>
+    <p class="annonce">- Jeux que vous avez noté -</p>
+    <div class="carousel">
+    <?php
+      $collection->setCategorie("jeux");
+      $collectionmanager->afficherCollection($collection);
+    ?>
+    </div>
 
     <?php include 'footer.php' ?>
 

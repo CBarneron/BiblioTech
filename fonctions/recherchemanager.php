@@ -105,8 +105,8 @@ class RechercheManager
   //Permet d'afficher la liste de souhaits de l'utilisateur
   public function afficherListe(Recherche $obj)
   {
-    $pre = $this->db->prepare(' SELECT i.iditem,i.titre,i.affiche
-                                FROM item i INNER JOIN liste l on i.iditem = l.iditem
+    $pre = $this->db->prepare(' SELECT i.iditem,i.titre,i.affiche FROM item i
+                                INNER JOIN liste l on i.iditem = l.iditem
                                 WHERE i.categorie = :categorie AND l.idusers = :idusers
                                 ORDER BY i.dateitem DESC
                               ');
@@ -121,6 +121,27 @@ class RechercheManager
     foreach ($resultat as $row)
     {
       echo "<a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\"></a>";
+    }
+  }
+  //Permet d'afficher la liste des item noté par l'utilisateur
+  public function afficherCollection(Recherche $obj)
+  {
+    $pre = $this->db->prepare(' SELECT i.iditem,i.titre,i.affiche,n.note FROM item i
+                                INNER JOIN note n on i.iditem = n.iditem
+                                WHERE i.categorie = :categorie AND n.idusers = :idusers
+                                ORDER BY i.dateitem DESC
+                              ');
+
+    $pre->execute(array(
+      'categorie' => $obj->getCategorie(),
+      'idusers' => $obj->getUserId()
+    ));
+
+    $resultat = $pre->fetchAll();
+    //Ajout des affiche et des titres dans des tableau
+    foreach ($resultat as $row)
+    {
+      echo "<a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\"></a><span class=\"note\"><br>".$row["note"]."/10</span>";
     }
   }
 }

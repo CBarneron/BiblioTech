@@ -1,3 +1,48 @@
+.global{
+  width: 60%;
+  margin: auto;
+  font: bold 1em "Metropolis";
+}
+.global input[type=text], input[type=password]{
+  border : 1px solid #E1E4E8;
+  background-color: #FAFBFC;
+  font: normal 1em "Metropolis";
+  width: 20%;
+  height: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  outline: none;
+}
+.formImage{
+  display: inline-flex;
+  float: right;
+}
+.avatar {
+    display: inline-flex;
+    background-size: cover;
+    background-position: top center;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    border : 2px solid #E1E4E8;
+}
+/*.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}*/
+.inputfile + label {
+    display: inline-block;
+}
+.inputfile:focus + label,
+.inputfile + label:hover {
+    color: #1ED760;
+    cursor: pointer;
+}
 .confirmation{
   width: 30%;
   height: auto;
@@ -21,17 +66,4 @@
   top: 0;
   filter: blur(0px);
   background-color: rgba(40, 40, 40, .5);
-}
-
-.formPseudo{
-  display: inline-flex;
-  float: left;
-}
-
-.formImage{
-  display: inline-flex;
-  float: right;
-}
-
-.formMdp{
 }

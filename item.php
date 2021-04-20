@@ -12,8 +12,8 @@
     <link href="css/fontawesome.css"rel="stylesheet">
     <script src="js/navbar.js"></script>
     <script src="js/item.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
     <script src="js/rating.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
   </head>
   <body>
     <?php
@@ -46,7 +46,7 @@
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
     </div>
 
-    <?php //Php qui affiche les infos de l'item
+    <?php //Php qui permettra d'afficher les infos de l'item
       $recherche = new Recherche("empty", "empty", $_GET['iditem']);
       $recherche_manager = new RechercheManager($bdd);
       $recherche_manager->Affichageitem($recherche);
@@ -57,30 +57,35 @@
       <input type="submit" name="searchBTN" class="search-button" value="">
     </form>
 
-    <div class="bandeau">
+    <div class="bandeau" onmouseover="rate()">
       <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
-    <section  class='rating-widget'>
-      <form  action="index.html" method="post">
 
+    <section  class='rating-widget'>
       <div class='rating-stars text-center'>
           <ul id='stars'>
-            <li class='star' data-value='1'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='2'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='3'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='4'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='5'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='6'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='7'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='8'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='9'><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='10'><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='1' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='2' value=""onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='3' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='4' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='5' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='6' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='7' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='8' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='9' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='10' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
           </ul>
         </div>
-      <input type="text" name="note" id="rating">
-      </form>
-
-
+        <?php
+          if(isset($_COOKIE['note']))
+          {
+            echo $_COOKIE['note'];
+            $item->setNote($_COOKIE['note']);
+            $item_manager->addNote($item);
+          }
+        ?>
       </section>
+
+
       <?php
         if($_SESSION['connect']) { ?>
           <form method="post">
@@ -98,6 +103,7 @@
         <script type="text/javascript">listeBTNKO();</script>
       <?php } } ?>
     <div class="lorem">
+      <br><br><br><br><br><br><br>
       <p><?php echo $recherche->getSynopsis();?></p>
     </div>
 

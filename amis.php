@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BiblioTech-Profil</title>
+    <title>BiblioTech-Amis</title>
     <link rel="icon" href="ressources/images/favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/profil.css" rel="stylesheet">
@@ -54,7 +54,7 @@
 
     <div class="menu">
       <ul class="choix">
-        <a href="#" class="active"><li>Profil</li></a>
+        <a href="profil.php"><li>Profil</li></a>
         <li class="barre">|</li>
         <a href="collection.php"><li>Collection</li></a>
         <li class="barre">|</li>
@@ -62,12 +62,12 @@
         <li class="barre">|</li>
         <a href="liste.php"><li>Liste</li></a>
         <li class="barre">|</li>
-        <a href="amis.php"><li>Amis</li></a>
+        <a href="#" class="active"><li>Amis</li></a>
       </ul>
     </div>
     <div class="menu_smartphone">
       <ul class="choix_smartphone">
-        <a href="#"><img src="ressources/images/6.png" class="choix_img" alt="about"></a>
+        <a href="profil.php"><img src="ressources/images/1.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
         <a href="collection.php"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
@@ -75,14 +75,12 @@
         <li class="barre_smartphone">|</li>
         <a href="liste.php"><img src="ressources/images/5.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="amis.php"><img src="ressources/images/2.png" class="choix_img" alt="about"></a>
+        <a href="#"><img src="ressources/images/12.png" class="choix_img" alt="about"></a>
       </ul>
     </div>
 
     <br><br><br>
-    <p>idée : Biographie, infos personnel, <br>site, films livres et jeux preferer</p>
-    <?php echo "</br>Pseudo : ".$_SESSION['pseudo'] . "</br>Avatar : ".$_SESSION['avatar'] . "</br>Id : ".$_SESSION['idusers']; ?>
-
+    <p>Vous ne pouvez pas encore avoir d'amis , mais on a ramener des curly !</p>
 
     <?php include 'footer.php' ?>
 

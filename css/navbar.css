@@ -66,6 +66,7 @@
   border-radius: 33px;
   height: 32px;
   width : 125px;
+  padding-top: 4px;
 }
 .navbar a button.inscrireBTN:hover{color: #000000;}
 .navbar a button.profilBTN{

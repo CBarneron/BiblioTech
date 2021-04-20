@@ -33,13 +33,13 @@
 
     <form action="#" method="post" class="inscription">
       <h2>Devenez membre de BiblioTech !</h2>
-      <p>On a besoin de trois infos c'est tout.</p>
+      <p>On a besoin de quelques infos c'est tout.</p>
       <label for="pseudo">Nom d'utilisateur</label><br>
-      <input type="text" name="pseudo" placeholder="Ton futur pseudo" required><br>
+      <input type="text" name="pseudo" placeholder="Futur pseudo" required><br>
       <label for="email">Email</label><br>
-      <input type="email" name="email" placeholder="Ton indentifant" required><br>
+      <input type="email" name="email" placeholder="L'indentifant" required><br>
       <label for="mdp">Mot de passe</label><br>
-      <input type="password" name="mdp" placeholder="Ton mot de passe" required>
+      <input type="password" name="mdp" placeholder="Le mot de passe" required>
       <label for="mdp2">Verification du mot de passe</label><br>
       <input type="password" name="mdp2" placeholder="Autant être sûr !" required>
       <input type="submit" name="formBTN" class="formBTN" value="Créer mon compte">

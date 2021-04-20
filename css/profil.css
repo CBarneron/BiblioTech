@@ -22,7 +22,8 @@ hr{
     width: 175px;
     height: 175px;
     border-radius: 50%;
-    margin: 0px;
+    margin: 0px 0px 0px 15px;
+    border : 2px solid #E1E4E8;
 }
 .resume a{
   color :black;
@@ -89,37 +90,46 @@ a.active{
 }
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
+  .avatar {
+    margin-bottom: 35px;
+  }
   .resume{
     width: 100%;
     display: inline-block;
-    position: static;
+    position: relative;
   }
   .resume figcaption{
     font: bold 1.5em "Metropolis";
     display: inline;
     position: absolute;
-    margin-top: 40px;
+    margin: 85px 0 0 15px;
   }
   .resume img.parametre{
     width: 35px;
     height: auto;
     float: right;
-    right: 30px;
-    margin-top: 20px;
+    right: 25px;
+    margin-top: 5px;
+    position: absolute;
+  }
+  .resume img.admin{
+    width: 35px;
+    float: right;
+    right: 50px;
+    margin: 5px 35px 0 0;
     position: absolute;
   }
   .resume span{
-    font: bold 1em "Metropolis";
+    font-size: 1.2em;
     position: absolute;
-    display: inline-block;
-    top: 45px;
-    width: auto;
+    bottom: 0;
+    margin: 0;
   }
   .un{
-    left: 15%;
+    left : 20px;
   }
   .deux{
-    left:50%;
+    right : 20px;
   }
   .menu{display: none;}
   .menu_smartphone{

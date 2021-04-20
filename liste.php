@@ -23,6 +23,7 @@
       $req->execute(array('pseudo' => $_SESSION['pseudo']));
       $resultat = $req->fetch();
       if($resultat){$_SESSION['avatar'] = $resultat["avatar"];}
+      unset($_COOKIE['note']);
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
@@ -41,6 +42,7 @@
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
     </div>
 
+    <div style="height:15px;"></div>
 
     <div class="resume">
       <div class="avatar" style="background-image: url('ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png');"></div>
@@ -54,26 +56,26 @@
       <ul class="choix">
         <a href="profil.php"><li>Profil</li></a>
         <li class="barre">|</li>
-        <a href="#"><li>Collection</li></a>
+        <a href="collection.php"><li>Collection</li></a>
         <li class="barre">|</li>
-        <a href="#"><li>Avis</li></a>
+        <a href="avis.php"><li>Avis</li></a>
         <li class="barre">|</li>
         <a href="liste.php" class="active"><li>Liste</li></a>
         <li class="barre">|</li>
-        <a href="#"><li>Amis</li></a>
+        <a href="amis.php"><li>Amis</li></a>
       </ul>
     </div>
     <div class="menu_smartphone">
       <ul class="choix_smartphone">
-        <a href="profil.php"><img src="ressources/images/6.png" class="choix_img" alt="about"></a>
+        <a href="profil.php"><img src="ressources/images/1.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="#"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
+        <a href="collection.php"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="#"><img src="ressources/images/8.png" class="choix_img" alt="about"></a>
+        <a href="avis.php"><img src="ressources/images/8.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="liste.php"><img src="ressources/images/5.png" class="choix_img" alt="about"></a>
+        <a href="liste.php"><img src="ressources/images/11.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="#"><img src="ressources/images/2.png" class="choix_img" alt="about"></a>
+        <a href="amis.php"><img src="ressources/images/2.png" class="choix_img" alt="about"></a>
       </ul>
     </div>
 

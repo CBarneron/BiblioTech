@@ -56,6 +56,12 @@ a.inscrire:hover{
   color: #1ED760;
   background: none;
 }
+a.inscrire p{
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+}
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
   hr{

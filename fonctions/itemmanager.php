@@ -10,32 +10,39 @@ class ItemManager
   //Ajouter une note
   public function addNote(item $obj)
   {
-    $pre = $this->db->prepare('SELECT Idnote FROM note WHERE Idusers = :Idusers and Iditem =:Iditem');
+    $req = $this->db->prepare('SELECT idnote FROM note WHERE idusers = :idusers and iditem = :iditem');
 
-    $pre->execute(array(
-      'Idusers' =>$obj->getIdUser(),
-      'Iditem'=>$obj->getIdUser()
+    $req->execute(array(
+      'idusers' =>$obj->getIdUser(),
+      'iditem'=>$obj->getIdItem()
     ));
     $resultat= $req->fetch();
 
-    if ($resultat==0)
+    if ($resultat)
     {
-      $req = $this->db->prepare('INSERT INTO note(note,iditem,idusers)VALUES(:note,:Iditem,:Idusers)');
-      $req = execute(array(
+      $req2 = $this->db->prepare('UPDATE note SET note = :note WHERE idusers = :idusers and iditem = :iditem');
+      $req2->execute(array(
+        'note' =>$obj->getNote(),
+        'idusers' =>$obj->getIdUser(),
+        'iditem' =>$obj->getIdItem()
+      ));
+      echo "note modifier";
+    }
+    else if (!$resultat)
+    {
+      $req3 = $this->db->prepare('INSERT INTO note(note,iditem,idusers)VALUES(:note,:iditem,:idusers)');
+      $req3->execute(array(
         'note' =>$obj->getNote(),
         'iditem' =>$obj->getIdItem(),
         'idusers' =>$obj->getIdUser()
       ));
+      echo "note add";
     }
-    else if ($resultat == 1)
+    else
     {
-      $req =$this->db->prepare('UPDATE note SET note = :note WHERE idusers =:Idusers and iditem = :Iditem;');
-      $req = execute(array(
-        'iditem' =>$obj->getIdItem(),
-        'idusers' =>$obj->getIdUser()
-      ));
+      //nothing
     }
-    $obj->setNote($resultat);
+    unset($_COOKIE['note']);
   }
 
   //Verifie si l'item est déja dans la liste de l'utilisateur

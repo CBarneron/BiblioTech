@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BiblioTech-Profil</title>
+    <title>BiblioTech-Avis</title>
     <link rel="icon" href="ressources/images/favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/profil.css" rel="stylesheet">
@@ -54,11 +54,11 @@
 
     <div class="menu">
       <ul class="choix">
-        <a href="#" class="active"><li>Profil</li></a>
+        <a href="profil.php"><li>Profil</li></a>
         <li class="barre">|</li>
-        <a href="collection.php"><li>Collection</li></a>
+        <a href="#"><li>Collection</li></a>
         <li class="barre">|</li>
-        <a href="avis.php"><li>Avis</li></a>
+        <a href="#" class="active"><li>Avis</li></a>
         <li class="barre">|</li>
         <a href="liste.php"><li>Liste</li></a>
         <li class="barre">|</li>
@@ -67,11 +67,11 @@
     </div>
     <div class="menu_smartphone">
       <ul class="choix_smartphone">
-        <a href="#"><img src="ressources/images/6.png" class="choix_img" alt="about"></a>
+        <a href="profil.php"><img src="ressources/images/1.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="collection.php"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
+        <a href="#"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="avis.php"><img src="ressources/images/8.png" class="choix_img" alt="about"></a>
+        <a href="#"><img src="ressources/images/13.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
         <a href="liste.php"><img src="ressources/images/5.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
@@ -80,9 +80,7 @@
     </div>
 
     <br><br><br>
-    <p>idée : Biographie, infos personnel, <br>site, films livres et jeux preferer</p>
-    <?php echo "</br>Pseudo : ".$_SESSION['pseudo'] . "</br>Avatar : ".$_SESSION['avatar'] . "</br>Id : ".$_SESSION['idusers']; ?>
-
+    <p>On ne vous pas encore demander votre avis? Si?</p>
 
     <?php include 'footer.php' ?>
 

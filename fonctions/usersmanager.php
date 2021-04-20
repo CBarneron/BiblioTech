@@ -89,8 +89,8 @@ class UsersManager
         }
         else
         {
-          echo "Erreur de téléchargement :\n"; // Erreur quelquonque
-          print_r($_FILES); // On print tout
+          echo "Erreur de téléchargement : Veuillez réessayer s'il vous plaît."; // Erreur quelquonque
+          /*print_r($_FILES); // On print tout*/
         }
       }
       else

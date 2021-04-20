@@ -58,8 +58,10 @@ a.connect:hover{
   background: none;
 }
 a.connect p{
-  display: inline;
-  margin: 36%;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
 }
 @media screen and (max-width: 699px) { /*Smartphone*/
   hr{
@@ -79,12 +81,12 @@ a.connect p{
     margin: 0px 0 10px 10%;
   }
   .connect p{
+    position: flex;
     text-align: justify;
-    position: absolute;
     top: 82%;
     display: inline;
     left: -13%;
-    width: 60%;
+    margin: auto;
   }
 }
 

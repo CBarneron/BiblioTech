@@ -1,4 +1,4 @@
-$(document).ready(function () {
+function rate() {
   /* 1. Visualizing things on Hover - See next part for action on click */
   $("#stars li")
     .on("mouseover", function () {
@@ -40,16 +40,15 @@ $(document).ready(function () {
 
     //js pour recup la valeur
 
-
     var ratingValue = parseInt(
       $("#stars li.selected").last().data("value"),
       10
     );
     var note = ratingValue;
-
     responseMessage("<span>" +note + "</span>");
+    document.cookie = "note=" + note;
   });
-});
+}
 
 function responseMessage(note) {
 
