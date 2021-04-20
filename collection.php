@@ -6,7 +6,7 @@
     <link rel="icon" href="ressources/images/favicon.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/profil.css" rel="stylesheet">
-    <link href="css/liste.css" rel="stylesheet">
+    <link href="css/collection.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
@@ -72,7 +72,7 @@
         <li class="barre_smartphone">|</li>
         <a href="#"><img src="ressources/images/14.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="avis.php"><img src="ressources/images/13.png" class="choix_img" alt="about"></a>
+        <a href="avis.php"><img src="ressources/images/8.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
         <a href="liste.php"><img src="ressources/images/5.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>

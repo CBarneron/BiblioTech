@@ -56,7 +56,7 @@
       <ul class="choix">
         <a href="profil.php"><li>Profil</li></a>
         <li class="barre">|</li>
-        <a href="#"><li>Collection</li></a>
+        <a href="collection.php"><li>Collection</li></a>
         <li class="barre">|</li>
         <a href="#" class="active"><li>Avis</li></a>
         <li class="barre">|</li>
@@ -69,7 +69,7 @@
       <ul class="choix_smartphone">
         <a href="profil.php"><img src="ressources/images/1.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
-        <a href="#"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
+        <a href="collection.php"><img src="ressources/images/7.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>
         <a href="#"><img src="ressources/images/13.png" class="choix_img" alt="about"></a>
         <li class="barre_smartphone">|</li>

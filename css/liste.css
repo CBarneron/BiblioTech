@@ -6,7 +6,6 @@
   width: 150px;
   height: 215px;
   margin: 0px 10px 0px 10px;
-  position: relative;
 }
 .carousel{
   overflow-y: hidden;
@@ -14,19 +13,6 @@
   white-space: nowrap;
   height:230px;
   margin: 10px 15px 10px 15px;
-}
-.note{
-  width: 55px;
-  height: 55px;
-  position: absolute;
-  font : bold 1.15em "Metropolis";
-  background-color: rgba(27,191,86,.8);/*rgba(255,255,255,.8);*/
-  border: 2px solid black;
-  z-index: 1;
-  margin : 77px 0 0 -112px;
-  text-align: center;
-  align-items: center;
-  border-radius: 50%;
 }
 /* Scrollbar des carousel*/
 .carousel::-webkit-scrollbar
