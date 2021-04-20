@@ -101,7 +101,17 @@ class ItemManager
       'idusers' => $obj->getIdUser()
     ));
     $resultat = $pre->fetch();
-    return $resultat;
+    return $resultat['NbNotes'];
+  }
+  public function nbAvis(Item $obj)
+  {
+    $pre = $this->db->prepare('SELECT count(idavis) as NbAvis FROM avis WHERE idusers = :idusers;');
+
+    $pre->execute(array(
+      'idusers' => $obj->getIdUser()
+    ));
+    $resultat = $pre->fetch();
+    return $resultat['NbAvis'];
   }
 }
 ?>
