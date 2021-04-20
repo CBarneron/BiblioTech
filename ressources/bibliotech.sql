@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 19 avr. 2021 à 16:13
+-- Généré le : mar. 20 avr. 2021 à 15:49
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -130,7 +130,19 @@ CREATE TABLE IF NOT EXISTS `note` (
   PRIMARY KEY (`idnote`),
   KEY `fk_item` (`iditem`),
   KEY `fk_users` (`idusers`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `note`
+--
+
+INSERT INTO `note` (`idnote`, `note`, `iditem`, `idusers`) VALUES
+(1, 9, 13, 1),
+(2, 1, 18, 1),
+(3, 1, 4, 1),
+(4, 2, 17, 1),
+(5, 2, 6, 1),
+(6, 9, 3, 1);
 
 -- --------------------------------------------------------
 
