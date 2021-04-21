@@ -64,7 +64,7 @@ class ItemManager
     }
   }
   //Ajoute un item à la liste de l'utilisateur
-  public function addListe(Item $obj)
+  public function addListe(item $obj)
   {
     $pre = $this->db->prepare('SELECT iditem, idliste FROM liste WHERE iditem = :iditem and idusers = :idiusers');
     $pre->execute(array(
@@ -92,26 +92,49 @@ class ItemManager
       return true; //On returne true car on vient d'ajouter l'item dans la liste
     }
   }
-  //Compte le nombre de notes de l'utilisateur
-  public function nbNotes(Item $obj)
-  {
-    $pre = $this->db->prepare('SELECT count(idnote) as NbNotes FROM note WHERE idusers = :idusers;');
 
-    $pre->execute(array(
-      'idusers' => $obj->getIdUser()
-    ));
-    $resultat = $pre->fetch();
-    return $resultat['NbNotes'];
-  }
-  public function nbAvis(Item $obj)
-  {
-    $pre = $this->db->prepare('SELECT count(idavis) as NbAvis FROM avis WHERE idusers = :idusers;');
+  // Ajouter un avis
+  public function addAvis(item $obj)
+    {
+      $req = $this->db->prepare('SELECT idavis FROM avis INNER JOIN note on avis.idnote =note.idnote WHERE idusers = :idusers and iditem = :iditem and idnote =:idnote');
 
-    $pre->execute(array(
-      'idusers' => $obj->getIdUser()
-    ));
-    $resultat = $pre->fetch();
-    return $resultat['NbAvis'];
+      $req->execute(array(
+        'idusers' =>$obj->getIdUser(),
+        'iditem'=>$obj->getIdItem(),
+        'iditem'=>$obj->getIdNote(),
+      ));
+      $resultat= $req->fetch();
+
+      if ($resultat)
+      {
+        $req2 = $this->db->prepare('UPDATE avis SET titreavis= :titreavis ,contenuavis= :contenuavis WHERE idusers = :idusers and iditem = :iditem and idnote =:idnote');
+        $req2->execute(array(
+          'titreavis' =>$obj->getTitreAvis(),
+          'contenuavis' =>$obj->getContenuAvis(),
+          'idusers' =>$obj->getIdUser(),
+          'iditem' =>$obj->getIdItem()
+        ));
+        echo "avis modifier";
+      }
+      else if (!$resultat)
+      {
+        $req3 = $this->db->prepare('INSERT INTO avis(titreavis,contenuavis,iditem,idusers,idnote)VALUES(:titreavis,:contenuavis,:iditem,:idusers,:idnote)');
+        $req3->execute(array(
+          'titreavis' =>$obj->getTitreAvis(),
+          'contenuavis' =>$obj->getContenuAvis(),
+          'idusers' =>$obj->getIdUser(),
+          'iditem' =>$obj->getIdItem()
+        ));
+        echo "avis add";
+      }
+      else
+      {
+        //nothing
+      }
+      unset($_COOKIE['note']);
+    }
+
+
   }
 }
 ?>

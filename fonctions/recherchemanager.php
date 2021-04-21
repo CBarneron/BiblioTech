@@ -141,13 +141,7 @@ class RechercheManager
     //Ajout des affiche et des titres dans des tableau
     foreach ($resultat as $row)
     {
-<<<<<<< HEAD
-      echo "<a href=\"item.php?iditem=".$row["iditem"]."\">
-      <img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\"></a>
-      <span class=\"note\"><br>".$row["note"]."/10</span>";
-=======
-      echo "<div class=\"item\"><a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\"/><p class=\"note\">".$row["note"]."/10</p></a></div>";
->>>>>>> 241f7b32c0e4ebc69ca2f564ad508d64c1064347
+           echo "<div class=\"item\"><a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\"/><p class=\"note\">".$row["note"]."/10</p></a></div>";
     }
   }
 }

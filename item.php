@@ -64,7 +64,7 @@
       <div class='rating-stars text-center'>
           <ul id='stars'>
             <li class='star' data-value='1' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='2' value=""onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='2' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
             <li class='star' data-value='3' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
             <li class='star' data-value='4' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
             <li class='star' data-value='5' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
@@ -84,10 +84,12 @@
           }
         ?>
         <div class="avis">
-
           <form class="avis-text" action="index.html" method="post">
-          <input
-            <input type="submit" name="repavis" value="">
+            <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" id="titleview">
+          <textarea name="textavis" placeholder="Soumettre votre avis" id="txtview" ></textarea>
+            <button class="btnavis"type="submit" name="repavis">
+              <i class="fa fa-paper-plane fa-2x"></i>
+            </button>
           </form>
         </div>
       </section>

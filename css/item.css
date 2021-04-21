@@ -43,3 +43,19 @@ hr{
 .rating-stars ul > li.star.selected > i.fa {
   color:#1cca59;
 }
+/* -----------------------avis---------------------- */
+
+.btnavis{
+  text-decoration: none;
+  border: none;
+  background-color: #ffffff00 ;
+
+  cursor: pointer;
+}
+.btnavis:hover{
+  text-decoration: none;
+  border: none;
+  background-color: #ffffff00 ;
+  color: #1Ed760;
+  cursor: pointer;
+}
