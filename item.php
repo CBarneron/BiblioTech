@@ -60,29 +60,41 @@
     <div class="bandeau" onmouseover="rate()">
       <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
 
-    <section  class='rating-widget'>
+    <form  class='rating-widget' id="myForm">
       <div class='rating-stars text-center'>
           <ul id='stars'>
-            <li class='star' data-value='1' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='2' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='3' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='4' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='5' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='6' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='7' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='8' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='9' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='10' onclick="rate()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='1' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='2' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='3' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='4' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='5' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='6' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='7' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='8' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='9' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            <li class='star' data-value='10' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
           </ul>
         </div>
         <?php
-          if(isset($_COOKIE['note']))
+          if ($_SERVER['REQUEST_METHOD'] == 'POST')
           {
             echo $_COOKIE['note'];
             $item->setNote($_COOKIE['note']);
             $item_manager->addNote($item);
           }
         ?>
+      </form>
+      <script type="text/javascript">
+      function SubForm(){
+        $.ajax({
+          type: 'post',
+          data: $('#myForm').serialize(),
+          success: function(){
+            location.reload();
+          }
+        });
+      }
+      </script>
         <div class="avis">
           <form class="avis-text" action="index.html" method="post">
             <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" id="titleview">
@@ -92,7 +104,6 @@
             </button>
           </form>
         </div>
-      </section>
 
 
       <?php

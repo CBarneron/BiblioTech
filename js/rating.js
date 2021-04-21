@@ -1,10 +1,8 @@
 function rate() {
-  /* 1. Visualizing things on Hover - See next part for action on click */
-  $("#stars li")
-    .on("mouseover", function () {
-      var onStar = parseInt($(this).data("value"), 10); // The star currently mouse on
+  $("#stars li").on("mouseover", function () {
+      var onStar = parseInt($(this).data("value"), 10); // L'étoile ou la souris est dessus
 
-      // Now highlight all the stars that's not after the current hovered star
+      // Mettre en évidence toutes les étoiles qui ne sont pas après l'étoile choisie
       $(this)
         .parent()
         .children("li.star")
@@ -25,9 +23,9 @@ function rate() {
         });
     });
 
-  /* 2. Action to perform on click */
+  /* Action quand on clique sur une étoile */
   $("#stars li").on("click", function () {
-    var onStar = parseInt($(this).data("value"), 10); // The star currently selected
+    var onStar = parseInt($(this).data("value"), 10); // Les étoiles qui sont sélectionner
     var stars = $(this).parent().children("li.star");
 
     for (i = 0; i < stars.length; i++) {
@@ -49,8 +47,17 @@ function rate() {
     document.cookie = "note=" + note;
   });
 }
-
 function responseMessage(note) {
 
   $(".p.text-notation").html(note);
+}
+
+//Fonction qui affiche la note qu'on a donnée.
+function giveNote(note) {
+  console.log("ok");
+  var etoile = document.getElementById('etoile');
+  for (let i = 0; i < etoile.length; i++) {
+    etoile[i].addClass("selected");
+    console.log(etoile[i]);
+  }
 }
