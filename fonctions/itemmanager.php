@@ -76,7 +76,7 @@ class ItemManager
     {
       $pre2 = $this->db->prepare('DELETE FROM liste WHERE idliste = :idliste'); //On supprime le compte de l'utilisateur de la BDD
       $pre2->execute(array(
-        'idliste' =>$resultat["idliste"]
+        'idliste' => $resultat["idliste"]
       ));
       return false; //On return false car l'item est déja dans la liste
     }
@@ -111,10 +111,7 @@ class ItemManager
       'iditem' => $obj->getIdItem(),
       'idusers' => $obj->getIdUser()
     ));
-    $resultat = $pre->fetchAll();
-    var_dump($resultat);
-    var_dump($resultat['note']);
-    echo "<p style=color:red>".$resultat['note']."</p>";
+    $resultat = $pre->fetch();
     return $resultat['note'];
   }
   //Donner le nombre d'avis de l'utilisateur

@@ -24,8 +24,9 @@
     require 'fonctions/BDD.php';
     $item = new Item($_GET['iditem'],$_SESSION['idusers']);
     $item_manager = new ItemManager($bdd);
+    $note = $item_manager->giveNotes($item);
   ?>
-  <body id="test" onmouseover="giveNote(<?php $item_manager->giveNotes($item) ?> )">
+  <body id="test" onmouseover="giveNote(<?php echo $note; ?>)">
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
       <a href="#vous-y-êtes-déjà!" class="select active">Livres</a>
