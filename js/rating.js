@@ -1,7 +1,7 @@
-function rate() {
-  $("#stars li").on("mouseover", function () {
+function rate() {;
+    $("#stars li").on("mouseover", function () {
+      console.log("ko")
       var onStar = parseInt($(this).data("value"), 10); // L'étoile ou la souris est dessus
-
       // Mettre en évidence toutes les étoiles qui ne sont pas après l'étoile choisie
       $(this)
         .parent()
@@ -22,7 +22,6 @@ function rate() {
           $(this).removeClass("hover");
         });
     });
-
   /* Action quand on clique sur une étoile */
   $("#stars li").on("click", function () {
     var onStar = parseInt($(this).data("value"), 10); // Les étoiles qui sont sélectionner
@@ -47,17 +46,22 @@ function rate() {
     document.cookie = "note=" + note;
   });
 }
-function responseMessage(note) {
-
-  $(".p.text-notation").html(note);
-}
+function responseMessage(note) { $(".p.text-notation").html(note); }
 
 //Fonction qui affiche la note qu'on a donnée.
-function giveNote(note) {
-  console.log("ok");
-  var etoile = document.getElementById('etoile');
-  for (let i = 0; i < etoile.length; i++) {
-    etoile[i].addClass("selected");
-    console.log(etoile[i]);
-  }
+function giveNote() {
+  $("#stars li").show(function () {
+      console.log("ok")
+      // Mettre en évidence toutes les étoiles qui ne sont pas après l'étoile choisie
+      $(this)
+        .parent()
+        .children("li.star")
+        .each(function (a) {
+          if (a < 5) {
+            $(this).addClass("selected");
+          } else {
+            $(this).removeClass("selected");
+          }
+        });
+    })
 }

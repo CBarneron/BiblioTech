@@ -56,58 +56,54 @@
       <input type="text" name="titre" placeholder="Recherchez une oeuvre..." id="searchBox" autocomplete="off" class="search-input" oninput=search(this.value)>
       <input type="submit" name="searchBTN" class="search-button" value="">
     </form>
+    <!-- Script qui affiche la note déja donner si existante -->
+    <script type="text/javascript"> giveNote(); </script>
 
     <div class="bandeau" onmouseover="rate()">
       <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
-
-    <form  class='rating-widget' id="myForm">
-      <div class='rating-stars text-center'>
-          <ul id='stars'>
-            <li class='star' data-value='1' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='2' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='3' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='4' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='5' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='6' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='7' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='8' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='9' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-            <li class='star' data-value='10' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-          </ul>
-        </div>
-        <?php
-          if ($_SERVER['REQUEST_METHOD'] == 'POST')
-          {
-            echo $_COOKIE['note'];
-            $item->setNote($_COOKIE['note']);
-            $item_manager->addNote($item);
-          }
-        ?>
-      </form>
-      <script type="text/javascript">
-      function SubForm(){
-        $.ajax({
-          type: 'post',
-          data: $('#myForm').serialize(),
-          success: function(){
-            location.reload();
-          }
-        });
-      }
-      </script>
-        <div class="avis">
-          <form class="avis-text" action="index.html" method="post">
-            <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" id="titleview">
-          <textarea name="textavis" placeholder="Soumettre votre avis" id="txtview" ></textarea>
-            <button class="btnavis"type="submit" name="repavis">
-              <i class="fa fa-paper-plane fa-2x"></i>
-            </button>
+      <?php if($_SESSION['connect']) { //Affiche liste + note + avis si connecter ?>
+        <form  class='rating-widget' id="myForm" onmouseover="giveNote(<?php echo "4"; ?>)">
+          <div class='rating-stars text-center'>
+            <ul id='stars'>
+              <li class='star' data-value='1' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='2' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='3' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='4' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='5' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='6' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='7' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='8' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='9' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' data-value='10' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+            </ul>
+          </div>
+          <?php
+            if ($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+              echo $_COOKIE['note'];
+              $item->setNote($_COOKIE['note']);
+              $item_manager->addNote($item);
+            } ?>
           </form>
-        </div>
-
-
-      <?php
-        if($_SESSION['connect']) { ?>
+          <script type="text/javascript">
+            function SubForm(){
+              $.ajax({
+                type: 'post',
+                data: $('#myForm').serialize(),
+                success: function(){ location.reload(); }
+              });
+            }
+          </script>
+          <div class="avis">
+            <form class="avis-text" action="index.html" method="post">
+              <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" id="titleview">
+              <textarea name="textavis" placeholder="Soumettre votre avis" id="txtview" ></textarea>
+              <button class="btnavis"type="submit" name="repavis">
+                <i class="fa fa-paper-plane fa-2x"></i>
+              </button>
+            </form>
+          </div>
+          <!-- Btn add liste -->
           <form method="post">
             <input type="submit" name="addliste" value="+" class="addliste" id="addliste">
           </form>
