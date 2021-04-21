@@ -14,6 +14,8 @@
     <?php
       require 'fonctions/recherche.php';
       require 'fonctions/recherchemanager.php';
+      require 'fonctions/item.php';
+      require 'fonctions/itemmanager.php';
       require 'fonctions/BDD.php';
       session_start();
       if(!$_SESSION['connect']) { header('Location: connexion.php');}
@@ -22,6 +24,8 @@
       $req->execute(array('pseudo' => $_SESSION['pseudo']));
       $resultat = $req->fetch();
       if($resultat){$_SESSION['avatar'] = $resultat["avatar"];}
+      $profil = new Item("empty",$_SESSION['idusers']);
+      $profilmanager = new ItemManager($bdd);
       unset($_COOKIE['note']);
     ?>
     <div class="navbar" id="navbar">
@@ -48,8 +52,8 @@
       <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
       <?php if ($_SESSION['admin']==1) {?>  <a href="admin.php"><img src="ressources/images/4.png" class="admin" alt="administration"></a><?php ;}?>
       <a href="parametre.php"><img src="ressources/images/parametre.png" class="parametre" alt="parametre"></a>
-      <span class="un">Nombre Avis</span>
-      <span class="deux">Nombre Notes</span>
+      <span class="un"><?php echo $profilmanager->nbNotes($profil); ?> Notes</span>
+      <span class="deux"><?php echo $profilmanager->nbAvis($profil); ?> Avis</span>
     </div>
 
     <div class="menu">
@@ -82,7 +86,9 @@
     <br><br><br>
     <p>idée : Biographie, infos personnel, <br>site, films livres et jeux preferer</p>
     <?php echo "</br>Pseudo : ".$_SESSION['pseudo'] . "</br>Avatar : ".$_SESSION['avatar'] . "</br>Id : ".$_SESSION['idusers']; ?>
+    <section class="about">
 
+    </section>
 
     <?php include 'footer.php' ?>
 

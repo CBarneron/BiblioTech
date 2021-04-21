@@ -64,7 +64,7 @@ class ItemManager
     }
   }
   //Ajoute un item à la liste de l'utilisateur
-  public function addListe(item $obj)
+  public function addListe(Item $obj)
   {
     $pre = $this->db->prepare('SELECT iditem, idliste FROM liste WHERE iditem = :iditem and idusers = :idiusers');
     $pre->execute(array(
@@ -91,6 +91,27 @@ class ItemManager
 
       return true; //On returne true car on vient d'ajouter l'item dans la liste
     }
+  }
+  //Compte le nombre de notes de l'utilisateur
+  public function nbNotes(Item $obj)
+  {
+    $pre = $this->db->prepare('SELECT count(idnote) as NbNotes FROM note WHERE idusers = :idusers;');
+
+    $pre->execute(array(
+      'idusers' => $obj->getIdUser()
+    ));
+    $resultat = $pre->fetch();
+    return $resultat['NbNotes'];
+  }
+  public function nbAvis(Item $obj)
+  {
+    $pre = $this->db->prepare('SELECT count(idavis) as NbAvis FROM avis WHERE idusers = :idusers;');
+
+    $pre->execute(array(
+      'idusers' => $obj->getIdUser()
+    ));
+    $resultat = $pre->fetch();
+    return $resultat['NbAvis'];
   }
 }
 ?>

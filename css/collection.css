@@ -1,0 +1,60 @@
+.annonce{
+  font : normal 1.4em "Metropolis";
+  text-align: center;
+}
+.carousel-item{
+  width: 150px;
+  height: 215px;
+  margin: 0px 10px 0px 10px;
+  position: relative;
+}
+.carousel{
+  display: inline-flex;
+  margin: 10px;
+  width: 90%;
+  height:230px;
+  overflow-y: hidden;
+  overflow: scroll;
+  margin: 10px 15px 10px 15px;
+  white-space: nowrap;
+}
+.item
+{
+  position: relative;
+}
+.item a{
+  text-decoration: none;
+  color: black;
+}
+.item img{
+  margin: 0px 10px 0px 10px;
+  width: 150px;
+  height: 215px;
+}
+.note{
+  position: absolute;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 50%;
+  font : bold 1.3em "Metropolis";
+  background-color: rgba(255,255,255,.8);
+  top: 0px;
+  width: 55px;
+  height: 55px;
+  margin : 77px 0 0 55px;
+  text-align: center;
+  line-height: 60px;
+}
+/* Scrollbar des carousel*/
+.carousel::-webkit-scrollbar
+{
+  height: 4px;
+}
+.carousel::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+.carousel::-webkit-scrollbar-thumb:hover {
+    cursor: col-resize;
+    border-radius: 10px;
+}
