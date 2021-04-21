@@ -8,6 +8,7 @@
     <link href="css/profil.css" rel="stylesheet">
     <link href="css/liste.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/test.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
   </head>

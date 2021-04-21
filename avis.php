@@ -56,7 +56,7 @@
       <ul class="choix">
         <a href="profil.php"><li>Profil</li></a>
         <li class="barre">|</li>
-        <a href="#"><li>Collection</li></a>
+        <a href="collection.php"><li>Collection</li></a>
         <li class="barre">|</li>
         <a href="#" class="active"><li>Avis</li></a>
         <li class="barre">|</li>
