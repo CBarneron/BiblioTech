@@ -1,6 +1,5 @@
 function rate() {;
     $("#stars li").on("mouseover", function () {
-      console.log("ko")
       var onStar = parseInt($(this).data("value"), 10); // L'étoile ou la souris est dessus
       // Mettre en évidence toutes les étoiles qui ne sont pas après l'étoile choisie
       $(this)
@@ -49,19 +48,14 @@ function rate() {;
 function responseMessage(note) { $(".p.text-notation").html(note); }
 
 //Fonction qui affiche la note qu'on a donnée.
-function giveNote() {
-  $("#stars li").show(function () {
-      console.log("ok")
-      // Mettre en évidence toutes les étoiles qui ne sont pas après l'étoile choisie
-      $(this)
-        .parent()
-        .children("li.star")
-        .each(function (a) {
-          if (a < 5) {
-            $(this).addClass("selected");
-          } else {
-            $(this).removeClass("selected");
-          }
-        });
-    })
+function giveNote(note) {
+      for(i = 1; i <= 10 ; i++){
+        if (i <= note)
+        {
+          $("#etoile" + i).addClass("selected");
+        }
+        else {
+          $("#etoile" + i).removeClass("selected");
+        }
+      }
 }

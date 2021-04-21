@@ -15,17 +15,17 @@
     <script src="js/rating.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
   </head>
-  <body>
-    <?php
-      session_start();
-      require 'fonctions/recherche.php';
-      require 'fonctions/recherchemanager.php';
-      require 'fonctions/item.php';
-      require 'fonctions/itemmanager.php';
-      require 'fonctions/BDD.php';
-      $item = new Item($_GET['iditem'],$_SESSION['idusers']);
-      $item_manager = new ItemManager($bdd);
-    ?>
+  <?php
+    session_start();
+    require 'fonctions/recherche.php';
+    require 'fonctions/recherchemanager.php';
+    require 'fonctions/item.php';
+    require 'fonctions/itemmanager.php';
+    require 'fonctions/BDD.php';
+    $item = new Item($_GET['iditem'],$_SESSION['idusers']);
+    $item_manager = new ItemManager($bdd);
+  ?>
+  <body id="test" onmouseover="giveNote(<?php $item_manager->giveNotes($item) ?> )">
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
       <a href="#vous-y-êtes-déjà!" class="select active">Livres</a>
@@ -62,19 +62,19 @@
     <div class="bandeau" onmouseover="rate()">
       <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
       <?php if($_SESSION['connect']) { //Affiche liste + note + avis si connecter ?>
-        <form  class='rating-widget' id="myForm" onmouseover="giveNote(<?php echo "4"; ?>)">
-          <div class='rating-stars text-center'>
+        <form  class='rating-widget' id="myForm">
+          <div class='rating-stars text-center' id="divrate">
             <ul id='stars'>
-              <li class='star' data-value='1' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='2' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='3' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='4' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='5' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='6' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='7' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='8' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='9' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
-              <li class='star' data-value='10' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile1" data-value='1' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile2" data-value='2' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile3" data-value='3' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile4" data-value='4' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile5" data-value='5' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile6" data-value='6' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile7" data-value='7' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile8" data-value='8' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile9" data-value='9' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
+              <li class='star' id="etoile10" data-value='10' onclick="SubForm()"><i class='fa fa-star fa-fw'></i></li>
             </ul>
           </div>
           <?php

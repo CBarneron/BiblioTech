@@ -95,7 +95,7 @@ class ItemManager
   //Compte le nombre de notes de l'utilisateur
   public function nbNotes(Item $obj)
   {
-    $pre = $this->db->prepare('SELECT count(idnote) as NbNotes FROM note WHERE idusers = :idusers;');
+    $pre = $this->db->prepare('SELECT count(idnote) as NbNotes FROM note WHERE idusers = :idusers');
 
     $pre->execute(array(
       'idusers' => $obj->getIdUser()
@@ -103,9 +103,24 @@ class ItemManager
     $resultat = $pre->fetch();
     return $resultat['NbNotes'];
   }
+//Donne la note grace à l'itemId pour initialiser les étoiles
+  public function giveNotes(Item $obj)
+  {
+    $pre = $this->db->prepare('SELECT note FROM note WHERE iditem = :iditem AND idusers = :idusers');
+    $pre->execute(array(
+      'iditem' => $obj->getIdItem(),
+      'idusers' => $obj->getIdUser()
+    ));
+    $resultat = $pre->fetchAll();
+    var_dump($resultat);
+    var_dump($resultat['note']);
+    echo "<p style=color:red>".$resultat['note']."</p>";
+    return $resultat['note'];
+  }
+  //Donner le nombre d'avis de l'utilisateur
   public function nbAvis(Item $obj)
   {
-    $pre = $this->db->prepare('SELECT count(idavis) as NbAvis FROM avis WHERE idusers = :idusers;');
+    $pre = $this->db->prepare('SELECT count(idavis) as NbAvis FROM avis WHERE idusers = :idusers');
 
     $pre->execute(array(
       'idusers' => $obj->getIdUser()
