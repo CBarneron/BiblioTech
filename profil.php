@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/profil.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/collection.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
   </head>
   <body>
     <?php
+      require 'fonctions/users.php';
+      require 'fonctions/usersmanager.php';
       require 'fonctions/recherche.php';
       require 'fonctions/recherchemanager.php';
       require 'fonctions/item.php';
@@ -19,13 +22,16 @@
       require 'fonctions/BDD.php';
       session_start();
       if(!$_SESSION['connect']) { header('Location: connexion.php');}
-
       $req = $bdd->prepare('SELECT avatar FROM users WHERE pseudo = :pseudo');
       $req->execute(array('pseudo' => $_SESSION['pseudo']));
       $resultat = $req->fetch();
       if($resultat){$_SESSION['avatar'] = $resultat["avatar"];}
-      $profil = new Item("empty",$_SESSION['idusers']);
+
+      $user = new Users($_SESSION['pseudo'],"empty","empty",$_SESSION['idusers']);
+      $usermanager = new UsersManager($bdd);
+      $profil = new Item("empty",$user->getIdUsers());
       $profilmanager = new ItemManager($bdd);
+
       unset($_COOKIE['note']);
     ?>
     <div class="navbar" id="navbar">
@@ -49,7 +55,7 @@
 
     <div class="resume">
       <div class="avatar" style="background-image: url('ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png');"></div>
-      <figcaption><?php echo $_SESSION['pseudo']; ?></figcaption>
+      <figcaption><?php echo $user->getPseudo(); ?></figcaption>
       <?php if ($_SESSION['admin']==1) {?>  <a href="admin.php"><img src="ressources/images/4.png" class="admin" alt="administration"></a><?php ;}?>
       <a href="parametre.php"><img src="ressources/images/parametre.png" class="parametre" alt="parametre"></a>
       <span class="un"><?php echo $profilmanager->nbNotes($profil); ?> Notes</span>
@@ -82,12 +88,41 @@
         <a href="amis.php"><img src="ressources/images/2.png" class="choix_img" alt="about"></a>
       </ul>
     </div>
-
-    <br><br><br>
-    <p>idée : Biographie, infos personnel, <br>site, films livres et jeux preferer</p>
-    <?php echo "</br>Pseudo : ".$_SESSION['pseudo'] . "</br>Avatar : ".$_SESSION['avatar'] . "</br>Id : ".$_SESSION['idusers']; ?>
+    <br>
+    <!-- Information sur le profil -->
+    <!-- <p>idée : Biographie, infos personnel, <br>site, films livres et jeux preferer</p> -->
     <section class="about">
-
+      <div class="gauche">
+        <h1>Biographie de <?php echo $user->getPseudo(); ?></h1>
+        <p><?php echo $usermanager->Bio($user); ?></p>
+      </div>
+      <br>
+      <div class="">
+        <h1>Mes contacts</h1>
+        <p>bibliotech@gmail.com</p>
+        <p>0781732034</p>
+      </div>
+      <br>
+      <div class="">
+        <h1>Mon site favori / personnel</h1>
+        <p><a class="site" href="<?php echo $usermanager->Site($user); ?>"><?php echo $usermanager->Site($user); ?><a/></p>
+      </div>
+      <br>
+      <div class="droite">
+        <h1>Mes Livre, Film et Jeux préferés</h1>
+        <p>Livre : Livre </p>
+        <p>Film : Film </p>
+        <p>Jeux : Jeux</p>
+      </div>
+      <h1>Mes 10 dernières notes</h1>
+      <div class="carousel">
+      <?php
+        $collection = new Recherche("empty", "empty", "empty");
+        $collection->setUserId($user->getIdUsers());
+        $collectionmanager = new RechercheManager($bdd);
+        $collectionmanager->last($collection);
+      ?>
+      </div>
     </section>
 
     <?php include 'footer.php' ?>

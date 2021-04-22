@@ -108,48 +108,62 @@ class UsersManager
   // Fonctions pour changer le pseudo de l'utilisateur
   public function Changerpseudo($obj)
   {
-      // On verifie que le pseudo est pas déja pris
-      $req1 = $this->db->prepare('SELECT pseudo FROM users WHERE pseudo = :pseudo');
-      $req1->execute(array('pseudo' => $obj->getPseudo()));
-      $resultat1 = $req1->fetch();
-      if(!$resultat1) //On s'occupe de modifier le nom de l'image pour l'avatar
+    // On verifie que le pseudo est pas déja pris
+    $req1 = $this->db->prepare('SELECT pseudo FROM users WHERE pseudo = :pseudo');
+    $req1->execute(array('pseudo' => $obj->getPseudo()));
+    $resultat1 = $req1->fetch();
+    if(!$resultat1) //On s'occupe de modifier le nom de l'image pour l'avatar
+    {
+      $path_avatar = "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png";
+      if (file_exists($path_avatar))
       {
-        $path_avatar = "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png";
-        if (file_exists($path_avatar))
+        $_SESSION['pseudo'] = $obj->getPseudo(); //On change le pseudo dans le cache du site
+        if(rename($path_avatar, "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png")) //On rename l'avatar dans le dossier
         {
-          $_SESSION['pseudo'] = $obj->getPseudo(); //On change le pseudo dans le cache du site
-          if(rename($path_avatar, "ressources/images/avatar/" . $_SESSION['pseudo'] . '.' . "png")) //On rename l'avatar dans le dossier
+          $req2 = $this->db->prepare('UPDATE users SET pseudo = :pseudo , avatar = :pseudo WHERE idusers = :idusers');
+          $req2->execute(array(
+            'pseudo' => $obj->getPseudo(),
+            'idusers' => $_SESSION['idusers']
+          ));
+          $resultat2 = $req2->fetch();
+          var_dump($req2);
+          var_dump($resultat2);
+          if ($resultat2)
           {
-            $req2 = $this->db->prepare('UPDATE users SET pseudo = :pseudo , avatar = :pseudo WHERE idusers = :idusers');
-            $req2->execute(array(
-              'pseudo' => $obj->getPseudo(),
-              'idusers' => $_SESSION['idusers']
-            ));
-            $resultat2 = $req2->fetch();
-            var_dump($req2);
-            var_dump($resultat2);
-            if ($resultat2)
-            {
-              echo "Pseudo changer avec succès !"; //Fin
-            }
+            echo "Pseudo changer avec succès !"; //Fin
           }
         }
       }
-      else
-      {
-        echo "<p style=color:red>Pseudo déja utiliser</p>";
-      }
     }
-
-//Retirer un users de la BDD
-    public function Changerpassword(Users $obj)
+    else
     {
-      $req = $this->db->prepare('UPDATE users SET password = :password WHERE idusers = :idusers');
-      $req->execute(array(
-        'password' => $obj->getPassword(),
-        'idusers' => $_SESSION['idusers']
-      ));
-      echo "Mot de passe changer avec succès";
+      echo "<p style=color:red>Pseudo déja utiliser</p>";
     }
+  }
+//Retirer un users de la BDD
+  public function Changerpassword(Users $obj)
+  {
+    $req = $this->db->prepare('UPDATE users SET password = :password WHERE idusers = :idusers');
+    $req->execute(array(
+      'password' => $obj->getPassword(),
+      'idusers' => $_SESSION['idusers']
+    ));
+    echo "Mot de passe changer avec succès";
+  }
+//FONCTIONS POUR AFFICHAGE PROFIl
+  public function Bio(Users $obj)
+  {
+    $req = $this->db->prepare('SELECT biographie FROM users WHERE idusers = :idusers');
+    $req->execute(array( 'idusers' => $obj->getIdUsers() ));
+    $resultat = $req->fetch();
+    return $resultat['biographie'];
+  }
+  public function Site(Users $obj)
+  {
+    $req = $this->db->prepare('SELECT site FROM users WHERE idusers = :idusers');
+    $req->execute(array( 'idusers' => $obj->getIdUsers() ));
+    $resultat = $req->fetch();
+    return $resultat['site'];
+  }
 }
 ?>

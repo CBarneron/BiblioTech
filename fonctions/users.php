@@ -4,14 +4,15 @@ class Users
   private $pseudo;
   private $email;
   private $password;
+  private $idusers;
 
 
-  public function __construct($pseudo, $email, $password)
+  public function __construct($pseudo, $email, $password, $idusers)
   {
     $this->pseudo = $pseudo;
     $this->email = $email;
     $this->password = $password;
-
+    $this->idusers = $idusers;
   }
 //Setteur
   public function setPseudo($pseudo)
@@ -26,6 +27,10 @@ class Users
   {
     $this->password = $mdp;
   }
+  public function setIdUsers($idusers)
+  {
+    $this->idusers = $idusers;
+  }
 //Getteur
   public function getPseudo()
   {
@@ -38,6 +43,10 @@ class Users
   public function getPassword()
   {
     return $this->password;
+  }
+  public function getIdUsers()
+  {
+    return $this->idusers;
   }
 }
 ?>

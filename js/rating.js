@@ -41,21 +41,20 @@ function rate() {;
       10
     );
     var note = ratingValue;
-    responseMessage("<span>" +note + "</span>");
     document.cookie = "note=" + note;
   });
 }
-function responseMessage(note) { $(".p.text-notation").html(note); }
 
 //Fonction qui affiche la note qu'on a donnée.
 function giveNote(note) {
-      for(i = 1; i <= 10 ; i++){
-        if (i <= note)
-        {
-          $("#etoile" + i).addClass("selected");
-        }
-        else {
-          $("#etoile" + i).removeClass("selected");
-        }
+    document.cookie = "note=";
+    for(i = 1; i <= 10 ; i++){
+      if (i <= note)
+      {
+        $("#etoile" + i).addClass("selected");
       }
+      else {
+        $("#etoile" + i).removeClass("selected");
+      }
+    }
 }

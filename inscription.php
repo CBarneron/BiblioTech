@@ -52,7 +52,7 @@
       require 'fonctions/BDD.php';
       if(isset($_POST["formBTN"]))
       {
-        $user = new Users($_POST["pseudo"], $_POST["email"], sha1($_POST["mdp"]));
+        $user = new Users($_POST["pseudo"], $_POST["email"], sha1($_POST["mdp"]), "empty");
         $manager = new UsersManager($bdd);
         if ($_POST["mdp"] == $_POST["mdp2"])
         {

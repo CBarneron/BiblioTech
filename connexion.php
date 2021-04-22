@@ -46,7 +46,7 @@
       if(isset($_POST["formBTN"]))
       {
         $password = sha1($_POST["mdp"]);
-        $user = new Users("empty", $_POST["email"], $password);
+        $user = new Users("empty", $_POST["email"], $password, "empty");
         $manager = new UsersManager($bdd);
 
 

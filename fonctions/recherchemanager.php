@@ -110,12 +110,10 @@ class RechercheManager
                                 WHERE i.categorie = :categorie AND l.idusers = :idusers
                                 ORDER BY i.dateitem DESC
                               ');
-
     $pre->execute(array(
       'categorie' => $obj->getCategorie(),
       'idusers' => $obj->getUserId()
     ));
-
     $resultat = $pre->fetchAll();
     //Ajout des affiche et des titres dans des tableau
     foreach ($resultat as $row)
@@ -123,6 +121,7 @@ class RechercheManager
       echo "<a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\"></a>";
     }
   }
+
   //Permet d'afficher la liste des item noté par l'utilisateur
   public function afficherCollection(Recherche $obj)
   {
@@ -131,17 +130,39 @@ class RechercheManager
                                 WHERE i.categorie = :categorie AND n.idusers = :idusers
                                 ORDER BY n.note DESC
                               ');
-
     $pre->execute(array(
       'categorie' => $obj->getCategorie(),
       'idusers' => $obj->getUserId()
     ));
-
     $resultat = $pre->fetchAll();
     //Ajout des affiche et des titres dans des tableau
     foreach ($resultat as $row)
     {
-           echo "<div class=\"item\"><a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\"/><p class=\"note\">".$row["note"]."/10</p></a></div>";
+      echo "<div class=\"item\"><a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\"/><p class=\"note\">".$row["note"]."</p></a></div>";
+    }
+  }
+  //Affiche les 4 dernieres note de l'utilisateur dans profil
+  public function last(Recherche $obj)
+  {
+    $pre = $this->db->prepare(' SELECT i.iditem,i.titre,i.affiche,n.note FROM item i
+                                INNER JOIN note n on i.iditem = n.iditem
+                                WHERE n.idusers = :idusers
+                                ORDER BY n.note DESC
+                              ');
+    $pre->execute(array(
+      'idusers' => $obj->getUserId()
+    ));
+    $resultat = $pre->fetchAll();
+    //Ajout des affiche et des titres dans des tableau
+    $i = 0;
+    foreach ($resultat as $row)
+    {
+      echo "<div class=\"item\"><a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\"/><p class=\"note\">".$row["note"]."</p></a></div>";
+      $i++;
+      if($i>=10)
+      {
+        break;
+      }
     }
   }
 }

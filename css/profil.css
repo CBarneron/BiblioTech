@@ -88,6 +88,29 @@ a.active{
 .navbar a button.profilBTN{
   color: #1ED760 !important;
 }
+/*Information sur le profil*/
+h1{
+  font-family: "Spotify";
+  margin-left: 20px;
+}
+p{
+  font-family: "Metropolis";
+  margin-left: 20px;
+}
+a.site{
+  color: black;
+}
+a.site:hover{
+  color: #1ED760;
+}
+.gauche{
+  display: inline-block;
+  float: left;
+}
+.droite{
+  display: inline-flex;
+  float: right;
+}
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
   .avatar {
@@ -126,10 +149,10 @@ a.active{
     margin: 0;
   }
   .un{
-    left : 20px;
+    left : 70px;
   }
   .deux{
-    right : 20px;
+    right : 70px;
   }
   .menu{display: none;}
   .menu_smartphone{
@@ -168,6 +191,16 @@ a.active{
     display:inline;
     margin-right: 3%;
     top: 13.5px;
+  }
+  /*Information sur le profil*/
+  .about{
+    text-align: center;
+  }
+  h1{
+    margin-left: 0;
+  }
+  p{
+    margin-left: 0;
   }
 }
 
