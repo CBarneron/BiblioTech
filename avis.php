@@ -26,7 +26,7 @@
       if($resultat){$_SESSION['avatar'] = $resultat["avatar"];}
       $profil = new Item("empty",$_SESSION['idusers']);
       $profilmanager = new ItemManager($bdd);
-      
+
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
@@ -86,8 +86,16 @@
       </ul>
     </div>
 
-    <br><br><br>
-    <p>On ne vous pas encore demander votre avis? Si?</p>
+    <!-- Affichage de la liste des Avis -->
+    <p class="annonce">- Vos differents Avis -</p>
+
+
+    <div class="">
+      <?php
+      $profil->setIdUser($_SESSION['idusers']);
+      $profilmanager->afficherAvisProfil($profil);
+      ?>
+    </div>
 
     <?php include 'footer.php' ?>
 

@@ -37,7 +37,7 @@ class ItemManager
         'iditem' =>$obj->getIdItem(),
         'idusers' =>$obj->getIdUser()
       ));
-      echo "note add";
+      
     }
     else
     {
@@ -174,7 +174,7 @@ class ItemManager
           echo "
           <div class=\"cards\">
             <div class=\"card-title\">
-              <p> ".$row["titreavis"]."</p>
+              <p>".$row["titreavis"]."</>
             </div>
             <div class=\"card-text\">
               <p>".$row["contenuavis"]. "</p>
@@ -187,6 +187,36 @@ class ItemManager
         }
 
 
+    }
+    public function afficherAvisProfil(item $obj){
+
+      $req = $this->db->prepare('SELECT titreavis,contenuavis,item.affiche,item.titre
+                                 FROM avis
+                                 INNER jOIN item on item.iditem = avis.iditem
+                                 WHERE  avis.iditem = :iditem, avis.idavis = :idavis and avis.idusers = :idusers
+                                 ORDER BY idavis DESC
+                                ');
+      $req->execute(array(
+          'iditem'=>$obj->getIdItem(),
+          'idavis'=>$obj->getIdAvis(),
+          'idusers'=>$obj->getIdUser()
+        ));
+      $resultat =$req->fetchall();
+      foreach ($resultat as $row)
+      {
+        echo"
+
+
+          <a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\"></a>
+
+            <p>".$row["titre"]."</p>
+
+            <p>".$row["titreavis"]."</p>
+
+            <p>".$row["contenuavis"]."</p>
+          ";
+
+      }
     }
 }
 ?>
