@@ -66,6 +66,16 @@ hr{
 .container {
   padding: 2px 16px;
 }
+.avatar {
+    display: inline-flex;
+    background-size: cover;
+    background-position: top center;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin: 0px 0px 0px 15px;
+    border : 2px solid #E1E4E8;
+}
 /* -----------------------liste---------------------- */
 .addliste{
   text-decoration: none;
