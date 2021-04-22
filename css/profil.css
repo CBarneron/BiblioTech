@@ -166,6 +166,9 @@ a.site:hover{
     text-align: center;
     vertical-align: bottom ;
   }
+  .menu_smartphone .choix_smartphone{
+    padding-left: 10px;
+  }
   .menu_smartphone .choix_smartphone li{
     list-style-type: none;
     position: relative;
@@ -209,19 +212,16 @@ a.site:hover{
   }
   .gauche{
     width: 50%;
-    height: 200px;
+    height: 180px;
     display: block;
     align-self: auto;
     overflow: scroll;
   }
-  .gauche{
-    width: 50%;
-    height: 250px;
-    display: block;
-    float: left;
+  .bio h1{
+    padding-left: 5px;
   }
   .bio p{
-    text-align: left;
+    text-align: center;
     padding: 0 5px 0 10px;
     line-height: 20px;
   }

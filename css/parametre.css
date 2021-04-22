@@ -1,6 +1,5 @@
 .global{
-  width: 60%;
-  margin: auto;
+  width: 100%;
   font: bold 1em "Metropolis";
 }
 .global input[type=text], input[type=password]{
@@ -15,7 +14,7 @@
   outline: none;
 }
 .formImage{
-  display: inline-flex;
+  display: block;
   float: right;
 }
 .avatar {
@@ -27,14 +26,12 @@
     border-radius: 50%;
     border : 2px solid #E1E4E8;
 }
-/*.inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}*/
+.choose{
+  font: normal 1em "Metropolis";
+}
+.inputfile{
+  display: none;
+}
 .inputfile + label {
     display: inline-block;
 }
@@ -66,4 +63,10 @@
   top: 0;
   filter: blur(0px);
   background-color: rgba(40, 40, 40, .5);
+}
+form{
+  margin-left: 20%;
+}
+.formImage{
+  margin: 0px;
 }

@@ -16,6 +16,8 @@
       require 'fonctions/users.php';
       require 'fonctions/usersmanager.php';
       require 'fonctions/BDD.php';
+      $users = new Users($_SESSION["pseudo"], "empty", "empty", $_SESSION["idusers"]);
+      $users_manager = new UsersManager($bdd);
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
@@ -24,11 +26,14 @@
       <a href="#jeux" class="select">Jeux</a>
       <div class="topBTN">
         <?php
-          if(!$_SESSION['connect']) { echo "<a href=\"connexion.php\"><button type=\"button\" name=\"connect\" class=\"connectBTN\">Se connecter</button></a>
-                                            <a href=\"inscription.php\"><button type=\"button\" name=\"connect\" class=\"inscrireBTN\">S'inscrire</button></a>";}
-          elseif($_SESSION['connect']) { echo "<a href=\"profil.php\"><button type=\"button\" name=\"connect\" class=\"profilBTN\">Profil</button></a>
-                                               <a href=\"fonctions/deco.php\" class=\"door\"><img src=\"ressources/images/door.png\" alt=\"déco\" width=\"20px\" onMouseOver=\"this.src='ressources/images/door2.png'\" onmouseout=\"this.src='ressources/images/door.png'\"/></a>"; }
-        ?>
+          if(!$_SESSION['connect']) { ?>
+            <a href="connexion.php"><button type="button" name="connect" class="connectBTN">Se connecter</button></a>
+            <a href="inscription.php"><button type="button" name="connect" class="inscrireBTN">S'inscrire</button></a>
+          <?php }
+          elseif($_SESSION['connect']) { ?>
+            <a href="profil.php"><button type="button" name="connect" class="profilBTN">Profil</button></a>
+            <a href="fonctions/deco.php" class="door"><img src="ressources/images/door.png" alt="déco" width="20px" onMouseOver="this.src='ressources/images/door2.png'" onmouseout="this.src='ressources/images/door.png'"/></a>
+          <?php } ?>
       </div>
       <a href="connexion.php"><img src="ressources/images/6.png" class="icon2" alt="profile"></a>
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
@@ -37,16 +42,17 @@
     <div class="global">
       <!-- <div class="avatar" style="background-image: url('ressources/images/avatar/<?php// echo $_SESSION['avatar']; ?>.png');"></div> -->
       <form method="post" enctype="multipart/form-data" class="formImage">
+        <label>Changer mon image</label>
+        <br><br>
         <input type="file" name="avatar" id="avatar" class="inputfile" />
-        <label for="avatar">Changer mon image</label>
-        <br>
-        <input type="submit" name="submit_image" value="Télécharger"><br>
+        <label for="avatar" class="choose">Choisir un fichier</label>
+        <br><br>
+        <input type="submit" name="submit_image" value="V"><br>
       </form>
-      <br>
       <form method="post" class="formPseudo">
         <label for="newpseudo">Pseudo</label>
         <br>
-        <input type="text" name="newpseudo" value="<?php echo $_SESSION['avatar']; ?>">
+        <input type="text" name="newpseudo" value="<?php echo $users->getPseudo(); ?>">
         <input type="submit" name="submit_pseudo" value="Changer"><br>
       </form>
       <br>
@@ -58,6 +64,12 @@
         <input type="submit" name="submit_password" value="Modifier">
       </form>
       <br><hr><br>
+      <form method="post" class="formPseudo">
+        <label for="newpseudo">Biographie</label>
+        <br>
+        <input type="text" name="bio" value="<?php echo $_SESSION['avatar']; ?>">
+        <input type="submit" name="submit_bio" value="Changer"><br>
+      </form>
       <div>
         <label for="submit_delete">Supprimer mon profil</label>
         <input type="submit" name="submit_delete" value="Supprimer" onclick="confirmer()"><br>
@@ -69,28 +81,20 @@
           <input type="submit" name="non" value="Non">
         </form>
       </div>
-      <?php if(isset($_POST['submit_image'])){$avatarManager = new UsersManager($bdd);$avatarManager ->Addavatar();} ?>
-      <?php if(isset($_POST['submit_pseudo'])){$pseudo = new Users($_POST['newpseudo'],"empty","empty");$pseudoManager = new UsersManager($bdd);$pseudoManager->Changerpseudo($pseudo);} ?>
+      <?php if(isset($_POST['submit_image'])){$users_manager->Addavatar();} ?>
+      <?php if(isset($_POST['submit_pseudo'])){$users->setPseudo($_POST['newpseudo']);$users_manager->Changerpseudo($users);} ?>
       <?php if(isset($_POST['submit_password']))
             {
               if ($_POST['mdp1'] == $_POST['mdp2'])
               {
-                $mdp = new Users("empty","empty",sha1($_POST["mdp1"]));
-                $mdpManager = new UsersManager($bdd);
-                $mdpManager ->Changerpassword($mdp);
+                $users->setPassword(sha1($_POST["mdp1"]));
+                $users_manager->Changerpassword($mdp);
               }
             }
       ?>
       <?php
-        if(isset($_POST['oui']))
-        {
-          $deleteManager = new UsersManager($bdd);
-          $deleteManager ->delete();
-        }
-        elseif(isset($_POST['non']))
-        {
-          echo "Vous avez bien raison !";
-        }
+        if(isset($_POST['oui'])) { $users_manager->delete(); }
+        elseif(isset($_POST['non'])) { echo "Vous avez bien raison !"; }
       ?>
     </div>
     <?php include 'footer.php' ?>

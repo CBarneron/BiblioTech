@@ -41,13 +41,16 @@
       <a href="#jeux" class="select">Jeux</a>
       <div class="topBTN">
         <?php
-          if(!$_SESSION['connect']) { echo "<a href=\"connexion.php\"><button type=\"button\" name=\"connect\" class=\"connectBTN\">Se connecter</button></a>
-                                            <a href=\"inscription.php\"><button type=\"button\" name=\"connect\" class=\"inscrireBTN\">S'inscrire</button></a>";}
-          elseif($_SESSION['connect']) { echo "<a href=\"#\" class=\"active\"><button type=\"button\" name=\"connect\" class=\"profilBTN\">Profil</button></a>
-                                              <a href=\"fonctions/deco.php\" class=\"door\"><img src=\"ressources/images/door.png\" alt=\"déco\" width=\"20px\" onMouseOver=\"this.src='ressources/images/door2.png'\" onmouseout=\"this.src='ressources/images/door.png'\"/></a>"; }
-        ?>
+          if(!$_SESSION['connect']) { ?>
+            <a href="connexion.php"><button type="button" name="connect" class="connectBTN">Se connecter</button></a>
+            <a href="inscription.php"><button type="button" name="connect" class="inscrireBTN">S'inscrire</button></a>
+          <?php }
+          elseif($_SESSION['connect']) { ?>
+            <a href="profil.php" class="active"><button type="button" name="connect" class="profilBTN">Profil</button></a>
+            <a href="fonctions/deco.php" class="door"><img src="ressources/images/door.png" alt="déco" width="20px" onMouseOver="this.src='ressources/images/door2.png'" onmouseout="this.src='ressources/images/door.png'"/></a>
+          <?php } ?>
       </div>
-      <a href="connexion.php"><img src="ressources/images/6.png" class="icon2" alt="profile"></a>
+      <a href="fonctions/deco.php"><img src="ressources/images/door.png" class="icon2" alt="profile"></a>
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
     </div>
 
@@ -90,11 +93,16 @@
     </div>
     <br>
     <!-- Information sur le profil -->
-    <!-- <p>idée : Biographie, infos personnel, <br>site, films livres et jeux preferer</p> -->
     <section class="about">
       <div class="gauche bio">
         <h1>Biographie de <?php echo $user->getPseudo(); ?></h1>
         <p><?php echo $usermanager->Bio($user); ?></p>
+      </div>
+      <div class="gauche">
+        <h1>Livre, Film et Jeux préferés</h1>
+        <p>Livre : <?php echo $usermanager->LivreFAV($user); ?></p>
+        <p>Film : <?php echo $usermanager->FilmFAV($user); ?></p>
+        <p>Jeux : <?php echo $usermanager->JeuxFAV($user); ?></p>
       </div>
       <div class="gauche">
         <h1>Contacts</h1>
@@ -104,12 +112,7 @@
         <h1>Artistes favoris</h1>
         <p><?php echo $usermanager->Artiste($user); ?></a></p>
       </div>
-      <div class="gauche">
-        <h1>Livre, Film et Jeux préferés</h1>
-        <p>Livre : <?php echo $usermanager->LivreFAV($user); ?></p>
-        <p>Film : <?php echo $usermanager->FilmFAV($user); ?></p>
-        <p>Jeux : <?php echo $usermanager->JeuxFAV($user); ?></p>
-      </div>
+
       <h1 class="carou">10 dernières notes</h1>
       <div class="carousel">
       <?php

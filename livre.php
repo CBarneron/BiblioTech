@@ -22,11 +22,14 @@
       <a href="#jeux" class="select">Jeux</a>
       <div class="topBTN">
         <?php
-          if(!$_SESSION['connect']) { echo "<a href=\"connexion.php\"><button type=\"button\" name=\"connect\" class=\"connectBTN\">Se connecter</button></a>
-                                            <a href=\"inscription.php\"><button type=\"button\" name=\"connect\" class=\"inscrireBTN\">S'inscrire</button></a>";}
-          elseif($_SESSION['connect']) { echo "<a href=\"profil.php\"><button type=\"button\" name=\"connect\" class=\"profilBTN\">Profil</button></a>
-                                              <a href=\"fonctions/deco.php\" class=\"door\"><img src=\"ressources/images/door.png\" alt=\"déco\" width=\"20px\" onMouseOver=\"this.src='ressources/images/door2.png'\" onmouseout=\"this.src='ressources/images/door.png'\"/></a>"; }
-        ?>
+          if(!$_SESSION['connect']) { ?>
+            <a href="connexion.php"><button type="button" name="connect" class="connectBTN">Se connecter</button></a>
+            <a href="inscription.php"><button type="button" name="connect" class="inscrireBTN">S'inscrire</button></a>
+          <?php }
+          elseif($_SESSION['connect']) { ?>
+            <a href="profil.php"><button type="button" name="connect" class="profilBTN">Profil</button></a>
+            <a href="fonctions/deco.php" class="door"><img src="ressources/images/door.png" alt="déco" width="20px" onMouseOver="this.src='ressources/images/door2.png'" onmouseout="this.src='ressources/images/door.png'"/></a>
+          <?php } ?>
       </div>
       <a href="connexion.php"><img src="ressources/images/6.png" class="icon2" alt="profile"></a>
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
