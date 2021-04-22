@@ -58,3 +58,18 @@ hr{
   color: #1Ed760;
   cursor: pointer;
 }
+/* -----------------------liste---------------------- */
+.addliste{
+  text-decoration: none;
+  border: none;
+  background-color: #ffffff00 ;
+
+  cursor: pointer;
+}
+.addliste:hover{
+  text-decoration: none;
+  border: none;
+  background-color: #ffffff00 ;
+  color: #1Ed760;
+  cursor: pointer;
+}

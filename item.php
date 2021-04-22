@@ -95,18 +95,26 @@
               });
             }
           </script>
+
+
+<!-- avis -->
           <div class="avis">
-            <form class="avis-text" action="index.html" method="post">
-              <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" id="titleview">
-              <textarea name="textavis" placeholder="Soumettre votre avis" id="txtview" ></textarea>
-              <button class="btnavis"type="submit" name="repavis">
-                <i class="fa fa-paper-plane fa-2x"></i>
-              </button>
-            </form>
-          </div>
+                <form class="avis-text"  method="post">
+                  <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" id="titleview">
+                  <textarea name="textavis" placeholder="Soumettre votre avis" id="txtview" ></textarea>
+                  <button class="btnavis"type="submit" name="addAvis" id="addAvis">
+                    <i class="fa fa-paper-plane fa-2x"></i>
+                  </button>
+
+                  </form>
+                </form>
+              </div>
+
           <!-- Btn add liste -->
           <form method="post">
-            <input type="submit" name="addliste" value="+" class="addliste" id="addliste">
+            <button type="submit" name="addliste"  class="addliste" id="addliste">
+              <i class="far fa-bookmark"></i>
+            </button>
           </form>
       <?php } ?>
     </div>

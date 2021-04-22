@@ -133,7 +133,7 @@ class ItemManager
       $req->execute(array(
         'idusers' =>$obj->getIdUser(),
         'iditem'=>$obj->getIdItem(),
-        'iditem'=>$obj->getIdNote(),
+        'idnote'=>$obj->getIdNote(),
       ));
       $resultat= $req->fetch();
 
@@ -163,7 +163,7 @@ class ItemManager
       {
         //nothing
       }
-      unset($_COOKIE['note']);
+      ;
     }
 }
 ?>
