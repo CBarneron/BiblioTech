@@ -96,22 +96,21 @@
         <h1>Biographie de <?php echo $user->getPseudo(); ?></h1>
         <p><?php echo $usermanager->Bio($user); ?></p>
       </div>
-      <br>
-      <div class="gauche2">
+      <div class="gauche">
         <h1>Mes contacts</h1>
         <p>bibliotech@gmail.com</p>
         <p>0781732034</p>
       </div>
       <br>
-      <div class="">
-        <h1>Mon site favori / personnel</h1>
+      <div class="gauche">
+        <h1>Mes artistes favoris</h1>
         <p><a class="site" href="<?php echo $usermanager->Site($user); ?>"><?php echo $usermanager->Site($user); ?></a></p>
       </div>
       <br>
-      <div class="droite">
+      <div class="gauche">
         <h1>Mes Livre, Film et Jeux préferés</h1>
-        <p>Livre : Livre </p>
-        <p>Film : Film </p>
+        <p>Livre : Livre</p>
+        <p>Film : Film</p>
         <p>Jeux : Jeux</p>
       </div>
       <h1>Mes 10 dernières notes</h1>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 20 avr. 2021 à 15:49
+-- Généré le : jeu. 22 avr. 2021 à 07:51
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -130,19 +130,24 @@ CREATE TABLE IF NOT EXISTS `note` (
   PRIMARY KEY (`idnote`),
   KEY `fk_item` (`iditem`),
   KEY `fk_users` (`idusers`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `note`
 --
 
 INSERT INTO `note` (`idnote`, `note`, `iditem`, `idusers`) VALUES
-(1, 9, 13, 1),
+(1, 8, 13, 1),
 (2, 1, 18, 1),
 (3, 1, 4, 1),
-(4, 2, 17, 1),
-(5, 2, 6, 1),
-(6, 9, 3, 1);
+(4, 1, 17, 1),
+(5, 9, 6, 1),
+(6, 6, 3, 1),
+(7, 2, 1, 1),
+(8, 6, 14, 1),
+(9, 5, 2, 1),
+(10, 8, 16, 1),
+(11, 7, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -158,6 +163,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `avatar` varchar(1000) NOT NULL DEFAULT 'default',
+  `biographie` varchar(500) NOT NULL DEFAULT 'Fanatique de BiblioTech.',
+  `artiste` varchar(100) NOT NULL DEFAULT 'Aucun',
+  `livre` varchar(100) NOT NULL DEFAULT 'Aucun',
+  `film` varchar(100) NOT NULL DEFAULT 'Aucun',
+  `jeux` varchar(100) NOT NULL DEFAULT 'Aucun',
+  `contact` varchar(100) NOT NULL DEFAULT 'bibliotech@gmail.com',
   PRIMARY KEY (`idusers`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
@@ -165,13 +176,13 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`idusers`, `admin`, `pseudo`, `email`, `password`, `avatar`) VALUES
-(1, 1, 'Vincent', 'millot007@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Vincent'),
-(2, 0, 'LÃ©o', 'leo@lecon.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default'),
-(3, 0, 'Leo', 'leo@lecon2.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default'),
-(4, 0, 'Le Leto', 'leleto.fr@gmail.com', '4fd505f8aeed956f068c4ce57bfc30a6131b7c79', 'default'),
-(5, 1, 'skull26240', 'skull26240@gmail.com', '3d0968c2d124ed850ecf2be4b3a533742ca87738', 'default'),
-(6, 0, 'Antoinelebg', 'antoine@leplusbeau.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default');
+INSERT INTO `users` (`idusers`, `admin`, `pseudo`, `email`, `password`, `avatar`, `biographie`, `artiste`, `livre`, `film`, `jeux`, `contact`) VALUES
+(1, 1, 'Vincent', 'millot007@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Vincent', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
+(2, 0, 'LÃ©o', 'leo@lecon.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
+(3, 0, 'Leo', 'leo@lecon2.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
+(4, 0, 'Le Leto', 'leleto.fr@gmail.com', '4fd505f8aeed956f068c4ce57bfc30a6131b7c79', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
+(5, 1, 'skull26240', 'skull26240@gmail.com', '3d0968c2d124ed850ecf2be4b3a533742ca87738', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
+(6, 0, 'Antoinelebg', 'antoine@leplusbeau.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
