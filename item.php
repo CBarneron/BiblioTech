@@ -111,7 +111,7 @@
                 if(isset($_POST["addAvis"])){
                   $item->setTitreAvis($_POST["titreavis"]);
                   $item->setContenuAvis($_POST["textavis"]);
-                  $item_manager->addAvis($item);                  
+                  $item_manager->addAvis($item);
                 }
                  ?>
               </div>
@@ -133,6 +133,7 @@
       else{ ?>
         <script type="text/javascript">listeBTNKO();</script>
       <?php } } ?>
+
     <div class="lorem">
       <br><br><br><br><br><br><br>
       <p><?php echo $recherche->getSynopsis();?></p>
@@ -145,6 +146,21 @@
       else { ?>
         <script type="text/javascript">listeBTNKO();</script>
       <?php } ?>
+      <!-- affichage avis -->
+      <section class="card ">
+
+        <h1>Avis</h1>
+        <div class="card-avis">
+
+          <div class="container">
+            <h4><b><?php echo $item->getTitreAvis(); ?></b></h4>
+              <p><?php echo $item->getContenuAvis(); ?></p>
+          </div>
+        </div>
+
+
+      </section>
+
 
     <?php include 'footer.php' ?>
 

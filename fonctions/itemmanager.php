@@ -7,6 +7,7 @@ class ItemManager
   {
     $this->db = $db;
   }
+
   //Ajouter une note
   public function addNote(item $obj)
   {
@@ -63,6 +64,7 @@ class ItemManager
       return false; //On return false car l'item n'est pas dans la liste
     }
   }
+
   //Ajoute un item à la liste de l'utilisateur
   public function addListe(Item $obj)
   {
@@ -92,6 +94,7 @@ class ItemManager
       return true; //On returne true car on vient d'ajouter l'item dans la liste
     }
   }
+
   //Compte le nombre de notes de l'utilisateur
   public function nbNotes(Item $obj)
   {
@@ -103,6 +106,7 @@ class ItemManager
     $resultat = $pre->fetch();
     return $resultat['NbNotes'];
   }
+
 //Donne la note grace à l'itemId pour initialiser les étoiles
   public function giveNotes(Item $obj)
   {
@@ -114,6 +118,7 @@ class ItemManager
     $resultat = $pre->fetch();
     return $resultat['note'];
   }
+
   //Donner le nombre d'avis de l'utilisateur
   public function nbAvis(Item $obj)
   {
@@ -125,6 +130,8 @@ class ItemManager
     $resultat = $pre->fetch();
     return $resultat['NbAvis'];
   }
+
+
   // Ajouter un avis
   public function addAvis(item $obj)
     {
@@ -147,8 +154,15 @@ class ItemManager
           'idnote' =>$obj->getIdNote()
         ));
       }
-  
-
+    }
+    //affichage de l'avis pour la page item
+    public function afficherAvis()
+    {
+        $req = $this->db->prepare('SELECT titreavis,contenuavis FROM avis WHERE  iditem = :iditem and idavis = :idavis ');
+        $req->execute(array(
+          'iditem'=>$obj->getIdItem(),
+          'idavis' =>$obj->getIdAvis()
+        ));
 
     }
 }
