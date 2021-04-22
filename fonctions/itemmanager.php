@@ -159,23 +159,31 @@ class ItemManager
     public function afficherAvis(item $obj)
     {
         $req = $this->db->prepare('SELECT titreavis,contenuavis
-                                  FROM avis
-                                  INNER jOIN note on note.idnote =avis.idnote
-                                  WHERE  avis.iditem = :iditem
+                                   FROM avis
+                                   INNER jOIN note on note.idnote = avis.idnote
+                                   INNER JOIN users ON users.iduser = note.idusers
+                                   WHERE  avis.iditem = :iditem
                                   ');
 
         $req->execute(array(
           'iditem'=>$obj->getIdItem(),
-        
+
         ));
         $resultat = $req->fetchAll();
         foreach ($resultat as $row) {
           echo "<div class=\"card-avis\">
-            <div class=\"container\">
-              <h4><b> ".$row["titreavis"]. "</b></h4>
-                <p>".$row["contenuavis"]. "</p>
-            </div>
-          </div>";
+                  <div class=\"container\">
+                    <div class=\"card-title\">
+                    <h4><b> ".$row["titreavis"]. "</b></h4>
+                    </div>
+                    <div class=\"card-text\">
+                    <p>".$row["contenuavis"]. "</p>
+                    </div>
+                    <div class=\"card-footer avatar\" style=\"background-image: url('ressources/images/avatar/".$row["avatar"].".png');>
+                    <p>".$row["pseudo"]."</p>
+                    </div>
+                  </div>
+                </div>";
         }
 
 

@@ -152,8 +152,9 @@
 
         <h1>Avis</h1>
         <?php
-        
-        $item_manager->afficherAvis($item) ?>
+
+        $item_manager->afficherAvis($item)
+         ?>
 
 
       </section>
