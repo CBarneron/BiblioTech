@@ -105,8 +105,14 @@ a.site:hover{
 }
 .gauche{
   width: 50%;
-  display: inline-block;
+  height: 250px;
+  display: block;
   float: left;
+}
+.bio p{
+  text-align: justify;
+  padding-right: 50px;
+  line-height: 30px;
 }
 /*------------------RESPONSIVE DESIGN--------------------------*/
 @media screen and (max-width: 699px) { /*Smartphone*/
@@ -194,10 +200,38 @@ a.site:hover{
     text-align: center;
   }
   h1{
+    font-size: 1em;
     margin-left: 0;
   }
   p{
+    font-size: 0.8em;
     margin-left: 0;
+  }
+  .gauche{
+    width: 50%;
+    height: 200px;
+    display: block;
+    align-self: auto;
+    overflow: scroll;
+  }
+  .gauche{
+    width: 50%;
+    height: 250px;
+    display: block;
+    float: left;
+  }
+  .bio p{
+    text-align: left;
+    padding: 0 5px 0 10px;
+    line-height: 20px;
+  }
+  .carou{
+    display: block
+  }
+  /*scroll bar bio*/
+  .bio::-webkit-scrollbar
+  {
+    width: 4px;
   }
 }
 

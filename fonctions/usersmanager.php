@@ -151,19 +151,47 @@ class UsersManager
     echo "Mot de passe changer avec succès";
   }
 //FONCTIONS POUR AFFICHAGE PROFIl
-  public function Bio(Users $obj)
+  public function Bio(Users $obj) //Affiche la bio de l'utitisateur
   {
     $req = $this->db->prepare('SELECT biographie FROM users WHERE idusers = :idusers');
     $req->execute(array( 'idusers' => $obj->getIdUsers() ));
     $resultat = $req->fetch();
     return $resultat['biographie'];
   }
-  public function Site(Users $obj)
+  public function Contact(Users $obj) //Affiche le contact de l'utitisateur
   {
-    $req = $this->db->prepare('SELECT site FROM users WHERE idusers = :idusers');
+    $req = $this->db->prepare('SELECT contact FROM users WHERE idusers = :idusers');
     $req->execute(array( 'idusers' => $obj->getIdUsers() ));
     $resultat = $req->fetch();
-    return $resultat['site'];
+    return $resultat['contact'];
   }
+  public function Artiste(Users $obj) //Affiche les artistes favoris de l'utitisateur
+  {
+    $req = $this->db->prepare('SELECT artiste FROM users WHERE idusers = :idusers');
+    $req->execute(array( 'idusers' => $obj->getIdUsers() ));
+    $resultat = $req->fetch();
+    return $resultat['artiste'];
+  }
+  public function LivreFAV(Users $obj) //Affiche le livre favoris de l'utitisateur
+  {
+    $req = $this->db->prepare('SELECT livre FROM users WHERE idusers = :idusers');
+    $req->execute(array( 'idusers' => $obj->getIdUsers() ));
+    $resultat = $req->fetch();
+    return $resultat['livre'];
+  }
+  public function FilmFAV(Users $obj) //Affiche le film favoris de l'utitisateur
+  {
+    $req = $this->db->prepare('SELECT film FROM users WHERE idusers = :idusers');
+    $req->execute(array( 'idusers' => $obj->getIdUsers() ));
+    $resultat = $req->fetch();
+    return $resultat['film'];
+  }
+  public function JeuxFAV(Users $obj) //Affiche le jeux favoris de l'utitisateur
+    {
+      $req = $this->db->prepare('SELECT jeux FROM users WHERE idusers = :idusers');
+      $req->execute(array( 'idusers' => $obj->getIdUsers() ));
+      $resultat = $req->fetch();
+      return $resultat['jeux'];
+    }
 }
 ?>

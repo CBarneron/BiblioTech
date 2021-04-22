@@ -92,28 +92,25 @@
     <!-- Information sur le profil -->
     <!-- <p>idée : Biographie, infos personnel, <br>site, films livres et jeux preferer</p> -->
     <section class="about">
-      <div class="gauche">
+      <div class="gauche bio">
         <h1>Biographie de <?php echo $user->getPseudo(); ?></h1>
         <p><?php echo $usermanager->Bio($user); ?></p>
       </div>
       <div class="gauche">
-        <h1>Mes contacts</h1>
-        <p>bibliotech@gmail.com</p>
-        <p>0781732034</p>
+        <h1>Contacts</h1>
+        <p><?php echo $usermanager->Contact($user); ?></p>
       </div>
-      <br>
       <div class="gauche">
-        <h1>Mes artistes favoris</h1>
-        <p><a class="site" href="<?php echo $usermanager->Site($user); ?>"><?php echo $usermanager->Site($user); ?></a></p>
+        <h1>Artistes favoris</h1>
+        <p><?php echo $usermanager->Artiste($user); ?></a></p>
       </div>
-      <br>
       <div class="gauche">
-        <h1>Mes Livre, Film et Jeux préferés</h1>
-        <p>Livre : Livre</p>
-        <p>Film : Film</p>
-        <p>Jeux : Jeux</p>
+        <h1>Livre, Film et Jeux préferés</h1>
+        <p>Livre : <?php echo $usermanager->LivreFAV($user); ?></p>
+        <p>Film : <?php echo $usermanager->FilmFAV($user); ?></p>
+        <p>Jeux : <?php echo $usermanager->JeuxFAV($user); ?></p>
       </div>
-      <h1>Mes 10 dernières notes</h1>
+      <h1 class="carou">10 dernières notes</h1>
       <div class="carousel">
       <?php
         $collection = new Recherche("empty", "empty", "empty");
