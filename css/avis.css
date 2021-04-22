@@ -1,0 +1,64 @@
+.annonce{
+  font : normal 1.4em "Metropolis";
+  text-align: center;
+}
+.carousel-item{
+  width: 150px;
+  height: 215px;
+  margin: 0px 10px 0px 10px;
+  position: relative;
+}
+.carousel{
+  display: inline-flex;
+  margin: 10px;
+  width: 95%;
+  height:230px;
+  overflow-y: hidden;
+  overflow: scroll;
+  margin: 10px 2.5% 10px 2.5%;
+  white-space: nowrap;
+}
+.item
+{
+  position: relative;
+}
+.item a{
+  text-decoration: none;
+  color: black;
+}
+.item img{
+  margin: 0px 10px 0px 10px;
+  width: 150px;
+  height: 215px;
+}
+.card{
+  width: auto;
+  padding: 10px;
+  margin-left: 10px;
+
+  }
+  .cards{
+    background: #F5F5F5;
+    margin: 10px;
+    padding: 0px;
+    border: 2px solid #1ED760;
+
+  }
+.card-title{
+
+  margin: none;
+}
+.card-title p{
+  font-weight: bold;
+  margin: 0;
+}
+.card-text{
+  word-wrap: break-word;
+}
+.card-footer{
+  display: inline-flex;
+  width: 100%;
+  align-items: right;
+  display: flex;
+  justify-content: flex-end
+}

@@ -9,7 +9,7 @@ class ItemManager
   }
 
   //Ajouter une note
-  public function addNote(item $obj)
+  public function addNote(Item $obj)
   {
     $req = $this->db->prepare('SELECT idnote FROM note WHERE idusers = :idusers and iditem = :iditem');
 
@@ -37,7 +37,6 @@ class ItemManager
         'iditem' =>$obj->getIdItem(),
         'idusers' =>$obj->getIdUser()
       ));
-      
     }
     else
     {
@@ -47,7 +46,7 @@ class ItemManager
   }
 
   //Verifie si l'item est déja dans la liste de l'utilisateur
-  public function checkListe(item $obj)
+  public function checkListe(Item $obj)
   {
     $pre = $this->db->prepare('SELECT iditem FROM liste WHERE iditem = :iditem and idusers = :idiusers');
     $pre->execute(array(
@@ -133,7 +132,7 @@ class ItemManager
 
 
   // Ajouter un avis
-  public function addAvis(item $obj)
+  public function addAvis(Item $obj)
     {
       $req = $this->db->prepare('SELECT idnote FROM note WHERE idusers = :idusers and iditem = :iditem');
 
@@ -156,7 +155,7 @@ class ItemManager
       }
     }
     //affichage de l'avis pour la page item
-    public function afficherAvis(item $obj)
+    public function afficherAvis(Item $obj)
     {
         $req = $this->db->prepare('SELECT titreavis,contenuavis,users.avatar,users.pseudo
                                    FROM avis
@@ -188,34 +187,33 @@ class ItemManager
 
 
     }
-    public function afficherAvisProfil(item $obj){
+    //affichage de la liste des avis dans le profil>avis
+    public function afficherAvisProfil(Item $obj){
 
       $req = $this->db->prepare('SELECT titreavis,contenuavis,item.affiche,item.titre
                                  FROM avis
                                  INNER jOIN item on item.iditem = avis.iditem
-                                 WHERE  avis.iditem = :iditem, avis.idavis = :idavis and avis.idusers = :idusers
-                                 ORDER BY idavis DESC
+                                 WHERE  avis.idusers = :idusers
                                 ');
       $req->execute(array(
-          'iditem'=>$obj->getIdItem(),
-          'idavis'=>$obj->getIdAvis(),
-          'idusers'=>$obj->getIdUser()
+
+        'idusers' =>$obj->getIdUser()
+
         ));
-      $resultat =$req->fetchall();
-      foreach ($resultat as $row)
-      {
-        echo"
+      $resultat = $req->fetchAll();
+      foreach ($resultat as $row) {
 
+        echo "
+        <div class=\"card\">
+          <img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\">
+          <div class=\"container\">
+          <p>".$row["titre"]."</p>
+          <p>".$row["titreavis"]."</p>
+          <p>".$row["contenuavis"]."</p>
 
-          <a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\"></a>
-
-            <p>".$row["titre"]."</p>
-
-            <p>".$row["titreavis"]."</p>
-
-            <p>".$row["contenuavis"]."</p>
-          ";
-
+          </div>
+        </div>
+            ";
       }
     }
 }
