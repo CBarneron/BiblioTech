@@ -44,6 +44,15 @@ hr{
 }
 /* -----------------------avis---------------------- */
 
+.avis-text{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 .btnavis{
   text-decoration: none;
   border: none;
@@ -58,27 +67,44 @@ hr{
   color: #1Ed760;
   cursor: pointer;
 }
-.cards{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
+.card{
+  width: auto;
+  padding: 10px;
+  margin-left: 10px;
+
+  }
+  .cards{
+    background: #F5F5F5;
+    margin: 10px;
+    padding: 0px;
+    border: 2px solid #1ED760;
+
   }
 .card-title{
 
+  margin: none;
+}
+.card-title p{
+  font-weight: bold;
+  margin: 0;
 }
 .card-text{
-
+  word-wrap: break-word;
 }
 .card-footer{
-
+  display: inline-flex;
+  width: 100%;
+  align-items: right;
+  display: flex;
+  justify-content: flex-end
 }
 
 .avatar {
-    display: inline-flex;
+    display: inline-block;
     background-size: cover;
     background-position: top center;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     margin: 0px 0px 0px 15px;
     border : 2px solid #E1E4E8;

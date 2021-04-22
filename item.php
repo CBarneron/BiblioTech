@@ -149,8 +149,9 @@
 
       <!-- affichage avis -->
       <!-- affichage avis -->
-      <div class="cards">
+      <div class="card">
         <h1>Avis</h1>
+
         <?php $item_manager->afficherAvis($item)  ?>
       </div>
 

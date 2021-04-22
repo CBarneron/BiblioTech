@@ -172,16 +172,18 @@ class ItemManager
         $resultat = $req->fetchAll();
         foreach ($resultat as $row) {
           echo "
-
+          <div class=\"cards\">
             <div class=\"card-title\">
-              <h4> ".$row["titreavis"]."</h4>
+              <p> ".$row["titreavis"]."</p>
             </div>
             <div class=\"card-text\">
               <p>".$row["contenuavis"]. "</p>
             </div>
-            <div class=\"card-footer avatar\" style=\"background-image: url('ressources/images/avatar/".$row["avatar"].".png');>
+            <div class=\"card-footer \">
+              <img class=\"avatar\" src=\"ressources/images/avatar/".$row["avatar"].".png\" alt=\"avatar\">
               <p>".$row["pseudo"]."</p>
-            </div>";
+            </div>
+          </div>";
         }
 
 
