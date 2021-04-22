@@ -97,7 +97,7 @@
         <p><?php echo $usermanager->Bio($user); ?></p>
       </div>
       <br>
-      <div class="">
+      <div class="gauche2">
         <h1>Mes contacts</h1>
         <p>bibliotech@gmail.com</p>
         <p>0781732034</p>
@@ -105,7 +105,7 @@
       <br>
       <div class="">
         <h1>Mon site favori / personnel</h1>
-        <p><a class="site" href="<?php echo $usermanager->Site($user); ?>"><?php echo $usermanager->Site($user); ?><a/></p>
+        <p><a class="site" href="<?php echo $usermanager->Site($user); ?>"><?php echo $usermanager->Site($user); ?></a></p>
       </div>
       <br>
       <div class="droite">
