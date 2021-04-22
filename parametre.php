@@ -38,8 +38,10 @@
       <a href="connexion.php"><img src="ressources/images/6.png" class="icon2" alt="profile"></a>
       <a href="javascript:void(0);" class="icon1" onclick="Smartphone()"><i class="fa fa-bars"></i></a>
     </div>
+    <a href="profil.php"><img src="ressources/images/back.png" class="back" alt="Revenir sur profil"></a>
     <br><br>
     <div class="global">
+      <h2>Le principal</h2>
       <!-- <div class="avatar" style="background-image: url('ressources/images/avatar/<?php// echo $_SESSION['avatar']; ?>.png');"></div> -->
       <form method="post" enctype="multipart/form-data" class="formImage">
         <label>Changer mon image</label>
@@ -63,12 +65,41 @@
         <input type="password" name="mdp2" placeholder="Histoire d'être sûr !">
         <input type="submit" name="submit_password" value="Modifier">
       </form>
-      <br><hr><br>
-      <form method="post" class="formPseudo">
-        <label for="newpseudo">Biographie</label>
+      <br><hr>
+      <h2>A propos de vous</h2>
+      <form method="post" class="form_apropos">
+        <!-- Biographie -->
+        <label for="bio">Biographie</label>
         <br>
-        <input type="text" name="bio" value="<?php echo $_SESSION['avatar']; ?>">
-        <input type="submit" name="submit_bio" value="Changer"><br>
+        <textarea name="bio"><?php echo $users_manager->Bio($users); ?></textarea>
+        <br><br>
+        <!-- Contact -->
+        <label for="contact">Contact</label>
+        <br>
+        <input type="text" name="contact" value="<?php echo $users_manager->Contact($users); ?>">
+        <br><br>
+        <!-- Artistes Favoris -->
+        <label for="artiste">Artistes Favoris</label>
+        <br>
+        <input type="text" name="artiste" value="<?php echo $users_manager->Artiste($users); ?>">
+        <br><br>
+        <!-- Favoris -->
+        <div class="favoris">
+          <div class="favoris-child">
+            <label for="livre">Livre Favoris</label><br>
+            <input type="text" name="livre" value="<?php echo $users_manager->LivreFAV($users); ?>">
+          </div>
+          <div class="favoris-child">
+            <label for="film" class="film">Film Favoris</label><br>
+            <input type="text" name="film" value="<?php echo $users_manager->FilmFAV($users); ?>">
+          </div>
+          <div class="favoris-child">
+            <label for="jeux">Jeux Favoris</label><br>
+            <input type="text" name="jeux" value="<?php echo $users_manager->JeuxFAV($users); ?>">
+          </div>
+        </div>
+        <br><br>
+        <input type="submit" name="submit_apropos" onclick="refresh()" value="Changer"><!-- Submit toutes les modifications a propos -->
       </form>
       <div>
         <label for="submit_delete">Supprimer mon profil</label>
@@ -81,14 +112,25 @@
           <input type="submit" name="non" value="Non">
         </form>
       </div>
-      <?php if(isset($_POST['submit_image'])){$users_manager->Addavatar();} ?>
+      <?php if(isset($_POST['submit_apropos']))
+      {
+        $users->setBio($_POST['bio']);
+        $users->setArtiste($_POST['artiste']);
+        $users->setLivreFAV($_POST['livre']);
+        $users->setFilmFAV($_POST['film']);
+        $users->setJeuxFAV($_POST['jeux']);
+        $users->setContact($_POST['contact']);
+        $users_manager->Changeapropos($users);
+      }
+      ?>
+      <?php if(isset($_POST['submit_image'])){$users_manager->ChangeAvatar();} ?>
       <?php if(isset($_POST['submit_pseudo'])){$users->setPseudo($_POST['newpseudo']);$users_manager->Changerpseudo($users);} ?>
       <?php if(isset($_POST['submit_password']))
             {
               if ($_POST['mdp1'] == $_POST['mdp2'])
               {
                 $users->setPassword(sha1($_POST["mdp1"]));
-                $users_manager->Changerpassword($mdp);
+                $users_manager->Changepassword($mdp);
               }
             }
       ?>
@@ -98,6 +140,5 @@
       ?>
     </div>
     <?php include 'footer.php' ?>
-
   </body>
 </html>

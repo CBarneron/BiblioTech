@@ -78,7 +78,7 @@ class UsersManager
     }
   }
 //Permet d'ajouter un avatar à l'utilisateur
-  public function Addavatar()
+  public function ChangeAvatar()
   {
       if($_FILES['avatar']['size'] <= 2097152)  // Si le fichier fait moins de 2Mo
       {
@@ -89,8 +89,12 @@ class UsersManager
         }
         else
         {
-          echo "Erreur de téléchargement : Veuillez réessayer s'il vous plaît."; // Erreur quelquonque
-          /*print_r($_FILES); // On print tout*/
+          ?>
+          <script language="javascript">
+            alert("Erreur de téléchargement : Veuillez réessayer s'il vous plaît."); // Erreur quelquonque
+            /*print_r($_FILES); // On print tout*/
+            </script>
+          <?php
         }
       }
       else
@@ -141,7 +145,7 @@ class UsersManager
     }
   }
 //Retirer un users de la BDD
-  public function Changerpassword(Users $obj)
+  public function Changepassword(Users $obj)
   {
     $req = $this->db->prepare('UPDATE users SET password = :password WHERE idusers = :idusers');
     $req->execute(array(
@@ -149,6 +153,26 @@ class UsersManager
       'idusers' => $_SESSION['idusers']
     ));
     echo "Mot de passe changer avec succès";
+  }
+//Ajouter les infos a propos
+  public function Changeapropos(Users $obj){
+    $req = $this->db->prepare('UPDATE users
+                               SET biographie = :biographie,
+                                   artiste = :artiste,
+                                   livre = :livre,
+                                   film = :film,
+                                   jeux = :jeux,
+                                   contact = :contact
+                                WHERE idusers = :idusers');
+    $req->execute(array(
+      'biographie' =>$obj->getBio(),
+      'artiste' =>$obj->getArtiste(),
+      'livre' =>$obj->getLivreFAV(),
+      'film' =>$obj->getFilmFAV(),
+      'jeux' =>$obj->getJeuxFAV(),
+      'contact' =>$obj->getContact(),
+      'idusers' =>$obj->getIdUsers()
+    ));
   }
 //FONCTIONS POUR AFFICHAGE PROFIl
   public function Bio(Users $obj) //Affiche la bio de l'utitisateur

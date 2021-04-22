@@ -37,7 +37,6 @@ class ItemManager
         'iditem' =>$obj->getIdItem(),
         'idusers' =>$obj->getIdUser()
       ));
-      echo "note add";
     }
     else
     {

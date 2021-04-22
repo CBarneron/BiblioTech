@@ -1,3 +1,9 @@
+.back{
+  margin: 20px 0 0 20px;
+  width: 22px;
+  height: auto;
+  position: absolute;
+}
 .global{
   width: 100%;
   font: bold 1em "Metropolis";
@@ -69,4 +75,55 @@ form{
 }
 .formImage{
   margin: 0px;
+}
+.form_apropos textarea{
+  border : 1px solid #E1E4E8;
+  background-color: #FAFBFC;
+  font: normal 1em "Metropolis";
+  width: 48%;
+  height: 100px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  outline: none;
+}
+.form_apropos input[type=submit]{
+  width: 100px;
+  height: 30px;
+  border : 2px solid #1ED760;
+  background-color: #1ED760;
+  font: normal 1em "Metropolis";
+  border-radius: 33px;
+  cursor : pointer;
+}
+.form_apropos input[type=submit]:hover{
+  color: white;
+}
+h2{
+  text-align: center;
+  font-family: "Spotify";
+}
+.film{
+  margin-right: 5.5px;
+}
+.parametre_hr{
+  width: 66%;
+  height: 1px;
+  background-color:#575756;
+  border-color: transparent;
+  border-radius: 33px;
+}
+.favoris{
+  width: 70%;
+  margin: auto;
+  display: inline-flex;
+}
+.favoris-child{
+  margin-right: 7%;
+}
+.favoris input[type=text]{
+  width: 100%;
+}
+.favoris input[type=text]{
+  width: 100%;
 }
