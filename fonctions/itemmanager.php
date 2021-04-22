@@ -156,13 +156,28 @@ class ItemManager
       }
     }
     //affichage de l'avis pour la page item
-    public function afficherAvis()
+    public function afficherAvis(item $obj)
     {
-        $req = $this->db->prepare('SELECT titreavis,contenuavis FROM avis WHERE  iditem = :iditem and idavis = :idavis ');
+        $req = $this->db->prepare('SELECT titreavis,contenuavis
+                                  FROM avis
+                                  INNER jOIN note on note.idnote =avis.idnote
+                                  WHERE  avis.iditem = :iditem
+                                  ');
+
         $req->execute(array(
           'iditem'=>$obj->getIdItem(),
-          'idavis' =>$obj->getIdAvis()
+        
         ));
+        $resultat = $req->fetchAll();
+        foreach ($resultat as $row) {
+          echo "<div class=\"card-avis\">
+            <div class=\"container\">
+              <h4><b> ".$row["titreavis"]. "</b></h4>
+                <p>".$row["contenuavis"]. "</p>
+            </div>
+          </div>";
+        }
+
 
     }
 }

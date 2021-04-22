@@ -146,17 +146,14 @@
       else { ?>
         <script type="text/javascript">listeBTNKO();</script>
       <?php } ?>
+
       <!-- affichage avis -->
       <section class="card ">
 
         <h1>Avis</h1>
-        <div class="card-avis">
-
-          <div class="container">
-            <h4><b><?php echo $item->getTitreAvis(); ?></b></h4>
-              <p><?php echo $item->getContenuAvis(); ?></p>
-          </div>
-        </div>
+        <?php
+        
+        $item_manager->afficherAvis($item) ?>
 
 
       </section>
