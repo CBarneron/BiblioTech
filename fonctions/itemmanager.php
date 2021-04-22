@@ -128,42 +128,28 @@ class ItemManager
   // Ajouter un avis
   public function addAvis(item $obj)
     {
-      $req = $this->db->prepare('SELECT idavis FROM avis INNER JOIN note on avis.idnote =note.idnote WHERE idusers = :idusers and iditem = :iditem and idnote =:idnote');
+      $req = $this->db->prepare('SELECT idnote FROM note WHERE idusers = :idusers and iditem = :iditem');
 
       $req->execute(array(
         'idusers' =>$obj->getIdUser(),
-        'iditem'=>$obj->getIdItem(),
-        'idnote'=>$obj->getIdNote(),
+        'iditem'=>$obj->getIdItem()
       ));
       $resultat= $req->fetch();
-
+      $obj->setIdNote($resultat["idnote"]);
       if ($resultat)
       {
-        $req2 = $this->db->prepare('UPDATE avis SET titreavis= :titreavis ,contenuavis= :contenuavis WHERE idusers = :idusers and iditem = :iditem and idnote =:idnote');
+        $req2 = $this->db->prepare('INSERT INTO avis(titreavis,contenuavis,iditem,idusers,idnote)VALUES(:titreavis,:contenuavis,:iditem,:idusers,:idnote)');
         $req2->execute(array(
           'titreavis' =>$obj->getTitreAvis(),
           'contenuavis' =>$obj->getContenuAvis(),
           'idusers' =>$obj->getIdUser(),
-          'iditem' =>$obj->getIdItem()
+          'iditem' =>$obj->getIdItem(),
+          'idnote' =>$obj->getIdNote()
         ));
-        echo "avis modifier";
       }
-      else if (!$resultat)
-      {
-        $req3 = $this->db->prepare('INSERT INTO avis(titreavis,contenuavis,iditem,idusers,idnote)VALUES(:titreavis,:contenuavis,:iditem,:idusers,:idnote)');
-        $req3->execute(array(
-          'titreavis' =>$obj->getTitreAvis(),
-          'contenuavis' =>$obj->getContenuAvis(),
-          'idusers' =>$obj->getIdUser(),
-          'iditem' =>$obj->getIdItem()
-        ));
-        echo "avis add";
-      }
-      else
-      {
-        //nothing
-      }
-      ;
+  
+
+
     }
 }
 ?>

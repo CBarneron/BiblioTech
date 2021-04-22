@@ -97,17 +97,23 @@
           </script>
 
 
-<!-- avis -->
+          <!-- forms avis -->
           <div class="avis">
                 <form class="avis-text"  method="post">
-                  <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" id="titleview">
-                  <textarea name="textavis" placeholder="Soumettre votre avis" id="txtview" ></textarea>
-                  <button class="btnavis"type="submit" name="addAvis" id="addAvis">
+                  <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" >
+                  <textarea name="textavis" placeholder="Soumettre votre avis" ></textarea>
+                  <button class="btnavis"type="submit" name="addAvis">
                     <i class="fa fa-paper-plane fa-2x"></i>
                   </button>
 
                   </form>
-                </form>
+                <?php
+                if(isset($_POST["addAvis"])){
+                  $item->setTitreAvis($_POST["titreavis"]);
+                  $item->setContenuAvis($_POST["textavis"]);
+                  $item_manager->addAvis($item);                  
+                }
+                 ?>
               </div>
 
           <!-- Btn add liste -->
