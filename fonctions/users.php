@@ -6,6 +6,13 @@ class Users
   private $password;
   private $idusers;
 
+  private $bio;
+  private $artiste;
+  private $contact;
+  private $livreFAV;
+  private $filmFAV;
+  private $jeuxFAV;
+
 
   public function __construct($pseudo, $email, $password, $idusers)
   {
@@ -31,6 +38,30 @@ class Users
   {
     $this->idusers = $idusers;
   }
+  public function setBio($bio)
+  {
+    $this->bio = $bio;
+  }
+  public function setArtiste($artiste)
+  {
+    $this->artiste = $artiste;
+  }
+  public function setContact($contact)
+  {
+    $this->contact = $contact;
+  }
+  public function setLivreFAV($livreFAV)
+  {
+    $this->livreFAV = $livreFAV;
+  }
+  public function setFilmFAV($filmFAV)
+  {
+    $this->filmFAV = $filmFAV;
+  }
+  public function setJeuxFAV($jeuxFAV)
+  {
+    $this->jeuxFAV = $jeuxFAV;
+  }
 //Getteur
   public function getPseudo()
   {
@@ -47,6 +78,30 @@ class Users
   public function getIdUsers()
   {
     return $this->idusers;
+  }
+  public function getBio()
+  {
+    return $this->bio;
+  }
+  public function getArtiste()
+  {
+    return $this->artiste;
+  }
+  public function getContact()
+  {
+    return $this->contact;
+  }
+  public function getLivreFAV()
+  {
+    return $this->livreFAV;
+  }
+  public function getFilmFAV()
+  {
+    return $this->filmFAV;
+  }
+  public function getJeuxFAV()
+  {
+    return $this->jeuxFAV;
   }
 }
 ?>

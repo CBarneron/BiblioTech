@@ -67,7 +67,7 @@
       <input type="file" name="avatar">
       <br>
       <input type="submit" name="" value="">
-
+      <h1>AJOUTER LIVRES MARLENE CHIAPPAS</h1>
     </form>
 
     <?php include 'footer.php' ?>
