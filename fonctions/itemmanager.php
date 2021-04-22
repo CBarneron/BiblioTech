@@ -158,10 +158,10 @@ class ItemManager
     //affichage de l'avis pour la page item
     public function afficherAvis(item $obj)
     {
-        $req = $this->db->prepare('SELECT titreavis,contenuavis
+        $req = $this->db->prepare('SELECT titreavis,contenuavis,users.avatar,users.pseudo
                                    FROM avis
                                    INNER jOIN note on note.idnote = avis.idnote
-                                   INNER JOIN users ON users.iduser = note.idusers
+                                   INNER JOIN users ON users.idusers = note.idusers
                                    WHERE  avis.iditem = :iditem
                                   ');
 
@@ -171,19 +171,17 @@ class ItemManager
         ));
         $resultat = $req->fetchAll();
         foreach ($resultat as $row) {
-          echo "<div class=\"card-avis\">
-                  <div class=\"container\">
-                    <div class=\"card-title\">
-                    <h4><b> ".$row["titreavis"]. "</b></h4>
-                    </div>
-                    <div class=\"card-text\">
-                    <p>".$row["contenuavis"]. "</p>
-                    </div>
-                    <div class=\"card-footer avatar\" style=\"background-image: url('ressources/images/avatar/".$row["avatar"].".png');>
-                    <p>".$row["pseudo"]."</p>
-                    </div>
-                  </div>
-                </div>";
+          echo "
+
+            <div class=\"card-title\">
+              <h4> ".$row["titreavis"]."</h4>
+            </div>
+            <div class=\"card-text\">
+              <p>".$row["contenuavis"]. "</p>
+            </div>
+            <div class=\"card-footer avatar\" style=\"background-image: url('ressources/images/avatar/".$row["avatar"].".png');>
+              <p>".$row["pseudo"]."</p>
+            </div>";
         }
 
 

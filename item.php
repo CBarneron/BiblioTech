@@ -148,16 +148,11 @@
       <?php } ?>
 
       <!-- affichage avis -->
-      <section class="card ">
-
+      <!-- affichage avis -->
+      <div class="cards">
         <h1>Avis</h1>
-        <?php
-
-        $item_manager->afficherAvis($item)
-         ?>
-
-
-      </section>
+        <?php $item_manager->afficherAvis($item)  ?>
+      </div>
 
 
     <?php include 'footer.php' ?>
