@@ -12,6 +12,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
   </head>
   <body>
+    <?php
+      require 'fonctions/recherche.php';
+      require 'fonctions/recherchemanager.php';
+      require 'fonctions/item.php';
+      require 'fonctions/itemmanager.php';
+      require 'fonctions/BDD.php';
+      session_start();
+      if($_SESSION['admin'] = 0){ ?>
+            <script>alert("vous n'avez pas les droits admin")</script>
+          <?php }
+                  else(){
+
+
+
+
+
+                  }?>
+
+
+
+
+      ?>
 
   </body>
-  
