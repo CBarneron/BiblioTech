@@ -25,17 +25,62 @@ hr{
   background-color :#2D2D2D;
 }
 .bandeau img{
+  margin: 67.5px 0 0 40px;
   width: 150px;
+  height: 215px;
+  display: inline-flex;
+}
+.bandeau span{
+  position: absolute;
+  display: inline-block;
+  color: white;
+  font: normal 1.4em "Spotify";
+  top: 250px;
+  margin-left: 15px;
+}
+.bandeau span.moyenne{
+  right: 25px;
+}
+.bandeau .addListe{
+  display: block;
+  position: absolute;
+  top: 395px;
+  margin-left: 205px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: white;
+  background-image: url("../ressources/images/10.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .bandeau .addListe input{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+/* .bandeau .addListe input{
+  position: absolute;
+  top: 395px;
+  margin-left: 205px;
   width: 35px;
   height: 35px;
   border-width: 0px;
   border-radius: 50%;
-}
+  outline: none;
+  font: normal 1.3em "Spotify";
+  line-height: 20px;
+} */
 /*----------------------Notation-------------------------*/
 .rating-widget{
-  display: inline-flex;
+  display: inline-block;
+  position: absolute;
+  margin-left: 200px;
+  top: 325px;
 }
 .rating-stars ul {
   list-style-type:none;

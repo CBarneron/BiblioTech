@@ -39,7 +39,22 @@ class ItemManager
     }
     unset($_COOKIE['note']);
   }
-
+  //Donne la moyenen des notes d'un item
+    public function MoyNotes(Item $obj)
+    {
+      $pre = $this->db->prepare('SELECT AVG(note) as Moyenne FROM note WHERE iditem = :iditem');
+      $pre->execute(array( 'iditem' => $obj->getIdItem() ));
+      $resultat = $pre->fetch();
+      if ($resultat['Moyenne'] >= 0 && $resultat['Moyenne'] <=10)
+      {
+        $moyenne = substr($resultat['Moyenne'], 0, 3);  // Reduit la moyenn{e au dixieme
+        return $moyenne;
+      }
+      else
+      {
+        echo "Non Noté";
+      }
+    }
   //Verifie si l'item est déja dans la liste de l'utilisateur
   public function checkListe(Item $obj)
   {
