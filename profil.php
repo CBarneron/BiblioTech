@@ -59,7 +59,7 @@
     <div class="resume">
       <div class="avatar" style="background-image: url('ressources/images/avatar/<?php echo $_SESSION['avatar']; ?>.png');"></div>
       <figcaption><?php echo $user->getPseudo(); ?></figcaption>
-      <?php if ($_SESSION['admin']==1) {?>  <a href="admin.php"><img src="ressources/images/4.png" class="admin" alt="administration"></a><?php ;}?>
+      <?php if ($_SESSION['admin']==1) {?>  <a href="ajout.php"><img src="ressources/images/4.png" class="admin" alt="administration"></a><?php ;}?>
       <a href="parametre.php"><img src="ressources/images/parametre.png" class="parametre" alt="parametre"></a>
       <span class="un"><?php echo $profilmanager->nbNotes($profil); ?> Notes</span>
       <span class="deux"><?php echo $profilmanager->nbAvis($profil); ?> Avis</span>
