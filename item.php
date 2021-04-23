@@ -52,7 +52,7 @@
       $recherche_manager = new RechercheManager($bdd);
       $recherche_manager->Affichageitem($recherche);
     ?>
-
+    <!-- Afficahge de la barre de recherche -->
     <form action="search.php" method="POST" class="search">
       <input type="text" name="titre" placeholder="Recherchez une oeuvre..." id="searchBox" autocomplete="off" class="search-input" oninput=search(this.value)>
       <input type="submit" name="searchBTN" class="search-button" value="">
@@ -61,7 +61,8 @@
     <script type="text/javascript"> giveNote(); </script>
 
     <div class="bandeau" onmouseover="rate()">
-      <?php echo $recherche->getTitre() . "<img src=\"".$recherche->getAffiche()."\" alt=\"Affiche du livre: ".$recherche->getTitre()."\" width=\"150px\">"; ?>
+      <span><?php echo $recherche->getTitre(); ?></span>
+      <img src="<?php echo $recherche->getAffiche() ?>" alt="Affiche du livre:<?php echo $recherche->getTitre(); ?>">
       <?php if($_SESSION['connect']) { //Affiche liste + note + avis si connecter ?>
         <form  class='rating-widget' id="myForm">
           <div class='rating-stars text-center' id="divrate">
@@ -81,7 +82,6 @@
           <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
-              echo $_COOKIE['note'];
               $item->setNote($_COOKIE['note']);
               $item_manager->addNote($item);
             } ?>
@@ -95,69 +95,54 @@
               });
             }
           </script>
-
-
-          <!-- forms avis -->
-          <div class="avis">
-                <form class="avis-text"  method="post">
-                  <input type="text" name="titreavis" placeholder="donnez un titre a votre avis" >
-                  <textarea name="textavis" placeholder="Soumettre votre avis" ></textarea>
-                  <button class="btnavis"type="submit" name="addAvis">
-                    <i class="fa fa-paper-plane fa-2x"></i>
-                  </button>
-
-                  </form>
-                <?php
-                if(isset($_POST["addAvis"])){
+          <!-- Btn add liste -->
+          <form method="post" class="addListe">
+            <input type="submit" name="addliste" id="addliste" value="+">
+          </form>
+        <?php } ?>
+        </div>
+        <?php
+        if(isset($_POST["addliste"]))
+        {
+          if($item_manager->addListe($item)) { ?>
+            <script type="text/javascript">listeBTNOK();</script>
+          <?php }
+          else{ ?>
+            <script type="text/javascript">listeBTNKO();</script>
+          <?php } } ?>
+          <!-- Affichage du synopsis -->
+          <div class="synopsis">
+            <p><?php echo $recherche->getSynopsis();?></p>
+          </div>
+          <?php //Check du bouton bouton liste à l'instantiation de la page
+          if($item_manager->checkListe($item)) { ?>
+            <script type="text/javascript">listeBTNOK();</script>
+          <?php }
+          else { ?>
+            <script type="text/javascript">listeBTNKO();</script>
+          <?php } ?>
+          <!-- Verification du btn pour envoyer l'avis -->
+          <?php if(isset($_POST["submit_avis"])){
                   $item->setTitreAvis($_POST["titreavis"]);
                   $item->setContenuAvis($_POST["textavis"]);
                   $item_manager->addAvis($item);
-                }
-                 ?>
-              </div>
+                }?>
+          <!-- Affichage Avis -->
+          <div class="avis">
+            <div class="head">
+              <h1>Critiques : avis des internautes (<?php echo $item_manager->nbAvisALL($item); ?>)</h1>
+              <input type="button" class="affichageAvis" name="affichageAvis" onclick="affichageAvis()" value="Ecrire une critique">
+            </div>
+            <!-- Formulaire pour émmetre un avis -->
+            <form class="form_avis" method="post" id="affichageAvis">
+              <input type="text" name="titreavis" placeholder="Titre de votre critique" >
+              <textarea name="textavis" placeholder="Pour une fois qu'on s'intéresse de votre avis..." ></textarea>
+              <input type="submit" class="submit_avis" name="submit_avis" value="Publier">
+            </form>
+            <br>
+            <?php $item_manager->afficherAvis($item) ?>
+          </div>
 
-          <!-- Btn add liste -->
-          <form method="post">
-            <button type="submit" name="addliste"  class="addliste" id="addliste">
-              <i class="far fa-bookmark"></i>
-            </button>
-          </form>
-      <?php } ?>
-    </div>
-    <?php
-    if(isset($_POST["addliste"]))
-    {
-      if($item_manager->addListe($item)) { ?>
-        <script type="text/javascript">listeBTNOK();</script>
-      <?php }
-      else{ ?>
-        <script type="text/javascript">listeBTNKO();</script>
-      <?php } } ?>
-
-    <div class="lorem">
-      <br><br><br><br><br><br><br>
-      <p><?php echo $recherche->getSynopsis();?></p>
-    </div>
-
-    <?php //Check du bouton bouton liste à l'instantiation de la page
-      if($item_manager->checkListe($item)) { ?>
-        <script type="text/javascript">listeBTNOK();</script>
-      <?php }
-      else { ?>
-        <script type="text/javascript">listeBTNKO();</script>
-      <?php } ?>
-
-      <!-- affichage avis -->
-      <!-- affichage avis -->
-      <div class="card">
-        <h1>Avis</h1>
-
-        <?php $item_manager->afficherAvis($item)  ?>
-      </div>
-
-
-    <?php include 'footer.php' ?>
-
-
+          <?php include 'footer.php' ?>
   </body>
 </html>

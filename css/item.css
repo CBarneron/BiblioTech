@@ -9,6 +9,14 @@ hr{
   border-color: transparent;
   border-radius: 33px;
 }
+.synopsis{
+  font: normal 1.5em "Metropolis";
+  width: 80%;
+  margin-left: 5%;
+  text-align: justify;
+  line-height: 40px;
+}
+/*----------------------Bandeau-------------------------*/
 .bandeau{
   color: black;
   font: normal 1.5em "Metropolis";
@@ -16,15 +24,23 @@ hr{
   height: 350px;
   background-color :#2D2D2D;
 }
-.lorem{
-  margin-top: 10%;
-  font: normal 1.5em "Metropolis";
+.bandeau img{
+  width: 150px;
 }
-/*----------------------RATING-------------------------*/
-
+.bandeau .addListe input{
+  width: 35px;
+  height: 35px;
+  border-width: 0px;
+  border-radius: 50%;
+}
+/*----------------------Notation-------------------------*/
+.rating-widget{
+  display: inline-flex;
+}
 .rating-stars ul {
   list-style-type:none;
   padding:0;
+  margin: 0;
   user-select: none
   -moz-user-select:none;
   -webkit-user-select:none;
@@ -42,79 +58,129 @@ hr{
 .rating-stars ul > li.star.selected > i.fa {
   color:#1cca59;
 }
-/* -----------------------avis---------------------- */
-
-.avis-text{
+/* -----------------------Formulaire Avis---------------------- */
+.form_avis{
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
+  margin: 20px 0 0 0;
+  display: none;
   border-radius: 4px;
   box-sizing: border-box;
 }
-.btnavis{
-  text-decoration: none;
-  border: none;
-  background-color: #ffffff00 ;
-
-  cursor: pointer;
+.form_avis input[type=text]{
+  border : 1px solid #E1E4E8;
+  background-color: #FAFBFC;
+  font: normal 1em "Metropolis";
+  width: 20%;
+  height: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  outline: none;
+  display: block;
 }
-.btnavis:hover{
+.form_avis textarea{
+  border : 1px solid #E1E4E8;
+  background-color: #FAFBFC;
+  font: normal 1em "Metropolis";
+  width: 80%;
+  height: 150px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  line-height: 30px;
+  outline: none;
+  display: block;
+}
+.submit_avis{
+  width: 80px;
+  height: 20px;
+  margin-top: 15px;
+  border : 2px solid #1ED760;
+  background-color: white;
+  font: normal 0.8em "Metropolis";
+  border-radius: 33px;
+  cursor : pointer;
+  outline: none;
+}
+.submit_avis:hover{
   text-decoration: none;
   border: none;
   background-color: #ffffff00 ;
   color: #1Ed760;
   cursor: pointer;
 }
-.card{
-  width: auto;
-  padding: 10px;
-  margin-left: 10px;
-
-  }
-  .cards{
-    background: #F5F5F5;
-    margin: 10px;
-    padding: 0px;
-    border: 2px solid #1ED760;
-
-  }
-.card-title{
-
-  margin: none;
+/*--------------Afficahge des avis----------------*/
+.avis{
+  width: 80%;
+  margin-left: 5%;
 }
-.card-title p{
+.avis .head{
+  height: 25px;
+}
+.avis h1{
+  font: bold 1.5em "Metropolis";
+  display: inline-flex;
+  margin : 0;
+}
+.avis input.affichageAvis{
+  width: 160px;
+  height: 30px;
+  margin-left: 15px;
+  border : 2px solid #1ED760;
+  background-color: white;
+  font: normal 1em "Metropolis";
+  border-radius: 33px;
+  cursor : pointer;
+  outline: none;
+  }
+.avis input.affichageAvis:hover{
   font-weight: bold;
-  margin: 0;
+}
+.card .card-titre{
+  font: normal 1.8em "Spotify";
 }
 .card-text{
+  font: normal 1.2em "Metropolis";
+  line-height: 30px;
   word-wrap: break-word;
 }
 .card-footer{
-  display: inline-flex;
-  width: 100%;
-  align-items: right;
-  display: flex;
-  justify-content: flex-end
+  height: 35px;
 }
-
-.avatar {
-    display: inline-block;
-    background-size: cover;
-    background-position: top center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 0px 0px 0px 15px;
-    border : 2px solid #E1E4E8;
+.card-footer .avatar {
+  display: inline-flex;
+  background-size: cover;
+  background-position: top center;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  margin: 0;
+  border : 1px solid #E1E4E8;
+}
+.card-footer p{
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  font: normal 1.2em "Spotify";
+  text-align: center;
+  line-height: 43px;
+  vertical-align: top;
+}
+.card-footer p.note{
+  float: right;
+  font-weight: bold;
+}
+.card hr{
+  height: 2px;
+  background-color: lightgrey;
+  width: 80%;
+  border: none;
 }
 /* -----------------------liste---------------------- */
 .addliste{
   text-decoration: none;
   border: none;
   background-color: #ffffff00 ;
-
   cursor: pointer;
 }
 .addliste:hover{

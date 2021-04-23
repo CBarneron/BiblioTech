@@ -27,7 +27,6 @@ class ItemManager
         'idusers' =>$obj->getIdUser(),
         'iditem' =>$obj->getIdItem()
       ));
-      echo "note modifier";
     }
     else if (!$resultat)
     {
@@ -37,10 +36,6 @@ class ItemManager
         'iditem' =>$obj->getIdItem(),
         'idusers' =>$obj->getIdUser()
       ));
-    }
-    else
-    {
-      //nothing
     }
     unset($_COOKIE['note']);
   }
@@ -89,7 +84,6 @@ class ItemManager
         'idiusers' =>$obj->getIdUser()
       ));
       $resultat3 = $pre3->fetchAll();
-
       return true; //On returne true car on vient d'ajouter l'item dans la liste
     }
   }
@@ -129,13 +123,22 @@ class ItemManager
     $resultat = $pre->fetch();
     return $resultat['NbAvis'];
   }
+  //Donner le nombre d'avis de l'utilisateur
+  public function nbAvisALL(Item $obj)
+  {
+    $pre = $this->db->prepare('SELECT count(idavis) as NbAvis FROM avis WHERE iditem = :iditem');
 
+    $pre->execute(array(
+      'iditem' => $obj->getIdItem()
+    ));
+    $resultat = $pre->fetch();
+    return $resultat['NbAvis'];
+  }
 
   // Ajouter un avis
   public function addAvis(Item $obj)
     {
       $req = $this->db->prepare('SELECT idnote FROM note WHERE idusers = :idusers and iditem = :iditem');
-
       $req->execute(array(
         'idusers' =>$obj->getIdUser(),
         'iditem'=>$obj->getIdItem()
@@ -153,27 +156,27 @@ class ItemManager
           'idnote' =>$obj->getIdNote()
         ));
       }
+      else
+      {
+        echo "Veuillez noter cet article avant de poster une critique";
+      }
     }
-    //affichage de l'avis pour la page item
+    //affichage de l'avis pour la page de l'item
     public function afficherAvis(Item $obj)
     {
-        $req = $this->db->prepare('SELECT titreavis,contenuavis,users.avatar,users.pseudo
-                                   FROM avis
-                                   INNER jOIN note on note.idnote = avis.idnote
-                                   INNER JOIN users ON users.idusers = note.idusers
-                                   WHERE  avis.iditem = :iditem
+        $req = $this->db->prepare('SELECT a.titreavis,a.contenuavis,u.avatar,u.pseudo, n.note
+                                   FROM avis a
+                                   INNER jOIN note n on n.idnote = a.idnote
+                                   INNER JOIN users u ON u.idusers = n.idusers
+                                   WHERE  a.iditem = :iditem
                                   ');
-
-        $req->execute(array(
-          'iditem'=>$obj->getIdItem(),
-
-        ));
+        $req->execute(array( 'iditem'=>$obj->getIdItem()));
         $resultat = $req->fetchAll();
         foreach ($resultat as $row) {
           echo "
-          <div class=\"cards\">
-            <div class=\"card-title\">
-              <p>".$row["titreavis"]."</>
+          <div class=\"card\">
+            <div class=\"card-titre\">
+              <p>".$row["titreavis"]."<p/>
             </div>
             <div class=\"card-text\">
               <p>".$row["contenuavis"]. "</p>
@@ -181,40 +184,32 @@ class ItemManager
             <div class=\"card-footer \">
               <img class=\"avatar\" src=\"ressources/images/avatar/".$row["avatar"].".png\" alt=\"avatar\">
               <p>".$row["pseudo"]."</p>
+              <p class=\"note\">".$row["note"]."/10</p>
             </div>
+            <hr>
           </div>";
         }
-
-
     }
-    //affichage de la liste des avis dans le profil>avis
+    //affichage de la liste des avis dans le profil de l'utilisateur
     public function afficherAvisProfil(Item $obj){
-
       $req = $this->db->prepare('SELECT titreavis,contenuavis,item.affiche,item.titre
                                  FROM avis
                                  INNER jOIN item on item.iditem = avis.iditem
                                  WHERE  avis.idusers = :idusers
                                 ');
-      $req->execute(array(
-
-        'idusers' =>$obj->getIdUser()
-
-        ));
+      $req->execute(array('idusers'=>$obj->getIdUser()));
       $resultat = $req->fetchAll();
-      foreach ($resultat as $row) {
-
+      foreach ($resultat as $row){
         echo "
         <div class=\"card\">
           <img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\">
           <div class=\"container\">
-          <p>".$row["titre"]."</p>
-          <p>".$row["titreavis"]."</p>
-          <p>".$row["contenuavis"]."</p>
-
+            <p>".$row["titre"]."</p>
+            <p>".$row["titreavis"]."</p>
+            <p>".$row["contenuavis"]."</p>
           </div>
-        </div>
-            ";
-      }
+        </div>";
     }
+  }
 }
 ?>
