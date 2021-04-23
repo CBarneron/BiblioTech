@@ -165,6 +165,38 @@ class RechercheManager
       }
     }
   }
-  
+  public function additem(recherche $obj){
+
+    $pre = $this->db->prepare('SELECT titre,auteur
+                                From item
+                                WHERE auteur = :auteur and titre= :titre
+                                ');
+    $pre -> execute(array(
+
+      'auteur'=> $obj->getAuteur(),
+      'titre'=> $obj->getTitre()
+    ));
+    $resultat = $pre->fetch();
+    if ($resultat['auteur']== $obj->getAuteur() && $resultat['titre']== $obj->getTitre()) {
+
+    }
+    elseif (!$resultat['auteur']== $obj->getAuteur() || !$resultat['titre']== $obj->getTitre())
+     {
+
+      $pre2= $this->db->prepare('INSERT INTO item(titre,categorie,auteur,dateitem,synopsis,affiche)
+                              VALUES(:titre,:categorie,:auteur,:dateitem,:synopsis,:affiche)
+                            ');
+      $pre2->execute(array(
+
+        'titre'=>$obj->getTitre(),
+        'categorie'=>$obj->getCategorie(),
+        'auteur'=>$obj->getAuteur(),
+        'dateitem'=>$obj->getDate(),
+        'synopsis'=>$obj->getSynopsis(),
+        'affiche'=>$obj->getAffiche()
+      ));
+    }
+  }
+
 }
 ?>
