@@ -19,10 +19,6 @@
   margin-top: 10px;
   outline: none;
 }
-.formImage{
-  display: block;
-  float: right;
-}
 .avatar {
     display: inline-flex;
     background-size: cover;
@@ -46,32 +42,27 @@
     color: #1ED760;
     cursor: pointer;
 }
-.confirmation{
-  width: 30%;
-  height: auto;
-  border: solid #575756;
-  border-radius: 1%;
-  box-shadow: 12px 12px 5px 1px rgba(40, 40, 40, .5);
-  left: 35%;
-  top: 40%;
-  text-align: center;
-  position: absolute;
-  background-color: white;
-  filter: blur(0px) !important;
-}
-.fullpage{
-  width: 100%;
-  height: 100%;
-  overflow-y: hidden;
-  position :absolute;
-  display: none;
-  z-index: 2;
-  top: 0;
-  filter: blur(0px);
-  background-color: rgba(40, 40, 40, .5);
-}
 form{
   margin-left: 20%;
+}
+.formImage{
+  margin-left: 0px;
+  padding-right: 10%;
+  display: inline-block;
+  float: right;
+  position: static;
+}
+input[type=submit]{
+  width: 100px;
+  height: 30px;
+  border : 2px solid #1ED760;
+  background-color: #1ED760;
+  font: normal 1em "Metropolis";
+  border-radius: 33px;
+  cursor : pointer;
+}
+input[type=submit]:hover{
+  color: white;
 }
 .formImage{
   margin: 0px;
@@ -86,18 +77,6 @@ form{
   border-radius: 5px;
   margin-top: 10px;
   outline: none;
-}
-.form_apropos input[type=submit]{
-  width: 100px;
-  height: 30px;
-  border : 2px solid #1ED760;
-  background-color: #1ED760;
-  font: normal 1em "Metropolis";
-  border-radius: 33px;
-  cursor : pointer;
-}
-.form_apropos input[type=submit]:hover{
-  color: white;
 }
 h2{
   text-align: center;
@@ -126,4 +105,34 @@ h2{
 }
 .favoris input[type=text]{
   width: 100%;
+}
+.delete{
+  margin-left: 20%;
+}
+.fullpage{
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  position :absolute;
+  display: none;
+  z-index: 2;
+  top: 0;
+  filter: blur(0px);
+  background-color: rgba(40, 40, 40, .5);
+  position: -webkit-sticky;
+  position: sticky;
+}
+.confirmation{
+  width: 30%;
+  height: auto;
+  padding-bottom: 10px;
+  border: solid #575756;
+  border-radius: 1%;
+  box-shadow: 12px 12px 5px 1px rgba(40, 40, 40, .5);
+  left: 15%;
+  top: 40%;
+  text-align: center;
+  position: absolute;
+  background-color: white;
+  filter: blur(0px) !important;
 }

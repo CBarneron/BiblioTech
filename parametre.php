@@ -49,7 +49,7 @@
         <input type="file" name="avatar" id="avatar" class="inputfile" />
         <label for="avatar" class="choose">Choisir un fichier</label>
         <br><br>
-        <input type="submit" name="submit_image" value="V"><br>
+        <input type="submit" name="submit_image" value="Valider"><br>
       </form>
       <form method="post" class="formPseudo">
         <label for="newpseudo">Pseudo</label>
@@ -101,8 +101,9 @@
         <br><br>
         <input type="submit" name="submit_apropos" onclick="refresh()" value="Changer"><!-- Submit toutes les modifications a propos -->
       </form>
-      <div>
-        <label for="submit_delete">Supprimer mon profil</label>
+      <br><hr><br>
+      <div class="delete">
+        <label for="submit_delete">Supprimer mon profil</label><br><br>
         <input type="submit" name="submit_delete" value="Supprimer" onclick="confirmer()"><br>
       </div>
       <div class="fullpage">
@@ -127,10 +128,13 @@
       <?php if(isset($_POST['submit_pseudo'])){$users->setPseudo($_POST['newpseudo']);$users_manager->Changerpseudo($users);} ?>
       <?php if(isset($_POST['submit_password']))
             {
-              if ($_POST['mdp1'] == $_POST['mdp2'])
+              if (!empty($_POST['mdp1'])||!empty($_POST['mdp2']))
               {
-                $users->setPassword(sha1($_POST["mdp1"]));
-                $users_manager->Changepassword($mdp);
+                if ($_POST['mdp1'] == $_POST['mdp2'])
+                {
+                  $users->setPassword(sha1($_POST["mdp1"]));
+                  $users_manager->Changepassword($mdp);
+                }
               }
             }
       ?>
