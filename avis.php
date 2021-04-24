@@ -88,17 +88,15 @@
     </div>
 
     <!-- Affichage de la liste des Avis -->
-    <div >
-    <p class="annonce">- Vos differents Avis -</p>
-
-    <?php
-        $profil->setIdUser($_SESSION['idusers']);
-        $profilmanager->afficherAvisProfil($profil);
-
-    ?>
-
+    <div>
+      <p class="annonce">- Vos differents Avis -</p>
+      <div class="avis">
+        <?php
+          $profil->setIdUser($_SESSION['idusers']);
+          $profilmanager->afficherAvisProfil($profil);
+        ?>
+      </div>
     </div>
-
     <?php include 'footer.php' ?>
 
   </body>

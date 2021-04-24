@@ -207,22 +207,22 @@ class ItemManager
     }
     //affichage de la liste des avis dans le profil de l'utilisateur
     public function afficherAvisProfil(Item $obj){
-      $req = $this->db->prepare('SELECT titreavis,contenuavis,item.affiche,item.titre
-                                 FROM avis
-                                 INNER jOIN item on item.iditem = avis.iditem
-                                 WHERE  avis.idusers = :idusers
+      $req = $this->db->prepare('SELECT a.titreavis,a.contenuavis,i.affiche,i.titre,n.note,i.iditem
+                                 FROM avis a
+                                 INNER jOIN note n on n.idnote = a.idnote
+                                 INNER jOIN item i on i.iditem = a.iditem
+                                 WHERE  a.idusers = :idusers
+                                 ORDER BY a.idavis DESC
                                 ');
       $req->execute(array('idusers'=>$obj->getIdUser()));
       $resultat = $req->fetchAll();
       foreach ($resultat as $row){
         echo "
         <div class=\"card\">
-          <img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\" class=\"carousel-item\">
-          <div class=\"container\">
-            <p>".$row["titre"]."</p>
-            <p>".$row["titreavis"]."</p>
-            <p>".$row["contenuavis"]."</p>
-          </div>
+          <a href=\"item.php?iditem=".$row["iditem"]."\"><img src=\"".$row["affiche"]."\" alt=\"Affiche du livre: ".$row["titre"]."\"></a>
+          <h1>".$row["titreavis"]."</h1><h1 class=\"note\">".$row["note"]."/10</h1>
+          <p>".$row["contenuavis"]."</p>
+          <hr>
         </div>";
     }
   }

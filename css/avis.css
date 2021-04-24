@@ -2,63 +2,70 @@
   font : normal 1.4em "Metropolis";
   text-align: center;
 }
-.carousel-item{
-  width: 150px;
-  height: 215px;
-  margin: 0px 10px 0px 10px;
-  position: relative;
+.avis{
+  width: 80%;
 }
-.carousel{
+.avis .card{
+  margin-left: 5%;
+  position: relative;
+  width: 100%;
+}
+.avis img{
   display: inline-flex;
-  margin: 10px;
-  width: 95%;
-  height:230px;
-  overflow-y: hidden;
-  overflow: scroll;
-  margin: 10px 2.5% 10px 2.5%;
-  white-space: nowrap;
+  width: 180px;
+  height: 255px;
 }
-.item
-{
-  position: relative;
+.avis h1{
+  display: inline-flex;
+  vertical-align:top;
+  margin: 0 0 0 15px;
 }
-.item a{
-  text-decoration: none;
-  color: black;
-}
-.item img{
-  margin: 0px 10px 0px 10px;
-  width: 150px;
-  height: 215px;
-}
-.card{
-  width: auto;
-  padding: 10px;
-  margin-left: 10px;
-
-  }
-  .cards{
-    background: #F5F5F5;
-    margin: 10px;
-    padding: 0px;
-    border: 2px solid #1ED760;
-
-  }
-.card-title{
-
-  margin: none;
-}
-.card-title p{
-  font-weight: bold;
+.avis h1.note{
+  float: right;
   margin: 0;
 }
-.card-text{
-  word-wrap: break-word;
-}
-.card-footer{
+.avis p{
   display: inline-flex;
-  width: 100%;
-  align-items: right;
-  display: flex;
-  justify-content: flex-end
+  margin: 0;
+  position: absolute;
+  top: 55px;
+  left: 200px;
+  height: 207px;
+  padding-right: 5px;
+  font : normal 1.4em "Metropolis";
+  text-align: justify;
+  overflow-y: scroll;
+}
+.avis hr{
+  height: 2px;
+  background-color: lightgrey;
+  width: 80%;
+  border: none;
+  margin: 25px auto 25px auto;
+}
+/*------------------RESPONSIVE DESIGN--------------------------*/
+@media screen and (max-width: 699px) { /*Smartphone*/
+  .avis img{
+    width: 100px;
+    height: auto;
+  }
+  .avis p{
+    top: 30px;
+    left: 105px;
+    height: 130px;
+    padding-right: 5px;
+    font-size: 1em;
+  }
+  .avis h1{
+    margin: 0;
+    font-size: 0.9em;
+  }
+  .avis h1.note{
+    font-size: 0.8em;
+  }
+}
+@media only screen and (min-width: 700px) and (max-width: 949px) { /*Tablette*/
+  .avis h1{
+    margin: 0 0 0 5px;
+  }
 }
