@@ -52,7 +52,7 @@ class ItemManager
       }
       else
       {
-        echo "Non Noté";
+        return "Non Noté";
       }
     }
   //Verifie si l'item est déja dans la liste de l'utilisateur

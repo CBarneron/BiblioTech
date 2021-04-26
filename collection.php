@@ -28,13 +28,13 @@
       if($resultat){$_SESSION['avatar'] = $resultat["avatar"];}
       $profil = new Item("empty",$_SESSION['idusers']);
       $profilmanager = new ItemManager($bdd);
-    
+
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
-      <a href="livre.php" class="select">Livres</a>
+      <!-- <a href="livre.php" class="select">Livres</a>
       <a href="#films" class="select">Films</a>
-      <a href="#jeux" class="select">Jeux</a>
+      <a href="#jeux" class="select">Jeux</a> -->
       <div class="topBTN">
         <?php
           if(!$_SESSION['connect']) { echo "<a href=\"connexion.php\"><button type=\"button\" name=\"connect\" class=\"connectBTN\">Se connecter</button></a>

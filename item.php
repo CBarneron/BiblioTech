@@ -29,9 +29,9 @@
   <body id="test" onmouseover="giveNote(<?php echo $note; ?>)">
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
-      <a href="#vous-y-êtes-déjà!" class="select active">Livres</a>
+      <!-- <a href="#vous-y-êtes-déjà!" class="select active">Livres</a>
       <a href="#films" class="select">Films</a>
-      <a href="#jeux" class="select">Jeux</a>
+      <a href="#jeux" class="select">Jeux</a> -->
       <div class="topBTN">
         <?php
           if(!$_SESSION['connect']) { ?>
@@ -62,8 +62,7 @@
 
     <div class="bandeau" onmouseover="rate()">
       <img src="<?php echo $recherche->getAffiche() ?>" alt="Affiche du livre:<?php echo $recherche->getTitre(); ?>">
-      <span><?php echo $recherche->getTitre(); ?></span><br>
-      <span class="moyenne">Moyenne : <?php echo $item_manager->MoyNotes($item);?></span>
+      <span><?php echo $recherche->getTitre(); ?></span>
       <?php if($_SESSION['connect']) { //Affiche liste + note + avis si connecter ?>
         <form  class='rating-widget' id="myForm">
           <div class='rating-stars text-center' id="divrate">
@@ -101,6 +100,7 @@
           <form method="post" class="addListe" id="addListe">
             <input type="submit" name="addliste" value="">
           </form>
+          <span class="moyenne">Moyenne : <?php echo $item_manager->MoyNotes($item);?></span>
         <?php } ?>
         </div>
         <?php

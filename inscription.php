@@ -16,9 +16,9 @@
     ?>
     <div class="navbar" id="navbar">
       <a href="index.php" class="select">BiblioTech<span class="dot">.</span>™</a>
-      <a href="livre.php" class="select">Livres</a>
+      <!-- <a href="livre.php" class="select">Livres</a>
       <a href="#films" class="select">Films</a>
-      <a href="#jeux" class="select">Jeux</a>
+      <a href="#jeux" class="select">Jeux</a> -->
       <div class="topBTN">
         <a href="connexion.php"><button type="button" name="connect" class="connectBTN">Se connecter</button></a>
         <a href="inscription.php"><button type="button" name="connect" class="inscrireBTN">En cours...</button></a>
