@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 23 avr. 2021 à 12:18
+-- Généré le : sam. 24 avr. 2021 à 09:23
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `avis`;
 CREATE TABLE IF NOT EXISTS `avis` (
   `idavis` int(11) NOT NULL AUTO_INCREMENT,
   `titreavis` varchar(100) NOT NULL,
-  `contenuavis` text NOT NULL,
+  `contenuavis` varchar(500) NOT NULL,
   `iditem` int(11) NOT NULL,
   `idusers` int(11) NOT NULL,
   `idnote` int(11) NOT NULL,
@@ -39,17 +39,17 @@ CREATE TABLE IF NOT EXISTS `avis` (
   KEY `fk_item` (`iditem`),
   KEY `fk_users` (`idusers`),
   KEY `fk_note` (`idnote`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `avis`
 --
 
 INSERT INTO `avis` (`idavis`, `titreavis`, `contenuavis`, `iditem`, `idusers`, `idnote`) VALUES
-(21, 'magnifiUE', 'FDA', 5, 7, 16),
+(23, '-Anastatia...', '-Oui MR GRAY ? \r\nVous avez la ref? ^^', 17, 1, 4),
 (20, 'test', 'tset', 17, 7, 15),
-(15, 'test', 'test', 1, 7, 14),
-(19, 'test', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu', 1, 7, 14);
+(30, 'J\'adore Harry Potter', 'Meilleurs sÃ©rie de film au monde ! \r\nCa c\'est constructif', 13, 1, 1),
+(22, 'Lorem Ipsum dolor', 'The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get', 17, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `liste` (
   PRIMARY KEY (`idliste`),
   KEY `fk_listeiditem` (`iditem`),
   KEY `fk_listeidusers` (`idusers`)
-) ENGINE=MyISAM AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `liste`
@@ -123,7 +123,9 @@ INSERT INTO `liste` (`idliste`, `iditem`, `idusers`) VALUES
 (18, 8, 1),
 (19, 6, 1),
 (35, 18, 1),
-(49, 1, 7);
+(49, 1, 7),
+(59, 11, 1),
+(78, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `note` (
   PRIMARY KEY (`idnote`),
   KEY `fk_item` (`iditem`),
   KEY `fk_users` (`idusers`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `note`
@@ -150,7 +152,7 @@ INSERT INTO `note` (`idnote`, `note`, `iditem`, `idusers`) VALUES
 (1, 8, 13, 1),
 (2, 1, 18, 1),
 (3, 1, 4, 1),
-(4, 1, 17, 1),
+(4, 9, 17, 1),
 (5, 9, 6, 1),
 (6, 6, 3, 1),
 (7, 2, 1, 1),
@@ -160,7 +162,9 @@ INSERT INTO `note` (`idnote`, `note`, `iditem`, `idusers`) VALUES
 (11, 7, 15, 1),
 (15, 1, 17, 7),
 (14, 8, 1, 7),
-(16, 10, 5, 7);
+(16, 10, 5, 7),
+(17, 3, 17, 8),
+(18, 9, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -183,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `jeux` varchar(100) NOT NULL DEFAULT 'Aucun',
   `contact` varchar(100) NOT NULL DEFAULT 'bibliotech@gmail.com',
   PRIMARY KEY (`idusers`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -196,7 +200,8 @@ INSERT INTO `users` (`idusers`, `admin`, `pseudo`, `email`, `password`, `avatar`
 (4, 0, 'Le Leto', 'leleto.fr@gmail.com', '4fd505f8aeed956f068c4ce57bfc30a6131b7c79', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
 (5, 1, 'skull26240', 'skull26240@gmail.com', '3d0968c2d124ed850ecf2be4b3a533742ca87738', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
 (6, 0, 'Antoinelebg', 'antoine@leplusbeau.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
-(7, 1, 'meuh', 'meih@meuh', '8f2649b913b6ec5903aa68a2d607798ea22eaa98', 'meuh', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com');
+(7, 1, 'meuh', 'meih@meuh', '8f2649b913b6ec5903aa68a2d607798ea22eaa98', 'meuh', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com'),
+(8, 0, 'Ambre Ferreira', 'portugal22012000@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'default', 'Fanatique de BiblioTech.', 'Aucun', 'Aucun', 'Aucun', 'Aucun', 'bibliotech@gmail.com');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

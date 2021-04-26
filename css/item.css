@@ -12,7 +12,7 @@ hr{
 .synopsis{
   font: normal 1.5em "Metropolis";
   width: 80%;
-  margin-left: 5%;
+  margin: 40px 0 40px 5%;
   text-align: justify;
   line-height: 40px;
 }
@@ -25,17 +25,51 @@ hr{
   background-color :#2D2D2D;
 }
 .bandeau img{
+  margin: 67.5px 0 0 40px;
   width: 150px;
+  height: 215px;
+  display: inline-flex;
 }
-.bandeau .addListe input{
+.bandeau span{
+  position: absolute;
+  display: inline-block;
+  color: white;
+  font: normal 1.4em "Spotify";
+  top: 250px;
+  margin-left: 15px;
+}
+.bandeau span.moyenne{
+  top: 450px;
+  right: 25px;
+}
+.bandeau .addListe{
+  display: block;
+  position: absolute;
+  top: 395px;
+  margin-left: 205px;
   width: 35px;
   height: 35px;
-  border-width: 0px;
+  border-radius: 50%;
+  background-color: white;
+  background-image: url("../ressources/images/10.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bandeau .addListe input{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
 }
 /*----------------------Notation-------------------------*/
 .rating-widget{
-  display: inline-flex;
+  display: inline-block;
+  position: absolute;
+  margin-left: 200px;
+  top: 325px;
 }
 .rating-stars ul {
   list-style-type:none;
@@ -189,4 +223,62 @@ hr{
   background-color: #ffffff00 ;
   color: #1Ed760;
   cursor: pointer;
+}
+@media screen and (max-width: 699px) { /*Smartphone*/
+  .synopsis{
+    font-size: 1em;
+    width: 90%;
+    line-height: 30px;
+  }
+  /*----------------------Bandeau-------------------------*/
+  .bandeau img{
+    margin: 30px 0 0 30px;
+  }
+  .bandeau span{
+    font-size: 1em;
+    top: 190px;
+  }
+  .bandeau .addListe{
+    top: 290px;
+    margin-left: 195px;
+  }
+  .bandeau span.moyenne{
+    top: 480px;
+    right: 10px;
+    font-size: 0.8em;
+  }
+  .rating-widget{
+    margin-left: 5px;
+    top: 425px;
+  }
+  .rating-stars ul > li.star > i.fa {
+    font-size:1em;
+    color:#ccc;
+  }
+  /* -----------------------Formulaire Avis---------------------- */
+  .form_avis{
+    margin: 50px 0 0 0;
+  }
+  .form_avis input[type=text]{
+    width: 60%;
+    line-height: 30px;
+  }
+  .form_avis textarea{
+    width: 90%;
+    line-height: 30px;
+  }
+  /*--------------Afficahge des avis----------------*/
+  .avis h1{
+    font-size: 1.1em;
+  }
+  .avis input.affichageAvis{
+    width: 130px;
+    height: 25px;
+    margin: 10px 0 0 0px;
+    font-size: 0.8em;
+  }
+  .card-text{
+    line-height: 28px;
+    font-size:1em;
+  }
 }

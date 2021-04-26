@@ -61,8 +61,9 @@
     <script type="text/javascript"> giveNote(); </script>
 
     <div class="bandeau" onmouseover="rate()">
-      <span><?php echo $recherche->getTitre(); ?></span>
       <img src="<?php echo $recherche->getAffiche() ?>" alt="Affiche du livre:<?php echo $recherche->getTitre(); ?>">
+      <span><?php echo $recherche->getTitre(); ?></span><br>
+      <span class="moyenne">Moyenne : <?php echo $item_manager->MoyNotes($item);?></span>
       <?php if($_SESSION['connect']) { //Affiche liste + note + avis si connecter ?>
         <form  class='rating-widget' id="myForm">
           <div class='rating-stars text-center' id="divrate">
@@ -96,8 +97,9 @@
             }
           </script>
           <!-- Btn add liste -->
-          <form method="post" class="addListe">
-            <input type="submit" name="addliste" id="addliste" value="+">
+
+          <form method="post" class="addListe" id="addListe">
+            <input type="submit" name="addliste" value="">
           </form>
         <?php } ?>
         </div>

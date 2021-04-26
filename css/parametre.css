@@ -103,9 +103,6 @@ h2{
 .favoris input[type=text]{
   width: 100%;
 }
-.favoris input[type=text]{
-  width: 100%;
-}
 .delete{
   margin-left: 20%;
 }
@@ -135,4 +132,52 @@ h2{
   position: absolute;
   background-color: white;
   filter: blur(0px) !important;
+}
+/*------------------RESPONSIVE DESIGN--------------------------*/
+@media screen and (max-width: 699px) { /*Smartphone*/
+  .global form{
+    margin-left: 10%;
+  }
+  .global input[type=text], input[type=password]{
+    width: 30%;
+    margin-bottom: 5px;
+  }
+  input[type=submit]{
+  margin: 0 0 0 0;
+  }
+  .favoris input[type=text]{
+    width: 100%;
+  }
+  .favoris{
+    width: 100%;
+  }
+  .favoris-child input[type=text]{
+    width: 85%;
+  }
+  .form_apropos textarea{
+    width: 75%;
+  }
+  .formImage{
+    padding-right: 5%;
+  }
+  .delete{
+    margin: 0 0 20px 10%;
+  }
+  .formMdp input[type=password]{
+    width: 35%;
+  }
+}
+@media only screen and (min-width: 700px) and (max-width: 949px) { /*Tablette*/
+  .global form{
+    margin-left: 10%;
+  }
+  .global input[type=text], input[type=password]{
+    width: 30%;
+  }
+  input[type=submit]{
+  margin: 0 0 0 0;
+  }
+  .favoris-child input[type=text]{
+    width: 100%;
+  }
 }
