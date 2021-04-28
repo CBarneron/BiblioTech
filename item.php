@@ -100,8 +100,8 @@
           <form method="post" class="addListe" id="addListe">
             <input type="submit" name="addliste" value="">
           </form>
-          <span class="moyenne">Moyenne : <?php echo $item_manager->MoyNotes($item);?></span>
         <?php } ?>
+        <span class="moyenne">Moyenne : <?php echo $item_manager->MoyNotes($item);?></span>
         </div>
         <?php
         if(isset($_POST["addliste"]))
@@ -133,7 +133,9 @@
           <div class="avis">
             <div class="head">
               <h1>Critiques : avis des internautes (<?php echo $item_manager->nbAvisALL($item); ?>)</h1>
-              <input type="button" class="affichageAvis" name="affichageAvis" onclick="affichageAvis()" value="Ecrire une critique">
+              <?php if($_SESSION['connect']) { //Affiche liste + note + avis si connecter ?>
+                <input type="button" class="affichageAvis" name="affichageAvis" onclick="affichageAvis()" value="Ecrire une critique">
+              <?php } ?>
             </div>
             <!-- Formulaire pour émmetre un avis -->
             <form class="form_avis" method="post" id="affichageAvis">
