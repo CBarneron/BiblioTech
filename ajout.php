@@ -8,6 +8,7 @@
     <link href="css/profil.css" rel="stylesheet">
     <link href="css/avis.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/ajout.css" rel="stylesheet">
     <script src="js/navbar.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
   </head>
@@ -55,6 +56,8 @@
 
 
       <!-- formulaire ajout item -->
+    <div class="global">
+      <h2>Ajouter</h2>
       <div class="formulaire">
       <form class="#" action="" method="post">
           <label for="titre">Titre de l'oeuvre</label>
@@ -79,10 +82,10 @@
           <option value="musique">Musique</option>
         </select>
         <br>
-        <input type="file" for="affiche" name="affiche">
+        <input type="file" for="affiche" name="affiche"  class="inputfile">
         <br>
-        <input type="submit" class="additem"name="additem" id="additem" value="">
-        <h1>AJOUTER LIVRES MARLENE CHIAPPAS</h1>
+        <input type="submit" class="additem"name="additem" id="additem" value="Ajouter">
+
       </form>
         <?php
         $recherche->setTitre($_POST["titre"]);
@@ -96,6 +99,7 @@
 
 
 
+      </div>
       </div>
 
 

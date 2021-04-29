@@ -177,11 +177,15 @@ class RechercheManager
       'titre'=> $obj->getTitre()
     ));
     $resultat = $pre->fetch();
+
+
     if ($resultat['auteur']== $obj->getAuteur() && $resultat['titre']== $obj->getTitre()) {
 
     }
     elseif (!$resultat['auteur']== $obj->getAuteur() || !$resultat['titre']== $obj->getTitre())
      {
+
+
 
       $pre2= $this->db->prepare('INSERT INTO item(titre,categorie,auteur,dateitem,synopsis,affiche)
                               VALUES(:titre,:categorie,:auteur,:dateitem,:synopsis,:affiche)
@@ -195,6 +199,7 @@ class RechercheManager
         'synopsis'=>$obj->getSynopsis(),
         'affiche'=>$obj->getAffiche()
       ));
+
     }
   }
 

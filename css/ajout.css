@@ -1,0 +1,26 @@
+.formulaire{
+  margin: 20px;
+}
+h2{
+  text-align: center;
+  font-family: "Spotify";
+}
+.global{
+  width: 100%;
+  font: bold 1em "Metropolis";
+}
+.global input[type=text], input[type=password]{
+  border : 1px solid #E1E4E8;
+  background-color: #FAFBFC;
+  font: normal 1em "Metropolis";
+  width: 20%;
+  height: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  outline: none;
+}
+.additem{
+
+  
+}
